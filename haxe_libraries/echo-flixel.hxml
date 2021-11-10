@@ -1,0 +1,5 @@
+# @install: lix --silent download "gh://github.com/AustinEast/echo-flixel#061a503b1466cb65d01d5d47ce194efcdfad8b55" into echo-flixel/0.0.1/github/061a503b1466cb65d01d5d47ce194efcdfad8b55
+-lib echo
+-lib flixel
+-cp ${HAXE_LIBCACHE}/echo-flixel/0.0.1/github/061a503b1466cb65d01d5d47ce194efcdfad8b55/
+-D echo-flixel=0.0.1
