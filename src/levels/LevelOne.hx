@@ -1,31 +1,27 @@
 package levels;
 
+import echo.util.TileMap;
+
 import flixel.FlxG;
-import flixel.FlxState;
-import flixel.FlxSprite;
 import flixel.FlxObject.*;
-import flixel.math.FlxPoint;
+import flixel.FlxSprite;
 import flixel.group.FlxGroup;
+import flixel.math.FlxPoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
-import echo.util.TileMap;
+import states.LevelState;
 
 using Math;
 
 using echo.FlxEcho;
 
-using hxmath.math.Vector2;
-
 using flixel.util.FlxArrayUtil;
 using flixel.util.FlxSpriteUtil;
 
-import states.LevelState;
-
+using hxmath.math.Vector2;
 class Box extends FlxSprite {
-	var control: Bool;
-
-	public function new(x: Float, y: Float, w: Int, h: Int, c: Int,
+	var control: Bool;	public function new(x: Float, y: Float, w: Int, h: Int, c: Int,
 			control: Bool = false) {
 		super(x, y);
 		makeGraphic(w, h, c);
@@ -38,11 +34,11 @@ class Box extends FlxSprite {
 	}
 
 	function controls() {
-		var body = this.get_body();
+		final body = this.get_body();
 		body.velocity.x = 0;
 		if (FlxG.keys.pressed.LEFT) body.velocity.x -= 128;
 		if (FlxG.keys.pressed.RIGHT) body.velocity.x += 128;
-		if (FlxG.keys.justPressed.UP && isTouching(
+		if (FlxG.keys.justPressed.SPACE && isTouching(
 			FLOOR
 		)) body.velocity.y -= 256;
 	}
@@ -50,19 +46,12 @@ class Box extends FlxSprite {
 
 class Ramp extends FlxSprite {
 	public function new(x: Float, y: Float, w: Int, h: Int, d: RampDirection) {
-		trace('$x / $y / $w / $h');
 		super(x, y);
 		makeGraphic(w, h, 0x00FFFFFF);
 		var verts = [[0, 0], [w, 0], [w, h], [0, h]];
 		switch d {
-			case NE:
-				verts.splice(0, 1);
 			case NW:
 				verts.splice(1, 1);
-			case SE:
-				verts.splice(3, 1);
-			case SW:
-				verts.splice(2, 1);
 		}
 		this.drawPolygon(
 			[for (v in verts) FlxPoint.get(v[0], v[1])],
@@ -82,10 +71,7 @@ class Ramp extends FlxSprite {
 }
 
 enum RampDirection {
-	NE;
 	NW;
-	SE;
-	SW;
 }
 
 class LevelOne extends LevelState {
@@ -110,6 +96,7 @@ class LevelOne extends LevelState {
 	];
 
 	override function create() {
+		super.create();
 		// First thing we want to do before creating any physics objects is init() our Echo world.
 		FlxEcho.init({
 			width: level_data[0].length * 16, // Make the size of your Echo world equal the size of your play field
@@ -146,6 +133,7 @@ class LevelOne extends LevelState {
 				bounds.height.floor(),
 				0xFF0080FF
 			);
+			trace(tile, "tile");
 			bounds.put(); // Make sure to "put()" the bounds so that they can be reused later. This can really help with memory management!
 			bluebox.set_body(
 				tile

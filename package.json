@@ -4,10 +4,10 @@
   "description": "HaxeFlixel game template powered by Lix and Nodejs. The fastest way to start building a HaxeFlixel game.",
   "main": "src/Main.hx",
   "scripts": {
-    "start": "Concurrently \"npm run watch\" \"npm run server\"",
+    "start": "concurrently --hide \"comp-server\" \"npm run watch\" \"npm run server\" \"npm run comp-server\"",
     "watch": "watchman-make -p 'src/**/*.hx' -r 'sh watcher.sh'",
-    "server": "http-server export/html5/bin",
-    "comp-server": "haxe -v --wait 7000"
+    "server": "http-server export/html5/bin --port 8080",
+    "comp-server": "haxe -v --wait 8000"
   },
   "repository": {
     "type": "git",
