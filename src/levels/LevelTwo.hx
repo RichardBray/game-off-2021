@@ -39,7 +39,7 @@ final class LevelTwo extends LevelState {
 
     box.add_body({
       mass: 1,
-      elasticity: 0.2,
+      elasticity: 0.5,
       drag_length: 300,
     });
     add(box);
