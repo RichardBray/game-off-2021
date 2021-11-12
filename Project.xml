@@ -2,17 +2,21 @@
 <project>
 	<app title="Game Off 2021" file="bug-game" main="Main" version="0.0.1" company="HelloLightbulb" />
 	<app preloader="utils.Preloader" />
-	<!-- <set name="SWF_VERSION" value="11.8" /> -->
+
 	<set name="BUILD_DIR" value="export" />
+
 	<window width="1920" height="1080" fps="60" background="#000000" hardware="true" vsync="true" />
 	<!-- <window if="html5" width="1280" height="720" resizable="true" /> -->
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
-	<!-- <window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" /> -->
+
 	<classpath name="src" />
+
 	<assets path="assets" />
+
 	<haxelib name="flixel" />
 	<haxelib name="flixel-addons" />
 	<haxelib name="echo-flixel" />
+
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />
 	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
 	<haxedef name="FLX_NO_TOUCH" if="desktop" />
