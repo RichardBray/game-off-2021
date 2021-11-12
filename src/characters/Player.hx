@@ -1,11 +1,12 @@
 package characters;
 
 import flixel.FlxSprite;
-
 import utils.Colors;
 import utils.Controls;
 
-using echo.FlxEcho;class Player extends FlxSprite {
+using echo.FlxEcho;
+
+class Player extends FlxSprite {
 	final controls = Controls.instance;
 
 	public function new(x: Float = 0, y: Float = 0) {

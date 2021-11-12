@@ -4,7 +4,6 @@ import flixel.FlxG;
 import flixel.FlxState;
 import flixel.system.FlxAssets;
 import flixel.text.FlxText;
-
 import utils.Colors;
 import utils.LoadFile;
 
@@ -19,7 +18,7 @@ abstract class GameState extends FlxState {
 		version = pjson.version;
 
 		FlxAssets.FONT_DEFAULT = "assets/fonts/OpenSans-Regular.ttf";
-		add(new FlxText('Hello World $version', 32).screenCenter());
+		// add(new FlxText('Hello World $version', 32).screenCenter());
 
 		FlxG.autoPause = false;
 		FlxG.camera.antialiasing = true;

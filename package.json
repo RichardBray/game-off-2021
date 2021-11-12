@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently --hide \"comp-server\" \"npm run watch\" \"npm run server\" \"npm run comp-server\"",
     "watch": "watchman-make -p 'src/**/*.hx' -r 'sh watcher.sh'",
-    "server": "http-server export/html5/bin --port 8080",
+    "server": "http-server export/html5/bin --port 1212",
     "comp-server": "haxe -v --wait 8000"
   },
   "repository": {

@@ -37,7 +37,6 @@
 	<haxelib name="flixel" />
 	<haxelib name="flixel-addons" />
 	<haxelib name="echo-flixel" />
-	<haxeflag name="--macro" value="echo.Macros.add_data('object','flixel.FlxObject')"/>
 
 	<!--In case you want to use the ui package-->
 	<!--<haxelib name="flixel-ui" />-->
