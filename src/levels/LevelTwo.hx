@@ -3,8 +3,9 @@ package levels;
 import characters.Player;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import openfl.filters.ShaderFilter;
+import shaders.Pixelate;
 import states.LevelState;
-import utils.Colors;
 
 using echo.FlxEcho;
 using hxmath.math.Vector2;
@@ -47,6 +48,9 @@ final class LevelTwo extends LevelState {
 		player.listen(ground);
 		box.listen(player);
 		box.listen(ground);
+
+		// var effect = new Pixelate();
+		// FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
 
 		FlxG.log.add("LevelTwo.create()");
 		FlxG.log.notice("LevelTwo.create two()");
