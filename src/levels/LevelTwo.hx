@@ -23,15 +23,15 @@ final class LevelTwo extends LevelState {
 			gravity_y: 700
 		});
 
-		player = new Player(0, 0);
-		add(player);
-
 		ground = new FlxSprite(
 			0,
 			FlxG.height - 160
 		).makeGraphic(FlxG.width, 160, 0xFF000000);
 		ground.add_body({mass: 0});
 		add(ground);
+
+		player = new Player(0, 0);
+		add(player);
 
 		box = new FlxSprite(
 			200,
@@ -51,8 +51,5 @@ final class LevelTwo extends LevelState {
 
 		// var effect = new Pixelate();
 		// FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
-
-		FlxG.log.add("LevelTwo.create()");
-		FlxG.log.notice("LevelTwo.create two()");
 	}
 }
