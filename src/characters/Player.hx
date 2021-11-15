@@ -7,9 +7,20 @@ import utils.Controls;
 using echo.FlxEcho;
 using utils.Helpers;
 
+
+enum PlayerStates {
+	Running;
+	Standing;
+	RunningJump;
+	StandingJump;
+}
+
 class Player extends FlxSprite {
-	final controls = Controls.instance;
 	static inline final RUNNING_SPEED = 350;
+	static inline final JUMP_VELOCITY = 300;
+
+	final controls = Controls.instance;
+	public var state(default, null): PlayerStates = Standing;
 
 	// - control button presses
 	var rightPressed = false;
@@ -42,6 +53,12 @@ class Player extends FlxSprite {
 			frameNamePrefix: "Girl_Run_",
 			frameRate: 10,
 		});
+		this.setAnimationByFrames({
+			name: "runningJump",
+			totalFrames: 6,
+			frameNamePrefix: "Girl_RunJump_",
+			frameRate: 10,
+		});
 		// - facing direction
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
@@ -49,7 +66,10 @@ class Player extends FlxSprite {
 
 	function movement() {
 		final body = this.get_body();
-		if (controls.cross.check() && isTouching(FLOOR)) body.velocity.y -= 256;
+		if (controls.cross.check() && isTouching(FLOOR)) {
+			body.velocity.y = -JUMP_VELOCITY;
+			animation.play("runningJump");
+		}
 
 		if (bothDirectionsPressed || noDirectionPressed) {
 			body.velocity.x = 0;
@@ -61,6 +81,23 @@ class Player extends FlxSprite {
 		}
 	}
 
+	// function stateMachine() {
+	// 	final physicsBody = this.get_body();
+	// 	switch(state) {
+	// 		case Standing:
+	// 			if (bothDirectionsPressed || noDirectionPressed) {
+	// 				physicsBody.velocity.x = 0;
+	// 				animation.play("standing");
+	// 			} else if () {
+	// 				// standing jump
+	// 			} else {
+	// 				state = Running;
+	// 			}
+	// 		case Running:
+	// 			movement();
+	// 	}
+	// }
+
 	function updateControls() {
 		rightPressed = controls.right.check();
 		leftPressed = controls.left.check();
@@ -70,8 +107,8 @@ class Player extends FlxSprite {
 	}
 
 	override function update(elapsed: Float) {
-		super.update(elapsed);
 		movement();
 		updateControls();
+		super.update(elapsed);
 	}
 }

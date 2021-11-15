@@ -12,3 +12,8 @@
 ```
 lix install gh:AustinEast/echo-flixel
 ```
+
+## Todo
+- Move camera position to slightly left
+- Finish player state machine
+- Update centre position

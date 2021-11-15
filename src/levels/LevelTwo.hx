@@ -18,7 +18,7 @@ final class LevelTwo extends LevelState {
 		super.create();
 
 		FlxEcho.init({
-			width: FlxG.width,
+			width: FlxG.width * 2,
 			height: FlxG.height,
 			gravity_y: 700
 		});
@@ -26,7 +26,7 @@ final class LevelTwo extends LevelState {
 		ground = new FlxSprite(
 			0,
 			FlxG.height - 160
-		).makeGraphic(FlxG.width, 160, 0xFF000000);
+		).makeGraphic(FlxG.width * 2, 160, 0xFF000000);
 		ground.add_body({mass: 0});
 		add(ground);
 
@@ -51,5 +51,9 @@ final class LevelTwo extends LevelState {
 
 		// var effect = new Pixelate();
 		// FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
+
+		FlxG.worldBounds.set(0, 0, FlxG.width * 2, FlxG.height);
+		FlxG.camera.setScrollBoundsRect(0, 0, FlxG.width * 2, FlxG.height);
+		FlxG.camera.follow(player, PLATFORMER, 1);
 	}
 }
