@@ -3,6 +3,7 @@ package levels;
 import characters.Player;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.math.FlxRect;
 import openfl.filters.ShaderFilter;
 import shaders.Pixelate;
 import states.LevelState;
@@ -20,7 +21,7 @@ final class LevelTwo extends LevelState {
 		FlxEcho.init({
 			width: FlxG.width * 2,
 			height: FlxG.height,
-			gravity_y: 700
+			gravity_y: 700,
 		});
 
 		ground = new FlxSprite(
@@ -54,6 +55,12 @@ final class LevelTwo extends LevelState {
 
 		FlxG.worldBounds.set(0, 0, FlxG.width * 2, FlxG.height);
 		FlxG.camera.setScrollBoundsRect(0, 0, FlxG.width * 2, FlxG.height);
-		FlxG.camera.follow(player, PLATFORMER, 1);
+		FlxG.camera.follow(player);
+		FlxG.camera.deadzone = FlxRect.get(
+			((FlxG.camera.width - (player.width)) / 2) - 300,
+			((FlxG.camera.height - player.height) / 2),
+			player.width,
+			player.height
+		);
 	}
 }

@@ -13,7 +13,13 @@
 lix install gh:AustinEast/echo-flixel
 ```
 
+
+### Adjusting player deadzone helper
+```hx
+		final deadZone = new FlxSprite(((FlxG.camera.width - (player.width)) / 2) - 200, ((FlxG.camera.height - player.height) / 2 - player.height * 0.25)).makeGraphic(Std.int(player.width), Std.int(player.height), 0xFF000000);
+		add(deadZone);
+```
+
 ## Todo
-- Move camera position to slightly left
 - Finish player state machine
 - Update centre position
