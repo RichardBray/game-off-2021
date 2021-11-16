@@ -17,14 +17,21 @@ enum PlayerStates {
 
 class Player extends FlxSprite {
 	static inline final RUNNING_SPEED = 350;
-	static inline final JUMP_VELOCITY = 300;
+	static inline final RUNNING_JUMP_VELOCITY = 90;
+	static inline final STANDING_JUMP_VELOCITY = 50;
+	static inline final RUNNING_JUMP_AIRTIME_IN_SECONDS = 0.08;
 
 	final controls = Controls.instance;
 	public var state(default, null): PlayerStates = Standing;
 
+	// - timers
+	var runningJumpSeconds: Float = 0;
+	var standingJumpPrepSeconds: Float = 0;
+	var standingJumpSeconds: Float = 0;
 	// - control button presses
 	var rightPressed = false;
 	var leftPressed = false;
+	var jumpButtonPressed = false;
 	var bothDirectionsPressed = false;
 	var singleDirectionPressed = false;
 	var noDirectionPressed = false;
@@ -55,48 +62,71 @@ class Player extends FlxSprite {
 		});
 		this.setAnimationByFrames({
 			name: "runningJump",
-			totalFrames: 6,
+			totalFrames: 7,
 			frameNamePrefix: "Girl_RunJump_",
 			frameRate: 10,
+		});
+		this.setAnimationByFrames({
+			name: "standingJump",
+			totalFrames: 12,
+			frameNamePrefix: "Girl_StandingJump_",
+			frameRate: 12,
 		});
 		// - facing direction
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
 	}
 
-	function movement() {
-		final body = this.get_body();
-		if (controls.cross.check() && isTouching(FLOOR)) {
-			body.velocity.y = -JUMP_VELOCITY;
-			animation.play("runningJump");
-		}
+	function stateMachine(elapsed: Float) {
+		final physicsBody = this.get_body();
+		final jumpTriggered = jumpButtonPressed && isTouching(FLOOR);
+		switch(state) {
+			case Standing:
+				runningJumpSeconds = 0;
+				standingJumpSeconds = 0;
+				standingJumpPrepSeconds = 0;
+				if (bothDirectionsPressed || noDirectionPressed) {
+					physicsBody.velocity.x = 0;
+					this.animation.play("standing");
 
-		if (bothDirectionsPressed || noDirectionPressed) {
-			body.velocity.x = 0;
-			animation.play("standing");
-		} else {
-			body.velocity.x = rightPressed ? RUNNING_SPEED : -RUNNING_SPEED;
-			animation.play("running");
-			this.facing = rightPressed ? FlxObject.RIGHT : FlxObject.LEFT;
+					if (jumpTriggered) {
+						state = StandingJump;
+					}
+				} else {
+					state = Running;
+				}
+			case Running:
+				if (bothDirectionsPressed || noDirectionPressed) {
+					state = Standing;
+				} else {
+					physicsBody.velocity.x = rightPressed ? RUNNING_SPEED : -RUNNING_SPEED;
+					this.facing = rightPressed ? FlxObject.RIGHT : FlxObject.LEFT;
+					this.animation.play("running");
+
+					if (jumpTriggered) {
+						state = RunningJump;
+					}
+				}
+			case RunningJump:
+				runningJumpSeconds += elapsed;
+				if (runningJumpSeconds < RUNNING_JUMP_AIRTIME_IN_SECONDS) {
+					physicsBody.velocity.y -= RUNNING_JUMP_VELOCITY;
+					this.animation.play("runningJump");
+				} else if (isTouching(FLOOR)) {
+					state = Standing;
+				}
+			case StandingJump:
+				standingJumpSeconds += elapsed;
+				if (standingJumpSeconds < 1.0) {
+					this.animation.play("standingJump");
+				} else if (standingJumpSeconds < 1.05) {
+					this.animation.pause();
+					physicsBody.velocity.y -= STANDING_JUMP_VELOCITY;
+				} else if (isTouching(FLOOR)) {
+					state = Standing;
+				}
 		}
 	}
-
-	// function stateMachine() {
-	// 	final physicsBody = this.get_body();
-	// 	switch(state) {
-	// 		case Standing:
-	// 			if (bothDirectionsPressed || noDirectionPressed) {
-	// 				physicsBody.velocity.x = 0;
-	// 				animation.play("standing");
-	// 			} else if () {
-	// 				// standing jump
-	// 			} else {
-	// 				state = Running;
-	// 			}
-	// 		case Running:
-	// 			movement();
-	// 	}
-	// }
 
 	function updateControls() {
 		rightPressed = controls.right.check();
@@ -104,11 +134,12 @@ class Player extends FlxSprite {
 		bothDirectionsPressed = leftPressed && rightPressed;
 		singleDirectionPressed = leftPressed || rightPressed;
 		noDirectionPressed = !singleDirectionPressed;
+		jumpButtonPressed = controls.cross.check() || controls.up.check();
 	}
 
 	override function update(elapsed: Float) {
-		movement();
 		updateControls();
+		stateMachine(elapsed);
 		super.update(elapsed);
 	}
 }

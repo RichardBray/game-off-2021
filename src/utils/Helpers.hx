@@ -7,24 +7,24 @@ typedef SetAnimationOptions = {
   /**
    * Defines the name of the animation
    */
-  var name:String;
+  final name:String;
 
-  var totalFrames:Int;
-  var frameNamePrefix:String;
-  var frameRate:Int;
+  final totalFrames:Int;
+  final frameNamePrefix:String;
+  final frameRate:Int;
 }
 
 typedef ChangeHitBoxOptions = {
   /**
    * Amount to reduce hitbox WIDTH by in pixels
    */
-	var reduceWidthBy: Int;
+	final reduceWidthBy: Int;
   /**
    * Amount to reduce hitbox HEIGHT by in pixels
    */
-	var reduceHeightBy: Int;
-	var ?heightOffset:Int;
-	var ?widthOffset:Int;
+	final reduceHeightBy: Int;
+	final ?heightOffset:Int;
+	final ?widthOffset:Int;
 }
 
 final class Helpers {

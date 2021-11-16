@@ -21,7 +21,7 @@ final class LevelTwo extends LevelState {
 		FlxEcho.init({
 			width: FlxG.width * 2,
 			height: FlxG.height,
-			gravity_y: 700,
+			gravity_y: 960,
 		});
 
 		ground = new FlxSprite(
@@ -50,8 +50,10 @@ final class LevelTwo extends LevelState {
 		box.listen(player);
 		box.listen(ground);
 
-		// var effect = new Pixelate();
-		// FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
+		if (false) { // TODO add pixelation menu option
+			var effect = new Pixelate();
+			FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
+		}
 
 		FlxG.worldBounds.set(0, 0, FlxG.width * 2, FlxG.height);
 		FlxG.camera.setScrollBoundsRect(0, 0, FlxG.width * 2, FlxG.height);
