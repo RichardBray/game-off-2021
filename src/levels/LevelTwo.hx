@@ -26,13 +26,14 @@ final class LevelTwo extends GameState {
 			gravity_y: 960,
 		});
 		// - background sprites
-		final BG_SPRITE_WIDTH = 1351;
+		final BG_SPRITE_WIDTH = 2357;
+		final BG_SPRITE_HEIGHT = 1885;
 		final totalBackgroundSprites = Math.ceil(fullMapWidth / BG_SPRITE_WIDTH);
 		final grpBackground = new FlxTypedGroup<FlxSprite>(totalBackgroundSprites);
 
 		for (backgroundSprite in 0...totalBackgroundSprites) {
 			final xPos = BG_SPRITE_WIDTH * backgroundSprite;
-			final background = new FlxSprite(xPos, 0).loadGraphic("assets/images/environment/grassTile.png", false, BG_SPRITE_WIDTH, FlxG.height);
+			final background = new FlxSprite(xPos, -641).loadGraphic("assets/images/environment/grassTile.png", false, BG_SPRITE_WIDTH, BG_SPRITE_HEIGHT);
 			grpBackground.add(background);
 		}
 

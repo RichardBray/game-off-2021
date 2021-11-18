@@ -51,10 +51,10 @@ class Player extends FlxSprite {
 		climbAnim = playerClimb;
 		this.loadFrames("characters/girl");
 		this.changeHitboxSize({
-			reduceWidthBy: 30,
+			reduceWidthBy: 150,
 			reduceHeightBy: 200,
 			heightOffset: 90,
-			widthOffset: -5,
+			widthOffset: -1,
 		});
 		// - pyhsics
 		this.add_body();
