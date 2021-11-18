@@ -12,6 +12,7 @@ typedef SetAnimationOptions = {
   final totalFrames:Int;
   final frameNamePrefix:String;
   final frameRate:Int;
+  final ?startFrame:Int;
 }
 
 typedef ChangeHitBoxOptions = {
@@ -29,7 +30,14 @@ typedef ChangeHitBoxOptions = {
 
 final class Helpers {
   public static function setAnimationByFrames(sprite:FlxSprite, options:SetAnimationOptions) {
-    sprite.animation.addByNames(options.name, Helpers.getAnimationFrames(options.totalFrames, options.frameNamePrefix), options.frameRate);
+    sprite.animation.addByNames(
+      options.name,
+      Helpers.getAnimationFrames(
+        options.totalFrames,
+        options.frameNamePrefix,
+        options.startFrame),
+      options.frameRate
+    );
   }
 
   /**
@@ -38,11 +46,12 @@ final class Helpers {
    *
    * @param noOfFrames frames used in animation
    * @param frameNamePrefix frame image name as stated in data file
+   * @param startFrame frame to start animation on
    */
-  private static function getAnimationFrames(noOfFrames:Int, frameNamePrefix:String):Array<String> {
+  private static function getAnimationFrames(noOfFrames:Int, frameNamePrefix:String, startFrame:Int = 1):Array<String> {
     var frameNames:Array<String> = [];
 
-    for (frameNo in 1...(noOfFrames + 1)) {
+    for (frameNo in startFrame...(noOfFrames + 1)) {
       final addLeadingZero = (frameNo < 10) ? ('0$frameNo') : '$frameNo';
       frameNames.push('${frameNamePrefix}${addLeadingZero}.png');
     }

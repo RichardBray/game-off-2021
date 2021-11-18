@@ -1,54 +1,63 @@
 package levels;
 
 import characters.Player;
+import characters.PlayerClimb;
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxRect;
 import openfl.filters.ShaderFilter;
 import shaders.Pixelate;
 import states.LevelState;
+import utils.Colors;
 
 using echo.FlxEcho;
 using hxmath.math.Vector2;
 final class LevelTwo extends LevelState {
   var player: Player;
-  var ground: FlxSprite;
-  var box: FlxSprite;
 
 	override function create() {
 		super.create();
-
+		// - physics world
 		FlxEcho.init({
 			width: FlxG.width * 2,
 			height: FlxG.height,
 			gravity_y: 960,
 		});
 
-		ground = new FlxSprite(
+		final ground = new FlxSprite(
 			0,
 			FlxG.height - 160
-		).makeGraphic(FlxG.width * 2, 160, 0xFF000000);
+		).makeGraphic(FlxG.width * 2, 160, Colors.purple);
 		ground.add_body({mass: 0});
 		add(ground);
 
-		player = new Player(0, 0);
+		final ledge = new FlxSprite(601, 702).makeGraphic(
+			250,
+			5,
+			Colors.lilac
+		);
+		ledge.add_body({mass: 0});
+		add(ledge);
+
+		final ledgeListener = new FlxObject(585, 707, 280, 90);
+		ledgeListener.add_body({mass: 0});
+		add(ledgeListener);
+
+		final playerClimb = new PlayerClimb();
+		add(playerClimb);
+
+		player = new Player(93, 793, playerClimb);
 		add(player);
 
-		box = new FlxSprite(
-			200,
-			0
-		).makeGraphic(30, 30, 0xFF000000);
-
-    box.add_body({
-      mass: 1,
-      elasticity: 0.5,
-      drag_length: 300,
-    });
-    add(box);
-
 		player.listen(ground);
-		box.listen(player);
-		box.listen(ground);
+		player.listen(ledge);
+
+		FlxEcho.listen(ledgeListener, player, {
+			separate: false,
+			enter: (ledgeListenerBody, playerBody, _) -> player.allowClimb = true,
+			exit: (ledgeListenerBody, playerBody) -> player.allowClimb = false,
+		});
 
 		if (false) { // TODO add pixelation menu option
 			var effect = new Pixelate();
