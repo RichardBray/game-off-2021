@@ -186,7 +186,7 @@ class Player extends FlxSprite {
 					physicsBody.active = false;
 				}
 				if (climbingTimer > .1 && !climbPositionSet ) {
-					physicsBody.x = this.facing == FlxObject.RIGHT ? physicsBody.x + 67 : physicsBody.x - 67;
+					physicsBody.x = this.facing == FlxObject.RIGHT ? physicsBody.x + 50 : physicsBody.x - 50;
 					physicsBody.y = physicsBody.y - 207;
 					physicsBody.active = true;
 					climbPositionSet = true;

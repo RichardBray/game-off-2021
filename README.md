@@ -20,8 +20,10 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Update character hitbox for tighter collisions when pushing/climbing
 - Add background
+- Update character hitbox for tighter collisions when pushing/climbing
+- Dedath animation
+- Checkpoints
 
 ## Post Jam changes
 - Climb down ability
