@@ -20,8 +20,8 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Prevent looping running jump animtion on large jumps
 - Update character hitbox for tighter collisions when pushing/climbing
+- Add background
 
 ## Post Jam changes
 - Climb down ability

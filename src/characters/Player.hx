@@ -18,10 +18,6 @@ enum PlayerStates {
 }
 
 class Player extends FlxSprite {
-	static inline final RUNNING_SPEED = 350;
-	static inline final RUNNING_JUMP_VELOCITY = 90;
-	static inline final STANDING_JUMP_VELOCITY = 65;
-
 	final controls = Controls.instance;
 	public var state(default, null): PlayerStates = Standing;
 	/**
@@ -30,12 +26,13 @@ class Player extends FlxSprite {
 	public var allowClimb = false;
 
 	var climbAnim: PlayerClimb;
-	var postClimbPositionSet = false;
+	var climbPositionSet = false;
+	var jumpVelocitySet = false;
 	// - timers
-	var runningJumpSeconds: Float = 0;
-	var climbingSeconds: Float = 0;
-	var standingJumpSeconds: Float = 0;
-	// - control button presses
+	var runningJumpTimer: Float = 0;
+	var climbingTimer: Float = 0;
+	var standingJumpTimer: Float = 0;
+	// - button press booleans
 	var rightPressed = false;
 	var leftPressed = false;
 	var jumpButtonPressed = false;
@@ -50,6 +47,7 @@ class Player extends FlxSprite {
 	 */
 	public function new(x: Float = 0, y: Float = 0, playerClimb: PlayerClimb) {
 		super(x, y);
+
 		climbAnim = playerClimb;
 		this.loadFrames("characters/girl");
 		this.changeHitboxSize({
@@ -98,11 +96,12 @@ class Player extends FlxSprite {
 	}
 
 	function setPlayerDefaults() {
-		runningJumpSeconds = 0;
-		standingJumpSeconds = 0;
-		climbingSeconds = 0;
+		runningJumpTimer = 0;
+		standingJumpTimer = 0;
+		climbingTimer = 0;
 		this.alpha = 1;
-		postClimbPositionSet = false;
+		climbPositionSet = false;
+		jumpVelocitySet = false;
 	}
 
 	function stateMachine(elapsed: Float) {
@@ -123,6 +122,8 @@ class Player extends FlxSprite {
 					state = Running;
 				}
 			case Running:
+				final RUNNING_SPEED = 350;
+
 				if (bothDirectionsPressed || noDirectionPressed) {
 					state = Standing;
 				} else {
@@ -135,25 +136,36 @@ class Player extends FlxSprite {
 					}
 				}
 			case RunningJump:
-				final RUNNING_JUMP_AIRTIME_IN_SECONDS = .08;
-				runningJumpSeconds += elapsed;
-				if (runningJumpSeconds < RUNNING_JUMP_AIRTIME_IN_SECONDS) {
-					physicsBody.velocity.y -= RUNNING_JUMP_VELOCITY;
-					this.animation.play("runningJump");
-				} else if (isTouching(FLOOR)) {
-					state = Standing;
+				final RUNNING_JUMP_VELOCITY = 290;
+				final RUNNING_JUMP_ANIM_RUNTIME = .7;
+
+				runningJumpTimer += elapsed;
+				this.animation.play("runningJump");
+				if (!jumpVelocitySet) {
+					physicsBody.velocity.y = -RUNNING_JUMP_VELOCITY;
+					jumpVelocitySet = true;
 				}
+
+				if (runningJumpTimer > RUNNING_JUMP_ANIM_RUNTIME) {
+					this.animation.pause();
+					if (isTouching(FLOOR)) {
+						state = Standing;
+					}
+				}
+
 			case StandingJump:
+				final STANDING_JUMP_VELOCITY = 65;
 				final STANDING_JUMP_PREPTIME = .45;
 				final STANDING_JUMP_ANIM_FINISH = STANDING_JUMP_PREPTIME + .05;
 				final STANDING_JUMP_TRANSITION_ANIM = STANDING_JUMP_ANIM_FINISH + .1;
-				standingJumpSeconds += elapsed;
-				if (standingJumpSeconds < STANDING_JUMP_PREPTIME) {
+
+				standingJumpTimer += elapsed;
+				if (standingJumpTimer < STANDING_JUMP_PREPTIME) {
 					this.animation.play("standingJump");
-				} else if (standingJumpSeconds < STANDING_JUMP_ANIM_FINISH) {
+				} else if (standingJumpTimer < STANDING_JUMP_ANIM_FINISH) {
 					this.animation.pause();
 					physicsBody.velocity.y -= STANDING_JUMP_VELOCITY;
-				} else if (standingJumpSeconds < STANDING_JUMP_TRANSITION_ANIM) {
+				} else if (standingJumpTimer < STANDING_JUMP_TRANSITION_ANIM) {
 					if (allowClimb) {
 						state = Climbing;
 					} else {
@@ -167,19 +179,19 @@ class Player extends FlxSprite {
 					state = Standing;
 				}
 			case Climbing:
-				climbingSeconds += elapsed;
+				climbingTimer += elapsed;
 				this.alpha = 0;
 				climbAnim.startClimb(this);
-				if (climbingSeconds < .1) {
+				if (climbingTimer < .1) {
 					physicsBody.active = false;
 				}
-				if (climbingSeconds > .1 && !postClimbPositionSet ) {
+				if (climbingTimer > .1 && !climbPositionSet ) {
 					physicsBody.x = this.facing == FlxObject.RIGHT ? physicsBody.x + 67 : physicsBody.x - 67;
 					physicsBody.y = physicsBody.y - 207;
 					physicsBody.active = true;
-					postClimbPositionSet = true;
+					climbPositionSet = true;
 				}
-				if (climbingSeconds > .925) {
+				if (climbingTimer > .925) {
 					allowClimb = false;
 					climbAnim.endClimb();
 					state = Standing;
