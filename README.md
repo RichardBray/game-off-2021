@@ -20,11 +20,12 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Update character hitbox for tighter collisions when pushing/climbing
-- Dedath animation
+- Add small mushroom
+- Death animation
+- Add smaller climb/ledge listeners that check for facing direction
 - Checkpoints
 
 ## Post Jam changes
 - Climb down ability
 - Add shadow
-- Fix camera jolt after climb completion
+- Roll animation for jumping off high points

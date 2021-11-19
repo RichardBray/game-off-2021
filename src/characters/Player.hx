@@ -2,6 +2,8 @@ package characters;
 
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.math.FlxPoint;
+import flixel.tweens.FlxTween;
 import utils.Controls;
 
 using echo.FlxEcho;
@@ -25,9 +27,11 @@ class Player extends FlxSprite {
 	 */
 	public var allowClimb = false;
 
+	var jumpVelocitySet = false;
+	// - climb vars
 	var climbAnim: PlayerClimb;
 	var climbPositionSet = false;
-	var jumpVelocitySet = false;
+	var noPosAfterClimb: FlxPoint;
 	// - timers
 	var runningJumpTimer: Float = 0;
 	var climbingTimer: Float = 0;
@@ -48,6 +52,7 @@ class Player extends FlxSprite {
 	public function new(x: Float = 0, y: Float = 0, playerClimb: PlayerClimb) {
 		super(x, y);
 
+		noPosAfterClimb = new FlxPoint(0, 0);
 		climbAnim = playerClimb;
 		this.loadFrames("characters/girl");
 		this.changeHitboxSize({
@@ -186,14 +191,18 @@ class Player extends FlxSprite {
 					physicsBody.active = false;
 				}
 				if (climbingTimer > .1 && !climbPositionSet ) {
-					physicsBody.x = this.facing == FlxObject.RIGHT ? physicsBody.x + 50 : physicsBody.x - 50;
-					physicsBody.y = physicsBody.y - 207;
+					noPosAfterClimb.x = this.facing == FlxObject.RIGHT ? physicsBody.x + 50 : physicsBody.x - 50;
+					noPosAfterClimb.y = physicsBody.y - 207;
 					physicsBody.active = true;
 					climbPositionSet = true;
+				}
+				if (climbingTimer > .15) {
+					FlxTween.tween(physicsBody, {x: noPosAfterClimb.x, y: noPosAfterClimb.y}, .1);
 				}
 				if (climbingTimer > .925) {
 					allowClimb = false;
 					climbAnim.endClimb();
+					noPosAfterClimb.set(0, 0);
 					state = Standing;
 				}
 		}
