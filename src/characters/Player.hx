@@ -193,11 +193,13 @@ class Player extends FlxSprite {
 				if (climbingTimer > .1 && !climbPositionSet ) {
 					noPosAfterClimb.x = this.facing == FlxObject.RIGHT ? physicsBody.x + 50 : physicsBody.x - 50;
 					noPosAfterClimb.y = physicsBody.y - 207;
-					physicsBody.active = true;
 					climbPositionSet = true;
 				}
 				if (climbingTimer > .15) {
 					FlxTween.tween(physicsBody, {x: noPosAfterClimb.x, y: noPosAfterClimb.y}, .1);
+				}
+				if (climbingTimer > .25) {
+					physicsBody.active = true;
 				}
 				if (climbingTimer > .925) {
 					allowClimb = false;

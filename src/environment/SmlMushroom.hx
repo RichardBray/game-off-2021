@@ -1,10 +1,19 @@
 package environment;
 
-import flixel.FlxSprite;
-
-class SmlMushroom extends FlxSprite {
-  public function new(x: Float = 0, y: Float = 0) {
-    super(x, y);
-    this.loadGraphic("assets/images/environment/smlMushroom.png", false, 302, 231);
+class SmlMushroom extends ClimableSprite {
+  public function new(x, y, player, ?flipImageX = false) {
+    final defaultColliisonShape = [[0, 0], [87, -8], [173, 5], [289, 28], [289, 46], [0, 14]];
+    final flippedXColliisonShape = [[0, 0], [87, -8], [173, 5], [289, 28], [289, 46], [0, 14]];
+    final climableSpriteOptions = {
+      x: x,
+			y: y,
+			imageName: "smlMushroom",
+			imageWidth: 302,
+			imageHeight: 231,
+			player: player,
+			vertices: flipImageX ? flippedXColliisonShape : defaultColliisonShape,
+			flipImageX: flipImageX,
+    }
+    super(climableSpriteOptions);
   }
 }

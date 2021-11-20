@@ -2,6 +2,7 @@ package levels;
 
 import characters.Player;
 import characters.PlayerClimb;
+import environment.SmlMushroom;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -33,52 +34,40 @@ final class LevelTwo extends GameState {
 
 		for (backgroundSprite in 0...totalBackgroundSprites) {
 			final xPos = BG_SPRITE_WIDTH * backgroundSprite;
-			final background = new FlxSprite(xPos, -641).loadGraphic("assets/images/environment/grassTile.png", false, BG_SPRITE_WIDTH, BG_SPRITE_HEIGHT);
+			final background = new FlxSprite(xPos, -691);
+			background.loadGraphic(
+				"assets/images/environment/grassTile.png",
+				BG_SPRITE_WIDTH, BG_SPRITE_HEIGHT
+			);
 			grpBackground.add(background);
 		}
 
-		add(grpBackground);
-
 		// - midground sprite
 		final GROUND_HEIGHT_FROM_BASE = 244;
-		final ground = new FlxObject(
+		final groundListener = new FlxObject(
 			0,
 			FlxG.height - GROUND_HEIGHT_FROM_BASE,
 			FlxG.width * 2,
 			GROUND_HEIGHT_FROM_BASE
 		);
-		ground.add_body({mass: 0});
-		add(ground);
-
-		// - environments objects
-		final ledge = new FlxSprite(601, 618).makeGraphic(
-			250,
-			5,
-			Colors.grey
-		);
-		ledge.add_body({mass: 0});
-		add(ledge);
-
-		final ledgeListener = new FlxObject(585, 707, 280, 90);
-		ledgeListener.add_body({mass: 0});
-		add(ledgeListener);
+		groundListener.add_body({mass: 0});
 
 		//  - player sprites
 		final playerClimb = new PlayerClimb();
-		add(playerClimb);
-
 		final player = new Player(93, 793, playerClimb);
+
+		// - environments objects
+		final smlMushroom = new SmlMushroom(800, 610, player);
+
+		// - order objects
+		add(grpBackground);
+		add(groundListener);
+		add(smlMushroom);
+		add(playerClimb);
 		add(player);
 
 		// - physics listeners
-		player.listen(ground);
-		player.listen(ledge);
-
-		FlxEcho.listen(ledgeListener, player, {
-			separate: false,
-			enter: (ledgeListenerBody, playerBody, _) -> player.allowClimb = true,
-			exit: (ledgeListenerBody, playerBody) -> player.allowClimb = false,
-		});
+		player.listen(groundListener);
 
 		// - camera settings
 		FlxG.worldBounds.set(0, 0, FlxG.width * 2, FlxG.height);

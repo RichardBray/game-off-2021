@@ -1,7 +1,6 @@
 package levels;
 
 import echo.util.TileMap;
-
 import flixel.FlxG;
 import flixel.FlxObject.*;
 import flixel.FlxSprite;
@@ -9,17 +8,14 @@ import flixel.group.FlxGroup;
 import flixel.math.FlxPoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
-
-import states.LevelState;
+import states.GameState;
 
 using Math;
-
 using echo.FlxEcho;
-
 using flixel.util.FlxArrayUtil;
 using flixel.util.FlxSpriteUtil;
-
 using hxmath.math.Vector2;
+
 class Box extends FlxSprite {
 	var control: Bool;	public function new(x: Float, y: Float, w: Int, h: Int, c: Int,
 			control: Bool = false) {
@@ -53,10 +49,10 @@ class Ramp extends FlxSprite {
 			case NW:
 				verts.splice(1, 1);
 		}
-		this.drawPolygon(
-			[for (v in verts) FlxPoint.get(v[0], v[1])],
-			0xFFFF0080
-		);
+		// this.drawPolygon(
+		// 	[for (v in verts) FlxPoint.get(v[0], v[1])],
+		// 	0xFFFF0080
+		// );
 		this.add_body({
 			mass: 0,
 			shape: {
@@ -74,7 +70,7 @@ enum RampDirection {
 	NW;
 }
 
-class LevelOne extends LevelState {
+class LevelOne extends GameState {
 	var player: Box;
 	var level_data = [
 		[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
