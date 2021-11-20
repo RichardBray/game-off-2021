@@ -11,7 +11,7 @@ import flixel.math.FlxRect;
 import openfl.filters.ShaderFilter;
 import shaders.Pixelate;
 import states.GameState;
-import utils.Colors;
+import ui.TextPrompts;
 
 using echo.FlxEcho;
 using hxmath.math.Vector2;
@@ -34,11 +34,12 @@ final class LevelTwo extends GameState {
 
 		for (backgroundSprite in 0...totalBackgroundSprites) {
 			final xPos = BG_SPRITE_WIDTH * backgroundSprite;
-			final background = new FlxSprite(xPos, -691);
+			final background = new FlxSprite(xPos, -641);
 			background.loadGraphic(
 				"assets/images/environment/grassTile.png",
 				BG_SPRITE_WIDTH, BG_SPRITE_HEIGHT
 			);
+			background.alpha = 0.65;
 			grpBackground.add(background);
 		}
 
@@ -57,7 +58,10 @@ final class LevelTwo extends GameState {
 		final player = new Player(93, 793, playerClimb);
 
 		// - environments objects
-		final smlMushroom = new SmlMushroom(800, 610, player);
+		final smlMushroom = new SmlMushroom(2500, 610, player);
+
+		// - help text
+		final textPropmpts = new TextPrompts(player);
 
 		// - order objects
 		add(grpBackground);
@@ -65,6 +69,7 @@ final class LevelTwo extends GameState {
 		add(smlMushroom);
 		add(playerClimb);
 		add(player);
+		add(textPropmpts);
 
 		// - physics listeners
 		player.listen(groundListener);

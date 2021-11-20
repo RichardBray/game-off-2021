@@ -11,8 +11,8 @@ abstract class GameState extends FlxState {
 
 	override public function create() {
 		super.create();
-		bgColor = Colors.lilac;
-		FlxAssets.FONT_DEFAULT = "assets/fonts/OpenSans-Regular.ttf";
+		bgColor = Colors.groundGreen;
+		FlxAssets.FONT_DEFAULT = "assets/fonts/Rokkitt-Regular.ttf";
 
 		FlxG.autoPause = false;
 		FlxG.camera.antialiasing = true;

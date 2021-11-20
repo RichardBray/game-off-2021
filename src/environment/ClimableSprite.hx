@@ -21,16 +21,13 @@ typedef ClimeableSpriteOptions = {
 }
 
 class ClimableSprite extends FlxTypedGroup<FlxObject> {
-  var sprtImage: FlxSprite;
-  var climableListener: FlxObject;
-
   public function new(options: ClimeableSpriteOptions) {
     super(2);
     // 1 - image sprite
     final polygonVerts = [
       for (v in options.vertices) new Vector2(v[0] - ((options.imageWidth - 15) * 0.5), v[1] - ((options.imageHeight - 30) * 0.5))
     ];
-    sprtImage = new FlxSprite(options.x, options.y);
+    final sprtImage = new FlxSprite(options.x, options.y);
     sprtImage.loadGraphic(
       'assets/images/environment/${options.imageName}.png',
       false,
@@ -51,7 +48,7 @@ class ClimableSprite extends FlxTypedGroup<FlxObject> {
     });
     add(sprtImage);
     // 2 - listener
-    climableListener = new FlxObject(options.x, options.y + (options.imageHeight / 2), options.imageWidth, 90);
+    final climableListener = new FlxObject(options.x, options.y + (options.imageHeight / 2), options.imageWidth, 90);
     climableListener.add_body({mass: 0});
     add(climableListener);
 
@@ -59,8 +56,8 @@ class ClimableSprite extends FlxTypedGroup<FlxObject> {
     options.player.listen(sprtImage);
 		options.player.listen(climableListener, {
 			separate: false,
-			enter: (playerBody, ledgeListenerBody, _) -> options.player.allowClimb = true,
-			exit: (playerBody, ledgeListenerBody) -> options.player.allowClimb = false,
+			enter: (_playerBody, _ledgeListenerBody, _) -> options.player.allowClimb = true,
+			exit: (_playerBody, _ledgeListenerBody) -> options.player.allowClimb = false,
 		});
   }
 }

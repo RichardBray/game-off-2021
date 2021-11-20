@@ -3,12 +3,11 @@ package characters;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
-import flixel.tweens.FlxTween;
 import utils.Controls;
 
 using echo.FlxEcho;
+using flixel.tweens.FlxTween;
 using utils.SpriteHelpers;
-
 
 enum PlayerStates {
 	Running;
@@ -196,7 +195,7 @@ class Player extends FlxSprite {
 					climbPositionSet = true;
 				}
 				if (climbingTimer > .15) {
-					FlxTween.tween(physicsBody, {x: noPosAfterClimb.x, y: noPosAfterClimb.y}, .1);
+					physicsBody.tween({x: noPosAfterClimb.x, y: noPosAfterClimb.y}, .1);
 				}
 				if (climbingTimer > .25) {
 					physicsBody.active = true;
