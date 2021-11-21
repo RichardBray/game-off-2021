@@ -3,6 +3,7 @@ package characters;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
+import flixel.util.FlxDirectionFlags;
 import utils.Controls;
 
 using echo.FlxEcho;
@@ -17,6 +18,8 @@ enum PlayerStates {
 	StandingJumpFail;
 	Climbing;
 	Frozen;
+	PushingPose;
+	Pushing;
 }
 
 class Player extends FlxSprite {
@@ -26,6 +29,7 @@ class Player extends FlxSprite {
 	 * Trigger to decide if player should clime or fail jump
 	 */
 	public var allowClimb = false;
+	public var inPushableTrigger = false;
 
 	var jumpVelocitySet = false;
 	// - climb vars
@@ -43,6 +47,13 @@ class Player extends FlxSprite {
 	var bothDirectionsPressed = false;
 	var singleDirectionPressed = false;
 	var noDirectionPressed = false;
+	var actionBtnPressed = false;
+
+
+	/**
+	 * Hack to delay registering of controls
+	 */
+	 var sameButtonPressed = false;
 
 	/**
 	 * @param x
@@ -94,6 +105,12 @@ class Player extends FlxSprite {
 			totalFrames: 6,
 			frameNamePrefix: "Girl_JumpFail_",
 			frameRate: 12,
+		});
+		this.setAnimationByFrames({
+			name: "pushing",
+			totalFrames: 8,
+			frameNamePrefix: "Girl_Push_",
+			frameRate: 10,
 		});
 		// - facing direction
 		this.setFacingFlip(FlxObject.LEFT, true, false);
@@ -210,6 +227,23 @@ class Player extends FlxSprite {
 			case Frozen:
 				physicsBody.velocity.x = 0;
 				this.animation.play("standing");
+			case PushingPose:
+				if (bothDirectionsPressed || noDirectionPressed) {
+					physicsBody.velocity.x = 0;
+					this.animation.play("pushing");
+					this.animation.pause();
+				} else {
+					state = Pushing;
+				}
+			case Pushing:
+				final PUSHING_SPEED = 250;
+
+				if (bothDirectionsPressed || noDirectionPressed) {
+					state = PushingPose;
+				} else {
+					physicsBody.velocity.x = PUSHING_SPEED;
+					this.animation.play("pushing");
+				}
 		}
 	}
 
@@ -220,6 +254,7 @@ class Player extends FlxSprite {
 		singleDirectionPressed = leftPressed || rightPressed;
 		noDirectionPressed = !singleDirectionPressed;
 		jumpButtonPressed = controls.cross.check() || controls.up.check();
+		actionBtnPressed = controls.circle.check();
 	}
 
 	public function freeze() {
@@ -230,5 +265,16 @@ class Player extends FlxSprite {
 		updateControls();
 		stateMachine(elapsed);
 		super.update(elapsed);
+		trace(inPushableTrigger, actionBtnPressed, state != PushingPose, !sameButtonPressed, state);
+		if (actionBtnPressed) {
+			if (inPushableTrigger && state != PushingPose && !sameButtonPressed) {
+				state = PushingPose;
+				haxe.Timer.delay(() -> sameButtonPressed = true, 250);
+			}
+			if (state == PushingPose && sameButtonPressed) {
+				state = Standing;
+				haxe.Timer.delay(() -> sameButtonPressed = false, 250);
+			}
+		}
 	}
 }

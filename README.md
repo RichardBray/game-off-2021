@@ -8,6 +8,9 @@
 
 ---
 ## Dev Notes
+
+js.Browser.console.log();
+js.Lib.Debug();
 ### Installing Echo-Flixel with Lix
 ```
 lix install gh:AustinEast/echo-flixel
@@ -20,9 +23,10 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
+- Pushable sprite // Fix pressing left pushing right
+- Pause screen
 - Add left leve boundary
 - Death animation
-- Add smaller climb/ledge listeners that check for facing direction
 - Checkpoints
 - Increment deaths
 

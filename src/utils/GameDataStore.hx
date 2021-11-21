@@ -1,31 +1,33 @@
 package utils;
 
-typedef StorageFormat = {
+
+class GameDataStore {
+
+  public static final instance: GameDataStore = new GameDataStore();
+
+	public var data: DataFormat = {
+		enableGroundListener: true,
+		playerPos: {
+			x: 93,
+			y: 793,
+		}
+	};
+
+	// public function setDefaults() {
+	// 	data.enableGroundListener = true;
+	// 	data.playerPos = {
+	// 		x: 93,
+	// 		y: 173,
+	// 	};
+	// }
+
+	private function new() {}
+}
+
+typedef DataFormat = {
   var enableGroundListener: Bool;
-	var checkpointPos: {
+	var playerPos: {
 		x: Int,
 		y: Int,
 	}
 };
-
-class GameDataStore {
-  public static final instance: GameDataStore = new GameDataStore();
-
-	public var data:StorageFormat = {
-		enableGroundListener: true,
-		checkpointPos: {
-			x: 0,
-			y: 0,
-		}
-	};
-
-	public function setDefaults() {
-		data.enableGroundListener = true;
-		data.checkpointPos = {
-			x: 0,
-			y: 0,
-		};
-	}
-
-	private function new() {}
-}

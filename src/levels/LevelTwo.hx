@@ -3,6 +3,7 @@ package levels;
 import characters.Player;
 import characters.PlayerClimb;
 import environment.Hole;
+import environment.MovableSprite;
 import environment.Pebbles;
 import environment.SmlMushroom;
 import flixel.FlxG;
@@ -62,14 +63,15 @@ final class LevelTwo extends GameState {
 
 		//  - player sprites
 		final playerClimb = new PlayerClimb();
-		player = new Player(93, 793, playerClimb);
+		player = new Player(dataStore.data.playerPos.x, dataStore.data.playerPos.y, playerClimb);
 
 		// - environments objects
-		final smlMushroom = new SmlMushroom(2500, 610, player);
+		final smlMushroom = new SmlMushroom(3200, 610, player);
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(1747, 828, player);
 		final holeCovering = new FlxSprite((hole.x - 16), (FlxG.height - GROUND_HEIGHT_FROM_BASE));
 		holeCovering.makeGraphic(101, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
+		final movableRock = new MovableSprite(2142, 747, player);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -77,9 +79,12 @@ final class LevelTwo extends GameState {
 		// - order objects
 		this.add(grpBackground);
 		this.add(groundListener);
+
 		this.add(smlMushroom);
+		this.add(movableRock);
 		this.add(pebbles);
 		this.add(hole);
+
 		this.add(playerClimb);
 		this.add(player);
 		this.add(holeCovering);
@@ -87,6 +92,10 @@ final class LevelTwo extends GameState {
 
 		// - physics listeners
 		player.listen(groundListener);
+		movableRock.forEach(member -> {
+			member.listen(groundListener);
+
+		});
 
 		// - camera settings
 		FlxG.worldBounds.set(0, 0, FlxG.width * 2, FlxG.height);
@@ -111,7 +120,7 @@ final class LevelTwo extends GameState {
 		groundListener.get_body().active = dataStore.data.enableGroundListener;
 
 		if (player.get_body().y > FlxG.height) {
-			dataStore.setDefaults();
+			dataStore.data.enableGroundListener = true;
 			FlxG.resetState();
 		}
 	}
