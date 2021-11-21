@@ -2,6 +2,8 @@ package levels;
 
 import characters.Player;
 import characters.PlayerClimb;
+import environment.Hole;
+import environment.Pebbles;
 import environment.SmlMushroom;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -12,10 +14,15 @@ import openfl.filters.ShaderFilter;
 import shaders.Pixelate;
 import states.GameState;
 import ui.TextPrompts;
+import utils.Colors;
+import utils.GameDataStore;
 
 using echo.FlxEcho;
 using hxmath.math.Vector2;
 final class LevelTwo extends GameState {
+	final dataStore = GameDataStore.instance;
+	var player: Player;
+	var groundListener: FlxObject;
 
 	override function create() {
 		super.create();
@@ -45,7 +52,7 @@ final class LevelTwo extends GameState {
 
 		// - midground sprite
 		final GROUND_HEIGHT_FROM_BASE = 244;
-		final groundListener = new FlxObject(
+		groundListener = new FlxObject(
 			0,
 			FlxG.height - GROUND_HEIGHT_FROM_BASE,
 			FlxG.width * 2,
@@ -55,21 +62,25 @@ final class LevelTwo extends GameState {
 
 		//  - player sprites
 		final playerClimb = new PlayerClimb();
-		final player = new Player(93, 793, playerClimb);
+		player = new Player(93, 793, playerClimb);
 
 		// - environments objects
 		final smlMushroom = new SmlMushroom(2500, 610, player);
+		final pebbles = new Pebbles(player);
+		final hole = new Hole(1762, 828, player);
 
 		// - help text
-		final textPropmpts = new TextPrompts(player);
+		// final textPropmpts = new TextPrompts(player);
 
 		// - order objects
 		add(grpBackground);
 		add(groundListener);
 		add(smlMushroom);
+		add(pebbles);
+		add(hole);
 		add(playerClimb);
 		add(player);
-		add(textPropmpts);
+		// add(textPropmpts);
 
 		// - physics listeners
 		player.listen(groundListener);
@@ -89,5 +100,10 @@ final class LevelTwo extends GameState {
 			var effect = new Pixelate();
 			FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
 		}
+	}
+
+	override function update(elapsed: Float) {
+		super.update(elapsed);
+		groundListener.get_body().active = dataStore.data.enableGroundListener;
 	}
 }
