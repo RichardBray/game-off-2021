@@ -24,6 +24,7 @@ lix install gh:AustinEast/echo-flixel
 - Death animation
 - Add smaller climb/ledge listeners that check for facing direction
 - Checkpoints
+- Increment deaths
 
 ## Post Jam changes
 - Climb down ability

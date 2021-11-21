@@ -16,12 +16,12 @@ class Hole extends FlxTypedGroup<FlxObject> {
     super(2);
 
     // 1- listener
-    final listener = new FlxObject(x, y, 45, 45);
+    final listener = new FlxObject((x + 5), (y - 23), 40, 23);
     listener.add_body({mass: 0});
     add(listener);
 
     // 2 - sprite
-    final hole = new FlxSprite(x, y).makeGraphic(40, 47, Colors.black);
+    final hole = new FlxSprite(x, y).makeGraphic(50, 7, Colors.black);
     add(hole);
 
 		player.listen(listener, {

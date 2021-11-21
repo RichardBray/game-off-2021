@@ -67,7 +67,7 @@ final class LevelTwo extends GameState {
 		// - environments objects
 		final smlMushroom = new SmlMushroom(2500, 610, player);
 		final pebbles = new Pebbles(player);
-		final hole = new Hole(1762, 828, player);
+		final hole = new Hole(1757, 828, player);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -104,6 +104,12 @@ final class LevelTwo extends GameState {
 
 	override function update(elapsed: Float) {
 		super.update(elapsed);
+
 		groundListener.get_body().active = dataStore.data.enableGroundListener;
+
+		if (player.get_body().y > FlxG.height) {
+			dataStore.setDefaults();
+			FlxG.resetState();
+		}
 	}
 }
