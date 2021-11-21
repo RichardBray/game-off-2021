@@ -11,22 +11,30 @@ using echo.FlxEcho;
 
 class Hole extends FlxTypedGroup<FlxObject> {
   final dataStore = GameDataStore.instance;
+  var player: Player;
+  public var x:Float;
 
   public function new(x: Float, y: Float, player: Player) {
     super(2);
-
+    this.player = player;
+    this.x = x;
     // 1- listener
-    final listener = new FlxObject((x + 5), (y - 23), 40, 23);
+    final listener = new FlxObject((x + 30), (y - 23), 10, 23);
     listener.add_body({mass: 0});
-    add(listener);
+    this.add(listener);
 
     // 2 - sprite
-    final hole = new FlxSprite(x, y).makeGraphic(50, 7, Colors.black);
-    add(hole);
+    final hole = new FlxSprite(x, y).makeGraphic(70, 7, Colors.black);
+    this.add(hole);
 
-		player.listen(listener, {
+		this.player.listen(listener, {
 			separate: false,
-			enter: (playerBody, _listenerBody, _) -> dataStore.data.enableGroundListener = false,
+			stay: preventGroundCollisions
 		});
+  }
+
+  function preventGroundCollisions(playerBody, _listenerBody, _) {
+    dataStore.data.enableGroundListener = false;
+    this.player.freeze();
   }
 }

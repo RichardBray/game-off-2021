@@ -27,6 +27,5 @@ class GameDataStore {
 		};
 	}
 
-	private function new() {
-	}
+	private function new() {}
 }

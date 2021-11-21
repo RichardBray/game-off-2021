@@ -16,6 +16,7 @@ enum PlayerStates {
 	StandingJump;
 	StandingJumpFail;
 	Climbing;
+	Frozen;
 }
 
 class Player extends FlxSprite {
@@ -206,6 +207,9 @@ class Player extends FlxSprite {
 					noPosAfterClimb.set(0, 0);
 					state = Standing;
 				}
+			case Frozen:
+				physicsBody.velocity.x = 0;
+				this.animation.play("standing");
 		}
 	}
 
@@ -216,6 +220,10 @@ class Player extends FlxSprite {
 		singleDirectionPressed = leftPressed || rightPressed;
 		noDirectionPressed = !singleDirectionPressed;
 		jumpButtonPressed = controls.cross.check() || controls.up.check();
+	}
+
+	public function freeze() {
+		state = Frozen;
 	}
 
 	override function update(elapsed: Float) {

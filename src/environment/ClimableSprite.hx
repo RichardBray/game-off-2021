@@ -16,7 +16,7 @@ typedef ClimeableSpriteOptions = {
   var imageWidth: Int;
   var imageHeight: Int;
   var player: Player;
-  var vertices: Array<Array<Int>>;
+  var vertices: Array<Array<Float>>;
   var ?flipImageX: Bool;
 }
 

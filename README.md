@@ -20,7 +20,7 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Add small mushroom
+- Add left leve boundary
 - Death animation
 - Add smaller climb/ledge listeners that check for facing direction
 - Checkpoints

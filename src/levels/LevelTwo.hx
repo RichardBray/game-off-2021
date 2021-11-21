@@ -67,19 +67,22 @@ final class LevelTwo extends GameState {
 		// - environments objects
 		final smlMushroom = new SmlMushroom(2500, 610, player);
 		final pebbles = new Pebbles(player);
-		final hole = new Hole(1757, 828, player);
+		final hole = new Hole(1747, 828, player);
+		final holeCovering = new FlxSprite((hole.x - 16), (FlxG.height - GROUND_HEIGHT_FROM_BASE));
+		holeCovering.makeGraphic(101, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
 
 		// - order objects
-		add(grpBackground);
-		add(groundListener);
-		add(smlMushroom);
-		add(pebbles);
-		add(hole);
-		add(playerClimb);
-		add(player);
+		this.add(grpBackground);
+		this.add(groundListener);
+		this.add(smlMushroom);
+		this.add(pebbles);
+		this.add(hole);
+		this.add(playerClimb);
+		this.add(player);
+		this.add(holeCovering);
 		// add(textPropmpts);
 
 		// - physics listeners
