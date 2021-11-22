@@ -23,14 +23,13 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Pushable sprite // Fix pressing left pushing right
-- Pause screen
 - Add left leve boundary
 - Death animation
 - Checkpoints
-- Increment deaths
+- Pause screen
 
 ## Post Jam changes
 - Climb down ability
 - Add shadow
 - Roll animation for jumping off high points
+- Increment deaths

@@ -71,7 +71,7 @@ final class LevelTwo extends GameState {
 		final hole = new Hole(1747, 828, player);
 		final holeCovering = new FlxSprite((hole.x - 16), (FlxG.height - GROUND_HEIGHT_FROM_BASE));
 		holeCovering.makeGraphic(101, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
-		final movableRock = new MovableSprite(2142, 747, player);
+		final movableRock = new MovableSprite(2969, 747, player);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -94,7 +94,7 @@ final class LevelTwo extends GameState {
 		player.listen(groundListener);
 		movableRock.forEach(member -> {
 			member.listen(groundListener);
-
+			member.listen(smlMushroom.stalkCollision);
 		});
 
 		// - camera settings

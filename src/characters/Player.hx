@@ -3,7 +3,6 @@ package characters;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
-import flixel.util.FlxDirectionFlags;
 import utils.Controls;
 
 using echo.FlxEcho;
@@ -32,6 +31,7 @@ class Player extends FlxSprite {
 	public var inPushableTrigger = false;
 
 	var jumpVelocitySet = false;
+
 	// - climb vars
 	var climbAnim: PlayerClimb;
 	var climbPositionSet = false;
@@ -143,6 +143,12 @@ class Player extends FlxSprite {
 				} else {
 					state = Running;
 				}
+				if (actionBtnPressed) {
+					if (inPushableTrigger && !sameButtonPressed) {
+						state = PushingPose;
+						haxe.Timer.delay(() -> sameButtonPressed = true, 250);
+					}
+				}
 			case Running:
 				final RUNNING_SPEED = 350;
 
@@ -232,8 +238,15 @@ class Player extends FlxSprite {
 					physicsBody.velocity.x = 0;
 					this.animation.play("pushing");
 					this.animation.pause();
-				} else {
+				} else if (facing == FlxObject.RIGHT && rightPressed || facing == FlxObject.LEFT && leftPressed) {
 					state = Pushing;
+				} else {
+					state = Standing;
+					haxe.Timer.delay(() -> sameButtonPressed = false, 250);
+				}
+				if (actionBtnPressed && sameButtonPressed) {
+					state = Standing;
+					haxe.Timer.delay(() -> sameButtonPressed = false, 250);
 				}
 			case Pushing:
 				final PUSHING_SPEED = 250;
@@ -265,16 +278,5 @@ class Player extends FlxSprite {
 		updateControls();
 		stateMachine(elapsed);
 		super.update(elapsed);
-		trace(inPushableTrigger, actionBtnPressed, state != PushingPose, !sameButtonPressed, state);
-		if (actionBtnPressed) {
-			if (inPushableTrigger && state != PushingPose && !sameButtonPressed) {
-				state = PushingPose;
-				haxe.Timer.delay(() -> sameButtonPressed = true, 250);
-			}
-			if (state == PushingPose && sameButtonPressed) {
-				state = Standing;
-				haxe.Timer.delay(() -> sameButtonPressed = false, 250);
-			}
-		}
 	}
 }

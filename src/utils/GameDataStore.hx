@@ -13,13 +13,10 @@ class GameDataStore {
 		}
 	};
 
-	// public function setDefaults() {
-	// 	data.enableGroundListener = true;
-	// 	data.playerPos = {
-	// 		x: 93,
-	// 		y: 173,
-	// 	};
-	// }
+	public function updatePlayerPos(x: Int, y: Int) {
+		data.playerPos.x = x;
+		data.playerPos.y = y;
+	}
 
 	private function new() {}
 }
