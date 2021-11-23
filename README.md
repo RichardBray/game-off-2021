@@ -23,7 +23,6 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Add left leve boundary
 - Death animation
 - Checkpoints
 - Pause screen

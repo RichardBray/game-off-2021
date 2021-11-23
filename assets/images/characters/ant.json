@@ -1,0 +1,715 @@
+{
+  "frames": [
+    {
+      "filename": "Ant_Attack_17.png",
+      "frame": {
+        "x": 0.5,
+        "y": 0.5,
+        "w": 282,
+        "h": 154
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 95.5,
+        "w": 282,
+        "h": 154
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_09.png",
+      "frame": {
+        "x": 283.5,
+        "y": 0.5,
+        "w": 282,
+        "h": 154
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 95.5,
+        "w": 282,
+        "h": 154
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-09.png",
+      "frame": {
+        "x": 566.5,
+        "y": 0.5,
+        "w": 297.5,
+        "h": 154.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 16,
+        "y": 93,
+        "w": 297.5,
+        "h": 154.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-03.png",
+      "frame": {
+        "x": 865,
+        "y": 0.5,
+        "w": 267,
+        "h": 155.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 51,
+        "y": 92.5,
+        "w": 267,
+        "h": 155.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-04.png",
+      "frame": {
+        "x": 1133,
+        "y": 0.5,
+        "w": 282,
+        "h": 156
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 34.5,
+        "y": 94,
+        "w": 282,
+        "h": 156
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-05.png",
+      "frame": {
+        "x": 1416,
+        "y": 0.5,
+        "w": 307.5,
+        "h": 156
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 92,
+        "w": 307.5,
+        "h": 156
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-08.png",
+      "frame": {
+        "x": 1724.5,
+        "y": 0.5,
+        "w": 280.5,
+        "h": 156.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 34.5,
+        "y": 90.5,
+        "w": 280.5,
+        "h": 156.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-07.png",
+      "frame": {
+        "x": 0.5,
+        "y": 155.5,
+        "w": 290.5,
+        "h": 157.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 28.5,
+        "y": 90,
+        "w": 290.5,
+        "h": 157.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-10.png",
+      "frame": {
+        "x": 292,
+        "y": 156,
+        "w": 288.5,
+        "h": 157.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 21.5,
+        "y": 90.5,
+        "w": 288.5,
+        "h": 157.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-11.png",
+      "frame": {
+        "x": 581.5,
+        "y": 156,
+        "w": 281.5,
+        "h": 158.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 27.5,
+        "y": 88.5,
+        "w": 281.5,
+        "h": 158.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-06.png",
+      "frame": {
+        "x": 864,
+        "y": 157.5,
+        "w": 294,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 22,
+        "y": 90,
+        "w": 294,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-02.png",
+      "frame": {
+        "x": 1159,
+        "y": 157.5,
+        "w": 277.5,
+        "h": 160.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 35,
+        "y": 87.5,
+        "w": 277.5,
+        "h": 160.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_01.png",
+      "frame": {
+        "x": 1437.5,
+        "y": 157.5,
+        "w": 280.5,
+        "h": 164.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18,
+        "y": 85.5,
+        "w": 280.5,
+        "h": 164.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Run-01.png",
+      "frame": {
+        "x": 1719,
+        "y": 158,
+        "w": 279.5,
+        "h": 165.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 28.5,
+        "y": 82.5,
+        "w": 279.5,
+        "h": 165.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_02.png",
+      "frame": {
+        "x": 0.5,
+        "y": 314.5,
+        "w": 294.5,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 74,
+        "w": 294.5,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_08.png",
+      "frame": {
+        "x": 296,
+        "y": 314.5,
+        "w": 279.5,
+        "h": 176.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2.5,
+        "y": 73,
+        "w": 279.5,
+        "h": 176.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_10.png",
+      "frame": {
+        "x": 576.5,
+        "y": 315.5,
+        "w": 279.5,
+        "h": 176.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2.5,
+        "y": 73,
+        "w": 279.5,
+        "h": 176.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_16.png",
+      "frame": {
+        "x": 857,
+        "y": 318.5,
+        "w": 279.5,
+        "h": 176.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2.5,
+        "y": 73,
+        "w": 279.5,
+        "h": 176.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_03.png",
+      "frame": {
+        "x": 1137.5,
+        "y": 319,
+        "w": 258,
+        "h": 207
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 40.5,
+        "y": 42.5,
+        "w": 258,
+        "h": 207
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_07.png",
+      "frame": {
+        "x": 1396.5,
+        "y": 323,
+        "w": 246.5,
+        "h": 218.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 35.5,
+        "y": 31,
+        "w": 246.5,
+        "h": 218.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_11.png",
+      "frame": {
+        "x": 1644,
+        "y": 324.5,
+        "w": 246.5,
+        "h": 218.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 35.5,
+        "y": 31,
+        "w": 246.5,
+        "h": 218.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_15.png",
+      "frame": {
+        "x": 0.5,
+        "y": 491.5,
+        "w": 246.5,
+        "h": 218.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 35.5,
+        "y": 31,
+        "w": 246.5,
+        "h": 218.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_05.png",
+      "frame": {
+        "x": 248,
+        "y": 492,
+        "w": 224,
+        "h": 248.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 58,
+        "y": 1,
+        "w": 224,
+        "h": 248.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_13.png",
+      "frame": {
+        "x": 497.5,
+        "y": 493,
+        "w": 224,
+        "h": 248.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 58,
+        "y": 1,
+        "w": 224,
+        "h": 248.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_06.png",
+      "frame": {
+        "x": 747,
+        "y": 496,
+        "w": 224.5,
+        "h": 249.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 57.5,
+        "y": 0,
+        "w": 224.5,
+        "h": 249.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_12.png",
+      "frame": {
+        "x": 997.5,
+        "y": 527,
+        "w": 224.5,
+        "h": 249.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 57.5,
+        "y": 0,
+        "w": 224.5,
+        "h": 249.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_14.png",
+      "frame": {
+        "x": 1248,
+        "y": 542.5,
+        "w": 224.5,
+        "h": 249.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 57.5,
+        "y": 0,
+        "w": 224.5,
+        "h": 249.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Ant_Attack_04.png",
+      "frame": {
+        "x": 1498.5,
+        "y": 544,
+        "w": 241,
+        "h": 233.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 41,
+        "y": 16,
+        "w": 241,
+        "h": 233.5
+      },
+      "sourceSize": {
+        "w": 325,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "ant.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2006,
+      "h": 778
+    },
+    "scale": 0.5
+  }
+}

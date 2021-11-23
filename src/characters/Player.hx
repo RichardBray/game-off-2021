@@ -9,18 +9,6 @@ using echo.FlxEcho;
 using flixel.tweens.FlxTween;
 using utils.SpriteHelpers;
 
-enum PlayerStates {
-	Running;
-	Standing;
-	RunningJump;
-	StandingJump;
-	StandingJumpFail;
-	Climbing;
-	Frozen;
-	PushingPose;
-	Pushing;
-}
-
 class Player extends FlxSprite {
 	final controls = Controls.instance;
 	public var state(default, null): PlayerStates = Standing;
@@ -112,7 +100,7 @@ class Player extends FlxSprite {
 			frameNamePrefix: "Girl_Push_",
 			frameRate: 10,
 		});
-		// - facing direction
+		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
 	}
@@ -279,4 +267,16 @@ class Player extends FlxSprite {
 		stateMachine(elapsed);
 		super.update(elapsed);
 	}
+}
+
+enum PlayerStates {
+	Running;
+	Standing;
+	RunningJump;
+	StandingJump;
+	StandingJumpFail;
+	Climbing;
+	Frozen;
+	PushingPose;
+	Pushing;
 }
