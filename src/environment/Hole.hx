@@ -19,7 +19,7 @@ class Hole extends FlxTypedGroup<FlxObject> {
     this.player = player;
     this.x = x;
     // 1- listener
-    final listener = new FlxObject((x + 30), (y - 23), 10, 23);
+    final listener = new FlxObject((x + 30), (y - 10), 10, 10);
     listener.add_body({mass: 0});
     this.add(listener);
 

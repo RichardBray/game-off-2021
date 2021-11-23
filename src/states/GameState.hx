@@ -17,10 +17,7 @@ abstract class GameState extends FlxState {
 		FlxG.autoPause = false;
 		FlxG.camera.antialiasing = true;
 		FlxG.mouse.useSystemCursor = true;
-
-		#if !debug
-		FlxG.mouse.visible = false;
-		#end
+		FlxG.mouse.visible = true;
 	}
 
 	override public function update(elapsed: Float) {
