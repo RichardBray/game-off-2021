@@ -72,10 +72,10 @@ final class LevelTwo extends GameState {
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
 		final pebbles = new Pebbles(player);
-		final hole = new Hole(1747, 828, player);
-		final holeCovering = new FlxSprite((hole.x - 16), (FlxG.height - GROUND_HEIGHT_FROM_BASE));
-		holeCovering.makeGraphic(101, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
-		final movableRock = new MovableSprite(2969, 747, player);
+		final hole = new Hole(1721, 828, player);
+		final holeCovering = new FlxSprite((hole.x - 8), (FlxG.height - GROUND_HEIGHT_FROM_BASE + 9));
+		holeCovering.makeGraphic(137, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
+		final movableRock = new MovableSprite(2969, 728, player);
 		final smlMushroom = new SmlMushroom(3200, 610, player);
 		final raisedPlatform = new FlxSprite(3647, 617).makeGraphic(800, 218, Colors.groundGreen);
 		raisedPlatform.add_body({ mass: 0 });

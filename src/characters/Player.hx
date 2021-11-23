@@ -57,7 +57,7 @@ class Player extends FlxSprite {
 		this.changeHitboxSize({
 			reduceWidthBy: 150,
 			reduceHeightBy: 200,
-			heightOffset: 90,
+			heightOffset: 95,
 			widthOffset: -1,
 		});
 		// - pyhsics
@@ -149,6 +149,12 @@ class Player extends FlxSprite {
 
 					if (jumpTriggered) {
 						state = RunningJump;
+					}
+				}
+				if (actionBtnPressed) {
+					if (inPushableTrigger && !sameButtonPressed) {
+						state = PushingPose;
+						haxe.Timer.delay(() -> sameButtonPressed = true, 250);
 					}
 				}
 			case RunningJump:

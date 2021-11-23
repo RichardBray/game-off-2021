@@ -4,9 +4,9 @@ import characters.Player;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import utils.Colors;
 
 using echo.FlxEcho;
+using utils.SpriteHelpers;
 
 class MovableSprite extends FlxTypedGroup<FlxObject> {
   static inline final OBJECT_DRAG = 400;
@@ -20,21 +20,26 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
     super(3);
 
     this.player = player;
-    // 1 - pushing state trigger
-    pushingTrigger = new FlxObject((x - 45), y, 10, 88);
-    pushingTrigger.add_body({mass: 0});
-    add(pushingTrigger);
 
-    // 2 - sprite
+    // 1 - sprite
     sprite = new FlxSprite(x, y);
-    sprite.makeGraphic(43, 88, Colors.grey);
+    sprite.loadFrames("environment/items");
+		sprite.animation.frameName = "Rock_01.png";
+    sprite.width = 64;
+    sprite.height = 107;
+    sprite.offset.set(-20, 40);
     sprite.add_body({mass: 0});
     add(sprite);
 
-    // 3 - space buffer
-    spaceBuffer = new FlxObject((x - 35), y, 35, 88);
+    // 2 - space buffer
+    spaceBuffer = new FlxObject((x - 35), y, 35, sprite.height);
     spaceBuffer.add_body({mass: 0});
     add(spaceBuffer);
+
+    // 3 - pushing state trigger
+    pushingTrigger = new FlxObject(0, y, 10, sprite.height);
+    pushingTrigger.add_body({mass: 0});
+    add(pushingTrigger);
 
     player.listen(sprite);
     player.listen(spaceBuffer);
@@ -62,7 +67,7 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
     }
 
     if (player.state != Pushing) {
-      triggerBody.x = (spriteBody.x - 60);
+      triggerBody.x = (spaceBufferBody.x - 20);
       spriteBody.mass = 0;
       spaceBufferBody.mass = 0;
     }

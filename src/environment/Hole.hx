@@ -8,6 +8,7 @@ import utils.Colors;
 import utils.GameDataStore;
 
 using echo.FlxEcho;
+using utils.SpriteHelpers;
 
 class Hole extends FlxTypedGroup<FlxObject> {
   final dataStore = GameDataStore.instance;
@@ -19,12 +20,16 @@ class Hole extends FlxTypedGroup<FlxObject> {
     this.player = player;
     this.x = x;
     // 1- listener
-    final listener = new FlxObject((x + 30), (y - 10), 10, 10);
+    final listener = new FlxObject((x + 56), (y - 10), 10, 10);
     listener.add_body({mass: 0});
     this.add(listener);
 
     // 2 - sprite
-    final hole = new FlxSprite(x, y).makeGraphic(70, 7, Colors.black);
+    final hole = new FlxSprite(x, y);
+    hole.width = 122.5;
+    hole.height = 16;
+		hole.loadFrames("environment/items");
+		hole.animation.frameName = "Hole_01.png";
     this.add(hole);
 
 		this.player.listen(listener, {

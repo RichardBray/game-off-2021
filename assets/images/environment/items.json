@@ -1,0 +1,115 @@
+{
+  "frames": [
+    {
+      "filename": "Hole_01.png",
+      "frame": {
+        "x": 0.5,
+        "y": 0.5,
+        "w": 122.5,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 122.5,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 122.5,
+        "h": 16
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Rock_01.png",
+      "frame": {
+        "x": 124,
+        "y": 0.5,
+        "w": 84,
+        "h": 107
+      },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 84,
+        "h": 107
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 107
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Pebble_02.png",
+      "frame": {
+        "x": 0.5,
+        "y": 17.5,
+        "w": 63,
+        "h": 28.5
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 63,
+        "h": 28.5
+      },
+      "sourceSize": {
+        "w": 63,
+        "h": 28.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Pebble_01.png",
+      "frame": {
+        "x": 64.5,
+        "y": 17.5,
+        "w": 32.5,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 32.5,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 32.5,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "texture.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 232,
+      "h": 85
+    },
+    "scale": 0.5
+  }
+}
