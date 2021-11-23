@@ -1,0 +1,1640 @@
+{
+  "frames": [
+    {
+      "filename": "Girl_Climb_04.png",
+      "frame": {
+        "x": 0.5,
+        "y": 0.5,
+        "w": 38,
+        "h": 191
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76,
+        "y": 103.5,
+        "w": 38,
+        "h": 191
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_01.png",
+      "frame": {
+        "x": 192.5,
+        "y": 0.5,
+        "w": 42,
+        "h": 178
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 73,
+        "y": 103,
+        "w": 42,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_05.png",
+      "frame": {
+        "x": 371.5,
+        "y": 0.5,
+        "w": 42.5,
+        "h": 187
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 73.5,
+        "y": 101.5,
+        "w": 42.5,
+        "h": 187
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_02.png",
+      "frame": {
+        "x": 559.5,
+        "y": 0.5,
+        "w": 45,
+        "h": 157.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 70.5,
+        "y": 128.5,
+        "w": 45,
+        "h": 157.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_07.png",
+      "frame": {
+        "x": 718,
+        "y": 0.5,
+        "w": 45,
+        "h": 124
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 37,
+        "y": 202.5,
+        "w": 45,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_01.png",
+      "frame": {
+        "x": 843,
+        "y": 0.5,
+        "w": 45.5,
+        "h": 157.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 70.5,
+        "y": 118.5,
+        "w": 45.5,
+        "h": 157.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_03.png",
+      "frame": {
+        "x": 1001.5,
+        "y": 0.5,
+        "w": 45.5,
+        "h": 124.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 64,
+        "y": 202.5,
+        "w": 45.5,
+        "h": 124.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_02.png",
+      "frame": {
+        "x": 1127,
+        "y": 0.5,
+        "w": 46,
+        "h": 189.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 75,
+        "y": 103,
+        "w": 46,
+        "h": 189.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-02.png",
+      "frame": {
+        "x": 1317.5,
+        "y": 0.5,
+        "w": 46.5,
+        "h": 129
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76.5,
+        "y": 201.5,
+        "w": 46.5,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-03.png",
+      "frame": {
+        "x": 1447.5,
+        "y": 0.5,
+        "w": 46.5,
+        "h": 128
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76.5,
+        "y": 202.5,
+        "w": 46.5,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-04.png",
+      "frame": {
+        "x": 1576.5,
+        "y": 0.5,
+        "w": 46.5,
+        "h": 129
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76.5,
+        "y": 201.5,
+        "w": 46.5,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-06.png",
+      "frame": {
+        "x": 1706.5,
+        "y": 0.5,
+        "w": 46.5,
+        "h": 129
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76.5,
+        "y": 201.5,
+        "w": 46.5,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-07.png",
+      "frame": {
+        "x": 1836.5,
+        "y": 0.5,
+        "w": 46.5,
+        "h": 131
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76.5,
+        "y": 199.5,
+        "w": 46.5,
+        "h": 131
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-01.png",
+      "frame": {
+        "x": 0.5,
+        "y": 39.5,
+        "w": 47,
+        "h": 131
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76,
+        "y": 199.5,
+        "w": 47,
+        "h": 131
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Standing-05.png",
+      "frame": {
+        "x": 132.5,
+        "y": 43.5,
+        "w": 47,
+        "h": 129
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 76.5,
+        "y": 201.5,
+        "w": 47,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_01.png",
+      "frame": {
+        "x": 262.5,
+        "y": 44,
+        "w": 47.5,
+        "h": 131.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 70.5,
+        "y": 199,
+        "w": 47.5,
+        "h": 131.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_06.png",
+      "frame": {
+        "x": 395,
+        "y": 44,
+        "w": 49.5,
+        "h": 163
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 66,
+        "y": 93.5,
+        "w": 49.5,
+        "h": 163
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_03.png",
+      "frame": {
+        "x": 559,
+        "y": 46.5,
+        "w": 48,
+        "h": 186.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 73,
+        "y": 103.5,
+        "w": 48,
+        "h": 186.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_02.png",
+      "frame": {
+        "x": 746.5,
+        "y": 47,
+        "w": 50,
+        "h": 133
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 62.5,
+        "y": 198,
+        "w": 50,
+        "h": 133
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_09.png",
+      "frame": {
+        "x": 1968.5,
+        "y": 0.5,
+        "w": 100,
+        "h": 62.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 69,
+        "y": 57,
+        "w": 100,
+        "h": 62.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_09.png",
+      "frame": {
+        "x": 880.5,
+        "y": 47,
+        "w": 55.5,
+        "h": 114
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 78.5,
+        "y": 213,
+        "w": 55.5,
+        "h": 114
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_05.png",
+      "frame": {
+        "x": 995.5,
+        "y": 47,
+        "w": 57,
+        "h": 118
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53,
+        "y": 209,
+        "w": 57,
+        "h": 118
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_10.png",
+      "frame": {
+        "x": 1114.5,
+        "y": 47.5,
+        "w": 57,
+        "h": 117.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 80.5,
+        "y": 209.5,
+        "w": 57,
+        "h": 117.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_11.png",
+      "frame": {
+        "x": 1233,
+        "y": 48,
+        "w": 57,
+        "h": 117.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53.5,
+        "y": 209.5,
+        "w": 57,
+        "h": 117.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_07.png",
+      "frame": {
+        "x": 1351.5,
+        "y": 48,
+        "w": 60,
+        "h": 128.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 60,
+        "y": 73,
+        "w": 60,
+        "h": 128.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_04.png",
+      "frame": {
+        "x": 1481,
+        "y": 48,
+        "w": 60,
+        "h": 124.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53,
+        "y": 202.5,
+        "w": 60,
+        "h": 124.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_06.png",
+      "frame": {
+        "x": 1606.5,
+        "y": 48,
+        "w": 61.5,
+        "h": 119.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 40.5,
+        "y": 207.5,
+        "w": 61.5,
+        "h": 119.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_07.png",
+      "frame": {
+        "x": 1727,
+        "y": 48,
+        "w": 61.5,
+        "h": 119.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 67.5,
+        "y": 207.5,
+        "w": 61.5,
+        "h": 119.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_08.png",
+      "frame": {
+        "x": 1847.5,
+        "y": 48,
+        "w": 61.5,
+        "h": 119.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 67.5,
+        "y": 207.5,
+        "w": 61.5,
+        "h": 119.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Death_01.png",
+      "frame": {
+        "x": 0.5,
+        "y": 87.5,
+        "w": 63,
+        "h": 124.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 77.5,
+        "y": 206.5,
+        "w": 63,
+        "h": 124.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_03.png",
+      "frame": {
+        "x": 126,
+        "y": 92.5,
+        "w": 63,
+        "h": 151.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 63.5,
+        "y": 153.5,
+        "w": 63,
+        "h": 151.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_12.png",
+      "frame": {
+        "x": 278.5,
+        "y": 94.5,
+        "w": 63,
+        "h": 157.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53.5,
+        "y": 139.5,
+        "w": 63,
+        "h": 157.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_JumpFail_04.png",
+      "frame": {
+        "x": 437,
+        "y": 95.5,
+        "w": 63.5,
+        "h": 157.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53.5,
+        "y": 162,
+        "w": 63.5,
+        "h": 157.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_04.png",
+      "frame": {
+        "x": 595.5,
+        "y": 95.5,
+        "w": 123.5,
+        "h": 65
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 28,
+        "y": 260.5,
+        "w": 123.5,
+        "h": 65
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_08.png",
+      "frame": {
+        "x": 720,
+        "y": 98,
+        "w": 123,
+        "h": 65
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 28.5,
+        "y": 260.5,
+        "w": 123,
+        "h": 65
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_01.png",
+      "frame": {
+        "x": 844,
+        "y": 103.5,
+        "w": 107,
+        "h": 65.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 44,
+        "y": 260.5,
+        "w": 107,
+        "h": 65.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_05.png",
+      "frame": {
+        "x": 952,
+        "y": 105,
+        "w": 107,
+        "h": 66
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 44.5,
+        "y": 260.5,
+        "w": 107,
+        "h": 66
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_07.png",
+      "frame": {
+        "x": 1060,
+        "y": 105.5,
+        "w": 132.5,
+        "h": 67
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 259.5,
+        "w": 132.5,
+        "h": 67
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_02.png",
+      "frame": {
+        "x": 1193.5,
+        "y": 106,
+        "w": 118,
+        "h": 67.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 33.5,
+        "y": 258.5,
+        "w": 118,
+        "h": 67.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_06.png",
+      "frame": {
+        "x": 1312.5,
+        "y": 109,
+        "w": 117.5,
+        "h": 67.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 33.5,
+        "y": 258.5,
+        "w": 117.5,
+        "h": 67.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_06.png",
+      "frame": {
+        "x": 1431,
+        "y": 109,
+        "w": 67.5,
+        "h": 122.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 59,
+        "y": 204.5,
+        "w": 67.5,
+        "h": 122.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_11.png",
+      "frame": {
+        "x": 1554.5,
+        "y": 110.5,
+        "w": 68,
+        "h": 101
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 104,
+        "y": 6,
+        "w": 68,
+        "h": 101
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Push_03.png",
+      "frame": {
+        "x": 1656.5,
+        "y": 110.5,
+        "w": 132.5,
+        "h": 68.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 258,
+        "w": 132.5,
+        "h": 68.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_StandingJump_05.png",
+      "frame": {
+        "x": 1790,
+        "y": 110.5,
+        "w": 70,
+        "h": 127
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 46,
+        "y": 200,
+        "w": 70,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_08.png",
+      "frame": {
+        "x": 1918,
+        "y": 110.5,
+        "w": 74.5,
+        "h": 122
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 66,
+        "y": 50,
+        "w": 74.5,
+        "h": 122
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_03.png",
+      "frame": {
+        "x": 0.5,
+        "y": 151.5,
+        "w": 74.5,
+        "h": 123.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 65.5,
+        "y": 200,
+        "w": 74.5,
+        "h": 123.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_03.png",
+      "frame": {
+        "x": 125,
+        "y": 156.5,
+        "w": 75,
+        "h": 102
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 70.5,
+        "y": 224.5,
+        "w": 75,
+        "h": 102
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_02.png",
+      "frame": {
+        "x": 228,
+        "y": 158.5,
+        "w": 76,
+        "h": 124.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 60.5,
+        "y": 199,
+        "w": 76,
+        "h": 124.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_07.png",
+      "frame": {
+        "x": 353.5,
+        "y": 160,
+        "w": 78,
+        "h": 121.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 71,
+        "y": 205,
+        "w": 78,
+        "h": 121.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_01.png",
+      "frame": {
+        "x": 476,
+        "y": 161.5,
+        "w": 78.5,
+        "h": 122.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 77,
+        "y": 201,
+        "w": 78.5,
+        "h": 122.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Death_02.png",
+      "frame": {
+        "x": 599.5,
+        "y": 161.5,
+        "w": 80.5,
+        "h": 118.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 64.5,
+        "y": 209,
+        "w": 80.5,
+        "h": 118.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_10.png",
+      "frame": {
+        "x": 719,
+        "y": 164,
+        "w": 90,
+        "h": 83.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 86.5,
+        "y": 24,
+        "w": 90,
+        "h": 83.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_07.png",
+      "frame": {
+        "x": 810,
+        "y": 170,
+        "w": 87,
+        "h": 114.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 59,
+        "y": 209,
+        "w": 87,
+        "h": 114.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_05.png",
+      "frame": {
+        "x": 925.5,
+        "y": 172,
+        "w": 88.5,
+        "h": 112
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 54,
+        "y": 211.5,
+        "w": 88.5,
+        "h": 112
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_01.png",
+      "frame": {
+        "x": 1038.5,
+        "y": 173.5,
+        "w": 107,
+        "h": 89.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 43.5,
+        "y": 213,
+        "w": 107,
+        "h": 89.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_02.png",
+      "frame": {
+        "x": 1146.5,
+        "y": 174.5,
+        "w": 92,
+        "h": 110
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 57,
+        "y": 214.5,
+        "w": 92,
+        "h": 110
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_06.png",
+      "frame": {
+        "x": 1257.5,
+        "y": 177.5,
+        "w": 92,
+        "h": 122
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 55.5,
+        "y": 204.5,
+        "w": 92,
+        "h": 122
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_04.png",
+      "frame": {
+        "x": 1380.5,
+        "y": 177.5,
+        "w": 92.5,
+        "h": 103.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 49.5,
+        "y": 220,
+        "w": 92.5,
+        "h": 103.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Death_04.png",
+      "frame": {
+        "x": 1485,
+        "y": 179.5,
+        "w": 93,
+        "h": 102
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 65.5,
+        "y": 208.5,
+        "w": 93,
+        "h": 102
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_015.png",
+      "frame": {
+        "x": 1588,
+        "y": 180,
+        "w": 104,
+        "h": 93.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 47.5,
+        "y": 211,
+        "w": 104,
+        "h": 93.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_08.png",
+      "frame": {
+        "x": 1693,
+        "y": 181.5,
+        "w": 95.5,
+        "h": 101.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 55,
+        "y": 225,
+        "w": 95.5,
+        "h": 101.5
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Run_04.png",
+      "frame": {
+        "x": 1795.5,
+        "y": 181.5,
+        "w": 96,
+        "h": 99
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 54.5,
+        "y": 223,
+        "w": 96,
+        "h": 99
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Death_03.png",
+      "frame": {
+        "x": 1895.5,
+        "y": 186,
+        "w": 111,
+        "h": 99
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 47,
+        "y": 223.5,
+        "w": 111,
+        "h": 99
+      },
+      "sourceSize": {
+        "w": 193.5,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_Climb_12.png",
+      "frame": {
+        "x": 0.5,
+        "y": 227,
+        "w": 103.5,
+        "h": 107.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 89.5,
+        "y": 0,
+        "w": 103.5,
+        "h": 107.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 330.5
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Girl_RunJump_06.png",
+      "frame": {
+        "x": 109,
+        "y": 232.5,
+        "w": 107,
+        "h": 116.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53,
+        "y": 207,
+        "w": 107,
+        "h": 116.5
+      },
+      "sourceSize": {
+        "w": 193,
+        "h": 331
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "girl.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2041,
+      "h": 340
+    },
+    "scale": 0.5
+  }
+}
