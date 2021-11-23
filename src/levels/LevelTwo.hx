@@ -16,6 +16,7 @@ import openfl.filters.ShaderFilter;
 import shaders.Pixelate;
 import states.GameState;
 import ui.TextPrompts;
+import utils.Checkpoints;
 import utils.Colors;
 import utils.GameDataStore;
 
@@ -68,9 +69,13 @@ final class LevelTwo extends GameState {
 
 		// - npc sprites
 		final ant = new Ant(3989, 585);
-		// - environments objects
+
+		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
+		final checkpoints = new Checkpoints(player);
+
+		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(1721, 828, player);
 		final holeCovering = new FlxSprite((hole.x - 8), (FlxG.height - GROUND_HEIGHT_FROM_BASE + 9));
@@ -85,6 +90,7 @@ final class LevelTwo extends GameState {
 
 		// - order objects
 		this.add(leftBound);
+		this.add(checkpoints);
 		this.add(grpBackground);
 		this.add(groundListener);
 

@@ -13,7 +13,7 @@ class GameDataStore {
 		}
 	};
 
-	public function updatePlayerPos(x: Int, y: Int) {
+	public function setPlayerPos(x: Int, y: Int) {
 		data.playerPos.x = x;
 		data.playerPos.y = y;
 	}
