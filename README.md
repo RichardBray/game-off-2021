@@ -24,7 +24,6 @@ lix install gh:AustinEast/echo-flixel
 
 ## Todo
 - Death animation
-- Checkpoints
 - Pause screen
 
 ## Post Jam changes

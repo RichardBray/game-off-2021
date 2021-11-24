@@ -22,22 +22,22 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
     this.player = player;
 
     // 1 - sprite
-    sprite = new FlxSprite(x, y);
+    sprite = new FlxSprite(x, (y + 7));
     sprite.loadFrames("environment/items");
 		sprite.animation.frameName = "Rock_01.png";
     sprite.width = 64;
-    sprite.height = 107;
+    sprite.height = 100;
     sprite.offset.set(-20, 40);
     sprite.add_body({mass: 0});
     add(sprite);
 
     // 2 - space buffer
-    spaceBuffer = new FlxObject((x - 35), y, 35, sprite.height);
+    spaceBuffer = new FlxObject((x - 35),sprite.y, 35, sprite.height);
     spaceBuffer.add_body({mass: 0});
     add(spaceBuffer);
 
     // 3 - pushing state trigger
-    pushingTrigger = new FlxObject(0, y, 10, sprite.height);
+    pushingTrigger = new FlxObject(0, sprite.y, 10, sprite.height);
     pushingTrigger.add_body({mass: 0});
     add(pushingTrigger);
 
@@ -47,7 +47,7 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
 
 		player.listen(pushingTrigger, {
 			separate: false,
-			enter: (playerBody, _, _) ->  {
+			enter: (_, _, _) ->  {
         player.inPushableTrigger = true;
       },
 			exit: (_, _) ->  player.inPushableTrigger = false,

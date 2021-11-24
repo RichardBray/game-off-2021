@@ -6,7 +6,7 @@
 	<set name="BUILD_DIR" value="export" />
 
 	<window width="1920" height="1080" fps="60" background="#000000" hardware="true" vsync="true" />
-	<window if="html5" width="1280" height="720" resizable="true" />
+	<window if="html5 debug" width="1280" height="720" resizable="true" />
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
 
 	<classpath name="src" />

@@ -29,7 +29,7 @@ final class LevelTwo extends GameState {
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 3;
+		final fullMapWidth = FlxG.width * 4;
 
 		// - physics world
 		FlxEcho.init({
@@ -68,13 +68,14 @@ final class LevelTwo extends GameState {
 		player = new Player(dataStore.data.playerPos.x, dataStore.data.playerPos.y, playerClimb);
 
 		// - npc sprites
-		final ant = new Ant(3989, 585);
+		final ant = new Ant(3989, 675, player);
 
 		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
-
+		final antTrigger = new FlxObject(5080, 726, 49, 106);
+		antTrigger.add_body({mass: 0});
 		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(1721, 828, player);
@@ -90,6 +91,7 @@ final class LevelTwo extends GameState {
 
 		// - order objects
 		this.add(leftBound);
+		this.add(antTrigger);
 		this.add(checkpoints);
 		this.add(grpBackground);
 		this.add(groundListener);
@@ -98,24 +100,30 @@ final class LevelTwo extends GameState {
 		this.add(hole);
 		this.add(movableRock);
 		this.add(smlMushroom);
-		this.add(ant);
-		this.add(raisedPlatform);
 
 		this.add(playerClimb);
 		this.add(player);
+		this.add(ant);
+		this.add(raisedPlatform);
 		this.add(holeCovering);
 		// add(textPropmpts);
 
 		// - physics listeners
 		player.listen(leftBound);
 		player.listen(groundListener);
+		player.listen(raisedPlatform);
+
+		ant.listen(groundListener);
 
 		movableRock.forEach(member -> {
 			member.listen(groundListener);
 			member.listen(smlMushroom.stalkCollision);
 		});
 
-		player.listen(raisedPlatform);
+		antTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> ant.state = Running,
+		});
 
 		// - camera settings
 		FlxG.worldBounds.set(0, 0, fullMapWidth, FlxG.height);
@@ -134,14 +142,17 @@ final class LevelTwo extends GameState {
 		}
 	}
 
-	override function update(elapsed: Float) {
-		super.update(elapsed);
-
+	function levelResetConditions() {
 		groundListener.get_body().active = dataStore.data.enableGroundListener;
-
-		if (player.get_body().y > FlxG.height) {
+		final playerBelowGround = player.get_body().y > FlxG.height;
+		if (playerBelowGround || !player.alive) {
 			dataStore.data.enableGroundListener = true;
 			FlxG.resetState();
 		}
+	}
+
+	override function update(elapsed: Float) {
+		levelResetConditions();
+		super.update(elapsed);
 	}
 }

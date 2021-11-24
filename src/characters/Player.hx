@@ -28,6 +28,7 @@ class Player extends FlxSprite {
 	var runningJumpTimer: Float = 0;
 	var climbingTimer: Float = 0;
 	var standingJumpTimer: Float = 0;
+	var dyingTimer: Float = 0;
 	// - button press booleans
 	var rightPressed = false;
 	var leftPressed = false;
@@ -99,6 +100,12 @@ class Player extends FlxSprite {
 			totalFrames: 8,
 			frameNamePrefix: "Girl_Push_",
 			frameRate: 10,
+		});
+		this.setAnimationByFrames({
+			name: "dying",
+			totalFrames: 4,
+			frameNamePrefix: "Girl_Death_",
+			frameRate: 4,
 		});
 		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
@@ -251,6 +258,17 @@ class Player extends FlxSprite {
 					physicsBody.velocity.x = PUSHING_SPEED;
 					this.animation.play("pushing");
 				}
+			case Dying:
+				dyingTimer += elapsed;
+				physicsBody.velocity.x = 0;
+				this.animation.play("dying");
+		}
+	}
+
+	public function deathSequence() {
+		state = Dying;
+		if (dyingTimer > .75) {
+			this.kill();
 		}
 	}
 
@@ -285,4 +303,5 @@ enum PlayerStates {
 	Frozen;
 	PushingPose;
 	Pushing;
+	Dying;
 }
