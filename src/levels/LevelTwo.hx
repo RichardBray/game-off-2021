@@ -3,6 +3,7 @@ package levels;
 import characters.Ant;
 import characters.Player;
 import characters.PlayerClimb;
+import characters.Wasp;
 import environment.Hole;
 import environment.MovableSprite;
 import environment.Mushrooms;
@@ -12,6 +13,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxRect;
+import flixel.tweens.FlxTween;
 import openfl.filters.ShaderFilter;
 import shaders.Pixelate;
 import states.GameState;
@@ -26,10 +28,17 @@ final class LevelTwo extends GameState {
 	final dataStore = GameDataStore.instance;
 	var player: Player;
 	var groundListener: FlxObject;
+	var cameraUpTrigger: FlxObject;
+	var cameraDownTrigger: FlxObject;
+	var wasp: Wasp;
+
+	// - triggers set
+	var cameraUpSet: Bool = false;
+	var cameraDownSet: Bool = false;
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 4;
+		final fullMapWidth = FlxG.width * 6;
 
 		// - physics world
 		FlxEcho.init({
@@ -69,6 +78,9 @@ final class LevelTwo extends GameState {
 
 		// - npc sprites
 		final ant = new Ant(3989, 675, player);
+		wasp = new Wasp(5760, 0);
+		wasp.alpha = 0;
+		wasp.scale.set(.5, .5);
 
 		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
@@ -76,6 +88,11 @@ final class LevelTwo extends GameState {
 		final checkpoints = new Checkpoints(player);
 		final antTrigger = new FlxObject(5000, 726, 49, 106);
 		antTrigger.add_body({mass: 0});
+		cameraUpTrigger = new FlxObject(6746, 726, 49, 106);
+		cameraUpTrigger.add_body({mass: 0});
+		cameraDownTrigger = new FlxObject(8598, 726, 49, 106);
+		cameraDownTrigger.add_body({mass: 0});
+
 		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(1721, 828, player);
@@ -97,6 +114,8 @@ final class LevelTwo extends GameState {
 		// - order objects
 		this.add(leftBound);
 		this.add(antTrigger);
+		this.add(cameraUpTrigger);
+		this.add(cameraDownTrigger);
 		this.add(checkpoints);
 		this.add(grpBackground);
 		this.add(groundListener);
@@ -107,6 +126,7 @@ final class LevelTwo extends GameState {
 		this.add(mushrooms);
 
 		this.add(ant);
+		this.add(wasp);
 		this.add(raisedPlatform);
 		this.add(playerClimb);
 		this.add(player);
@@ -154,8 +174,33 @@ final class LevelTwo extends GameState {
 		}
 	}
 
+	function cameraMovements(elapsed: Float) {
+		cameraUpTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				if (!cameraUpSet) {
+					FlxTween.tween(FlxG.camera, {height: FlxG.camera.height + 200}, 1);
+					FlxTween.tween(FlxG.camera, {zoom: .8}, 1);
+					wasp.triggerSkyFly = true;
+					cameraUpSet = true;
+				}
+			}
+		});
+		cameraDownTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				if (!cameraDownSet) {
+					FlxTween.tween(FlxG.camera, {height: FlxG.camera.height - 200}, 1);
+					FlxTween.tween(FlxG.camera, {zoom: 1}, 1);
+					cameraDownSet = true;
+				}
+			}
+		});
+	}
+
 	override function update(elapsed: Float) {
 		levelResetConditions();
+		cameraMovements(elapsed);
 		super.update(elapsed);
 	}
 }

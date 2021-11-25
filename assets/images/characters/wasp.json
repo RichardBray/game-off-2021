@@ -1,0 +1,840 @@
+{
+  "frames": [
+    {
+      "filename": "WaspSting_01.png",
+      "frame": {
+        "x": 0.5,
+        "y": 0.5,
+        "w": 503.5,
+        "h": 266.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 21.5,
+        "w": 503.5,
+        "h": 266.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspLand_03.png",
+      "frame": {
+        "x": 505,
+        "y": 0.5,
+        "w": 483.5,
+        "h": 186.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 126,
+        "w": 483.5,
+        "h": 186.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspLand_05.png",
+      "frame": {
+        "x": 989.5,
+        "y": 0.5,
+        "w": 482.5,
+        "h": 267.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 101,
+        "w": 482.5,
+        "h": 267.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspLand_04.png",
+      "frame": {
+        "x": 505,
+        "y": 188,
+        "w": 481,
+        "h": 215
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0.5,
+        "y": 118.5,
+        "w": 481,
+        "h": 215
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspLand_02.png",
+      "frame": {
+        "x": 0.5,
+        "y": 268,
+        "w": 479,
+        "h": 180.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2.5,
+        "y": 102,
+        "w": 479,
+        "h": 180.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_14.png",
+      "frame": {
+        "x": 1473,
+        "y": 0.5,
+        "w": 475,
+        "h": 178
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9,
+        "y": 82.5,
+        "w": 475,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_15.png",
+      "frame": {
+        "x": 1473,
+        "y": 179.5,
+        "w": 474,
+        "h": 149
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8.5,
+        "y": 112.5,
+        "w": 474,
+        "h": 149
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_01.png",
+      "frame": {
+        "x": 987,
+        "y": 269,
+        "w": 473.5,
+        "h": 252
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7.5,
+        "y": 13.5,
+        "w": 473.5,
+        "h": 252
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_13.png",
+      "frame": {
+        "x": 987,
+        "y": 522,
+        "w": 473,
+        "h": 255.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9.5,
+        "y": 3,
+        "w": 473,
+        "h": 255.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_16.png",
+      "frame": {
+        "x": 480.5,
+        "y": 404,
+        "w": 473,
+        "h": 214.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 9.5,
+        "y": 48,
+        "w": 473,
+        "h": 214.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_12.png",
+      "frame": {
+        "x": 0.5,
+        "y": 449.5,
+        "w": 472,
+        "h": 215
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 42.5,
+        "w": 472,
+        "h": 215
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_03.png",
+      "frame": {
+        "x": 473.5,
+        "y": 619.5,
+        "w": 472,
+        "h": 146
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10.5,
+        "y": 117.5,
+        "w": 472,
+        "h": 146
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_02.png",
+      "frame": {
+        "x": 0.5,
+        "y": 665.5,
+        "w": 471.5,
+        "h": 178
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 86.5,
+        "w": 471.5,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspLand_01.png",
+      "frame": {
+        "x": 473,
+        "y": 766.5,
+        "w": 470,
+        "h": 257
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12.5,
+        "y": 7.5,
+        "w": 470,
+        "h": 257
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_09.png",
+      "frame": {
+        "x": 0.5,
+        "y": 844.5,
+        "w": 470,
+        "h": 252
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12.5,
+        "y": 1,
+        "w": 470,
+        "h": 252
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_06.png",
+      "frame": {
+        "x": 1461.5,
+        "y": 329.5,
+        "w": 470,
+        "h": 178
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 77,
+        "w": 470,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_10.png",
+      "frame": {
+        "x": 1461.5,
+        "y": 508.5,
+        "w": 470,
+        "h": 178
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 76,
+        "w": 470,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_07.png",
+      "frame": {
+        "x": 1461,
+        "y": 687.5,
+        "w": 470,
+        "h": 146.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12.5,
+        "y": 107.5,
+        "w": 470,
+        "h": 146.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_11.png",
+      "frame": {
+        "x": 944,
+        "y": 778.5,
+        "w": 470,
+        "h": 145.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12.5,
+        "y": 109.5,
+        "w": 470,
+        "h": 145.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_08.png",
+      "frame": {
+        "x": 944,
+        "y": 925,
+        "w": 469.5,
+        "h": 213.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 40.5,
+        "w": 469.5,
+        "h": 213.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_05.png",
+      "frame": {
+        "x": 471.5,
+        "y": 1024.5,
+        "w": 468.5,
+        "h": 255.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12.5,
+        "y": 2,
+        "w": 468.5,
+        "h": 255.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspFly_04.png",
+      "frame": {
+        "x": 0.5,
+        "y": 1097.5,
+        "w": 468.5,
+        "h": 213.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 48,
+        "w": 468.5,
+        "h": 213.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_02.png",
+      "frame": {
+        "x": 1415,
+        "y": 835,
+        "w": 467,
+        "h": 262.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 55.5,
+        "y": 115,
+        "w": 467,
+        "h": 262.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_11.png",
+      "frame": {
+        "x": 1415,
+        "y": 1098.5,
+        "w": 467,
+        "h": 246
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 55,
+        "y": 131.5,
+        "w": 467,
+        "h": 246
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspLand_06.png",
+      "frame": {
+        "x": 941,
+        "y": 1139.5,
+        "w": 466,
+        "h": 286.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 18.5,
+        "y": 91.5,
+        "w": 466,
+        "h": 286.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_09.png",
+      "frame": {
+        "x": 470,
+        "y": 1281,
+        "w": 390.5,
+        "h": 290.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 126,
+        "y": 63,
+        "w": 390.5,
+        "h": 290.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_08.png",
+      "frame": {
+        "x": 0.5,
+        "y": 1312,
+        "w": 368.5,
+        "h": 302.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 161,
+        "y": 56.5,
+        "w": 368.5,
+        "h": 302.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_05.png",
+      "frame": {
+        "x": 0.5,
+        "y": 1615.5,
+        "w": 363.5,
+        "h": 313.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 110.5,
+        "y": 45.5,
+        "w": 363.5,
+        "h": 313.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_03.png",
+      "frame": {
+        "x": 315,
+        "y": 1615.5,
+        "w": 322,
+        "h": 353
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 178,
+        "y": 63,
+        "w": 322,
+        "h": 353
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_04.png",
+      "frame": {
+        "x": 638,
+        "y": 1572.5,
+        "w": 352.5,
+        "h": 335.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 118,
+        "y": 30.5,
+        "w": 352.5,
+        "h": 335.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_10.png",
+      "frame": {
+        "x": 974.5,
+        "y": 1572.5,
+        "w": 308.5,
+        "h": 335.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 162,
+        "y": 30.5,
+        "w": 308.5,
+        "h": 335.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_06.png",
+      "frame": {
+        "x": 1284,
+        "y": 1572.5,
+        "w": 323,
+        "h": 284.5
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 187,
+        "y": 77.5,
+        "w": 323,
+        "h": 284.5
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "WaspSting_07.png",
+      "frame": {
+        "x": 1408,
+        "y": 1345.5,
+        "w": 301,
+        "h": 221
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 229,
+        "y": 141,
+        "w": 301,
+        "h": 221
+      },
+      "sourceSize": {
+        "w": 531.5,
+        "h": 416
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "wasp.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1949,
+      "h": 1980
+    },
+    "scale": 0.5
+  }
+}

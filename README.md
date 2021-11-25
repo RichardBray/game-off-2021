@@ -23,8 +23,8 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
+- Make ant walk back from mushroom base
 - Second mushroom
-- Add wasp
 - Add spider
 - Pause screen
 
