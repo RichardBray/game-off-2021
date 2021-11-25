@@ -17,7 +17,6 @@ typedef ClimeableSpriteOptions = {
   var imageHeight: Int;
   var player: Player;
   var vertices: Array<Array<Float>>;
-  var ?flipImageX: Bool;
 }
 
 class ClimableSprite extends FlxTypedGroup<FlxObject> {
@@ -25,7 +24,7 @@ class ClimableSprite extends FlxTypedGroup<FlxObject> {
     super(2);
     // 1 - image sprite
     final polygonVerts = [
-      for (v in options.vertices) new Vector2(v[0] - ((options.imageWidth - 15) * 0.5), v[1] - ((options.imageHeight - 30) * 0.5))
+      for (v in options.vertices) new Vector2(v[0] - ((options.imageWidth - 20) * 0.5), v[1] - ((options.imageHeight - 45) * 0.5))
     ];
     final sprtImage = new FlxSprite(options.x, options.y);
     sprtImage.loadGraphic(
@@ -34,11 +33,6 @@ class ClimableSprite extends FlxTypedGroup<FlxObject> {
       options.imageWidth,
       options.imageHeight
     );
-		sprtImage.setFacingFlip(FlxObject.LEFT, true, false);
-		sprtImage.setFacingFlip(FlxObject.RIGHT, false, false);
-    if (options.flipImageX) {
-      sprtImage.facing = FlxObject.LEFT;
-    }
     sprtImage.add_body({
       mass: 0,
       shape: {

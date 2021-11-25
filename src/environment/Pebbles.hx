@@ -1,25 +1,45 @@
 package environment;
 
 import characters.Player;
-import flixel.FlxSprite;
+import environment.Pebble.PebbleTypes;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
 using echo.FlxEcho;
 
-class Pebbles extends FlxTypedGroup<FlxSprite> {
+class Pebbles extends FlxTypedGroup<Pebble> {
+
+  final pebbles: Array<PebbleObj> = [
+    {
+      x: 905,
+      y: 805,
+      type: Small
+    },
+    {
+      x: 1293,
+      y: 805,
+      type: Small
+    },
+    {
+      x: 5672,
+      y: 805,
+      type: Small
+    },
+  ];
 
   public function new(player: Player) {
-    super(2);
+    super(pebbles.length);
 
-		final pebble = new Pebble(905, 805, Small);
-    add(pebble);
-
-		final pebbleTwo = new Pebble(1293, 805, Large);
-    add(pebbleTwo);
-
-    this.forEach((member) -> {
-      member.add_body({mass: 0});
-      player.listen(member);
-    });
+    for (pebble in pebbles) {
+      final pebbleSprt: Pebble = new Pebble(pebble.x, pebble.y, pebble.type);
+      pebbleSprt.add_body({mass: 0});
+      player.listen(pebbleSprt);
+      add(pebbleSprt);
+    }
   }
+}
+
+typedef PebbleObj = {
+  x: Int,
+  y: Int,
+  type: PebbleTypes
 }

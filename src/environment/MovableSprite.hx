@@ -11,28 +11,34 @@ using utils.SpriteHelpers;
 class MovableSprite extends FlxTypedGroup<FlxObject> {
   static inline final OBJECT_DRAG = 400;
   static inline final OBJECT_MASS = 3;
-  var sprite: FlxSprite;
+  public var sprite: FlxSprite;
   var pushingTrigger: FlxObject;
   var spaceBuffer: FlxObject;
   var player: Player;
+  var x:Float;
+  var y:Float;
+  var groundListener:FlxObject;
 
-  public function new(x: Float, y: Float, player: Player) {
+  public function new(options: MovableSpriteOptions) {
     super(3);
 
-    this.player = player;
+    this.x = options.x;
+    this.y = options.y;
+    this.player = options.player;
+    this.groundListener = options.groundListener;
 
     // 1 - sprite
-    sprite = new FlxSprite(x, (y + 7));
+    sprite = new FlxSprite(x, (y - 11));
     sprite.loadFrames("environment/items");
-		sprite.animation.frameName = "Rock_01.png";
-    sprite.width = 64;
-    sprite.height = 100;
-    sprite.offset.set(-20, 40);
+		sprite.animation.frameName = "Rock_03.png";
+    sprite.width = 54;
+    sprite.height = 120;
+    sprite.offset.set(-30, 50);
     sprite.add_body({mass: 0});
     add(sprite);
 
     // 2 - space buffer
-    spaceBuffer = new FlxObject((x - 35),sprite.y, 35, sprite.height);
+    spaceBuffer = new FlxObject((x - 35), sprite.y, 35, sprite.height);
     spaceBuffer.add_body({mass: 0});
     add(spaceBuffer);
 
@@ -42,8 +48,12 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
     add(pushingTrigger);
 
     player.listen(sprite);
+
     player.listen(spaceBuffer);
     sprite.listen(spaceBuffer);
+
+    sprite.listen(groundListener);
+    spaceBuffer.listen(groundListener);
 
 		player.listen(pushingTrigger, {
 			separate: false,
@@ -78,3 +88,10 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
     updatePushableSpritePhysics();
   }
 }
+
+typedef MovableSpriteOptions = {
+  x: Float,
+  y: Float,
+  player: Player,
+  groundListener: FlxObject,
+};

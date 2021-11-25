@@ -5,8 +5,8 @@ import characters.Player;
 import characters.PlayerClimb;
 import environment.Hole;
 import environment.MovableSprite;
+import environment.Mushrooms;
 import environment.Pebbles;
-import environment.SmlMushroom;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -81,8 +81,13 @@ final class LevelTwo extends GameState {
 		final hole = new Hole(1721, 828, player);
 		final holeCovering = new FlxSprite((hole.x - 8), (FlxG.height - GROUND_HEIGHT_FROM_BASE + 9));
 		holeCovering.makeGraphic(137, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
-		final movableRock = new MovableSprite(2969, 728, player);
-		final smlMushroom = new SmlMushroom(3200, 610, player);
+		final movableRock = new MovableSprite({
+			x: 2969,
+			y: 728,
+			player: player,
+			groundListener: groundListener,
+		});
+		final mushrooms = new Mushrooms(player);
 		final raisedPlatform = new FlxSprite(3647, 617).makeGraphic(800, 218, Colors.groundGreen);
 		raisedPlatform.add_body({ mass: 0 });
 
@@ -99,7 +104,7 @@ final class LevelTwo extends GameState {
 		this.add(pebbles);
 		this.add(hole);
 		this.add(movableRock);
-		this.add(smlMushroom);
+		this.add(mushrooms);
 
 		this.add(playerClimb);
 		this.add(player);
@@ -115,10 +120,8 @@ final class LevelTwo extends GameState {
 
 		ant.listen(groundListener);
 
-		movableRock.forEach(member -> {
-			member.listen(groundListener);
-			member.listen(smlMushroom.stalkCollision);
-		});
+		final test = mushrooms.members[0];
+		movableRock.sprite.listen(test.stalkCollision);
 
 		antTrigger.listen(player, {
 			separate: false,

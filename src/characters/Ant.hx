@@ -25,7 +25,7 @@ class Ant extends FlxSprite {
       name: "running",
       totalFrames: 11,
       frameNamePrefix: "Ant_Run-",
-      frameRate: 15,
+      frameRate: 17,
     });
     this.setAnimationByFrames({
       name: "attacking",
@@ -45,7 +45,8 @@ class Ant extends FlxSprite {
     final physicsBody = this.get_body();
     switch(state) {
       case Running:
-        physicsBody.velocity.x = 500;
+        final RUNNING_SPEED = 400;
+        physicsBody.velocity.x = RUNNING_SPEED;
         this.animation.play("running");
       case Attacking:
         physicsBody.velocity.x = 0;
