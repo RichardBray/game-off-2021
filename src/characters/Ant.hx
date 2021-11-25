@@ -9,7 +9,10 @@ using utils.SpriteHelpers;
 
 class Ant extends FlxSprite {
   public var state: AntStates = Standing;
+  public var returnFromMushroomTriggered: Bool = false;
   var player: Player;
+
+  var returnFromMushroomTimer: Float = 0;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
     super(x, y);
@@ -43,10 +46,14 @@ class Ant extends FlxSprite {
 
   function stateMachine() {
     final physicsBody = this.get_body();
+    final RUNNING_SPEED = 400;
     switch(state) {
-      case Running:
-        final RUNNING_SPEED = 400;
+      case RunningRight:
         physicsBody.velocity.x = RUNNING_SPEED;
+        this.animation.play("running");
+      case RunningLeft:
+        physicsBody.velocity.x = -RUNNING_SPEED;
+        this.facing = FlxObject.LEFT;
         this.animation.play("running");
       case Attacking:
         physicsBody.velocity.x = 0;
@@ -54,6 +61,7 @@ class Ant extends FlxSprite {
         this.animation.play("attacking");
       case Standing:
         physicsBody.velocity.x = 0;
+        this.animation.pause();
     }
   }
 
@@ -67,15 +75,34 @@ class Ant extends FlxSprite {
     });
   }
 
+  function returnFromMushroom(elapsed: Float) {
+    returnFromMushroomTimer += elapsed;
+    if (returnFromMushroomTimer > .1) {
+      this.state = Standing;
+    }
+    if (returnFromMushroomTimer > 1) {
+      this.state = RunningLeft;
+    }
+    if (returnFromMushroomTimer > 6) {
+      this.state = Standing;
+      returnFromMushroomTimer = 0;
+    }
+  }
+
 	override function update(elapsed: Float) {
 		stateMachine();
     attackPlayer();
+
+    if (returnFromMushroomTriggered) {
+      returnFromMushroom(elapsed);
+    }
 		super.update(elapsed);
 	}
 }
 
 enum AntStates {
-  Running;
+  RunningRight;
+  RunningLeft;
   Attacking;
   Standing;
 }

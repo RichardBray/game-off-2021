@@ -29,7 +29,8 @@ final class LevelTwo extends GameState {
 	var player: Player;
 	var groundListener: FlxObject;
 	var cameraUpTrigger: FlxObject;
-	var cameraDownTrigger: FlxObject;
+	var antReturnTrigger: FlxObject;
+	var antTrigger: FlxObject;
 	var wasp: Wasp;
 
 	// - triggers set
@@ -80,18 +81,19 @@ final class LevelTwo extends GameState {
 		final ant = new Ant(3989, 675, player);
 		wasp = new Wasp(5760, 0);
 		wasp.alpha = 0;
-		wasp.scale.set(.5, .5);
 
 		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
-		final antTrigger = new FlxObject(5000, 726, 49, 106);
+
+		antTrigger = new FlxObject(5000, 726, 49, 106);
 		antTrigger.add_body({mass: 0});
+		antReturnTrigger = new FlxObject(6244, 726, 49, 106);
+		antReturnTrigger.add_body({mass: 0});
+
 		cameraUpTrigger = new FlxObject(6746, 726, 49, 106);
 		cameraUpTrigger.add_body({mass: 0});
-		cameraDownTrigger = new FlxObject(8598, 726, 49, 106);
-		cameraDownTrigger.add_body({mass: 0});
 
 		// - environments objects
 		final pebbles = new Pebbles(player);
@@ -114,8 +116,9 @@ final class LevelTwo extends GameState {
 		// - order objects
 		this.add(leftBound);
 		this.add(antTrigger);
+		this.add(antReturnTrigger);
 		this.add(cameraUpTrigger);
-		this.add(cameraDownTrigger);
+		this.add(wasp);
 		this.add(checkpoints);
 		this.add(grpBackground);
 		this.add(groundListener);
@@ -126,7 +129,6 @@ final class LevelTwo extends GameState {
 		this.add(mushrooms);
 
 		this.add(ant);
-		this.add(wasp);
 		this.add(raisedPlatform);
 		this.add(playerClimb);
 		this.add(player);
@@ -145,7 +147,12 @@ final class LevelTwo extends GameState {
 
 		antTrigger.listen(player, {
 			separate: false,
-			enter: (_, _, _) -> ant.state = Running,
+			enter: (_, _, _) -> ant.state = RunningRight,
+		});
+
+		antReturnTrigger.listen(ant, {
+			separate: false,
+			enter: (_, _, _) -> ant.returnFromMushroomTriggered = true,
 		});
 
 		// - camera settings
@@ -179,20 +186,8 @@ final class LevelTwo extends GameState {
 			separate: false,
 			enter: (_, _, _) -> {
 				if (!cameraUpSet) {
-					FlxTween.tween(FlxG.camera, {height: FlxG.camera.height + 200}, 1);
-					FlxTween.tween(FlxG.camera, {zoom: .8}, 1);
 					wasp.triggerSkyFly = true;
 					cameraUpSet = true;
-				}
-			}
-		});
-		cameraDownTrigger.listen(player, {
-			separate: false,
-			enter: (_, _, _) -> {
-				if (!cameraDownSet) {
-					FlxTween.tween(FlxG.camera, {height: FlxG.camera.height - 200}, 1);
-					FlxTween.tween(FlxG.camera, {zoom: 1}, 1);
-					cameraDownSet = true;
 				}
 			}
 		});

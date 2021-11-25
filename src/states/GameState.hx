@@ -7,11 +7,9 @@ import utils.Colors;
 
 abstract class GameState extends FlxState {
 
-	var version = "";
-
 	override public function create() {
 		super.create();
-		bgColor = Colors.groundGreen;
+		this.bgColor = Colors.skyGreen;
 		FlxAssets.FONT_DEFAULT = "assets/fonts/Rokkitt-Regular.ttf";
 
 		FlxG.autoPause = false;

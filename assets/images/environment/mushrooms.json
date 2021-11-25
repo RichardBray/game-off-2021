@@ -5,20 +5,20 @@
       "frame": {
         "x": 1,
         "y": 1,
-        "w": 302,
-        "h": 313
+        "w": 502,
+        "h": 520
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 302,
-        "h": 313
+        "w": 502,
+        "h": 520
       },
       "sourceSize": {
-        "w": 302,
-        "h": 313
+        "w": 502,
+        "h": 520
       },
       "pivot": {
         "x": 0.5,
@@ -29,21 +29,21 @@
       "filename": "Mushrooms-04.png",
       "frame": {
         "x": 1,
-        "y": 316,
-        "w": 302,
-        "h": 313
+        "y": 523,
+        "w": 502,
+        "h": 520
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 302,
-        "h": 313
+        "w": 502,
+        "h": 520
       },
       "sourceSize": {
-        "w": 302,
-        "h": 313
+        "w": 502,
+        "h": 520
       },
       "pivot": {
         "x": 0.5,
@@ -54,7 +54,7 @@
       "filename": "Mushrooms-01.png",
       "frame": {
         "x": 1,
-        "y": 631,
+        "y": 1045,
         "w": 302,
         "h": 240
       },
@@ -79,7 +79,7 @@
       "filename": "Mushrooms-03.png",
       "frame": {
         "x": 1,
-        "y": 935,
+        "y": 1349,
         "w": 302,
         "h": 240
       },
@@ -107,8 +107,8 @@
     "image": "mushrooms.png",
     "format": "RGBA8888",
     "size": {
-      "w": 304,
-      "h": 1238
+      "w": 504,
+      "h": 1652
     },
     "scale": 1
   }
