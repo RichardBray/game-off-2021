@@ -13,12 +13,12 @@ class Mushrooms extends FlxTypedGroup<Mushroom> {
     {
       x: 3195,
       y: 604,
-      type: Small,
+      type: SmallRed,
     },
     {
       x: 6118,
       y: 604,
-      type: Small,
+      type: SmallRed,
     },
   ];
 

@@ -38,7 +38,7 @@ final class LevelTwo extends GameState {
 			gravity_y: 960,
 		});
 		// - background sprites
-		final BG_SPRITE_WIDTH = 2357;
+		final BG_SPRITE_WIDTH = 2353;
 		final BG_SPRITE_HEIGHT = 1885;
 		final totalBackgroundSprites = Math.ceil(fullMapWidth / BG_SPRITE_WIDTH);
 		final grpBackground = new FlxTypedGroup<FlxSprite>(totalBackgroundSprites);
@@ -74,7 +74,7 @@ final class LevelTwo extends GameState {
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
-		final antTrigger = new FlxObject(5080, 726, 49, 106);
+		final antTrigger = new FlxObject(5000, 726, 49, 106);
 		antTrigger.add_body({mass: 0});
 		// - environments objects
 		final pebbles = new Pebbles(player);
@@ -106,10 +106,10 @@ final class LevelTwo extends GameState {
 		this.add(movableRock);
 		this.add(mushrooms);
 
-		this.add(playerClimb);
-		this.add(player);
 		this.add(ant);
 		this.add(raisedPlatform);
+		this.add(playerClimb);
+		this.add(player);
 		this.add(holeCovering);
 		// add(textPropmpts);
 

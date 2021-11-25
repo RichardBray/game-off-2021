@@ -23,7 +23,9 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ## Todo
-- Death animation
+- Second mushroom
+- Add wasp
+- Add spider
 - Pause screen
 
 ## Post Jam changes

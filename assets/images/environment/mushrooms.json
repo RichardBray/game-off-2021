@@ -1,0 +1,115 @@
+{
+  "frames": [
+    {
+      "filename": "Mushrooms-02.png",
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 302,
+        "h": 313
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 302,
+        "h": 313
+      },
+      "sourceSize": {
+        "w": 302,
+        "h": 313
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Mushrooms-04.png",
+      "frame": {
+        "x": 1,
+        "y": 316,
+        "w": 302,
+        "h": 313
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 302,
+        "h": 313
+      },
+      "sourceSize": {
+        "w": 302,
+        "h": 313
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Mushrooms-01.png",
+      "frame": {
+        "x": 1,
+        "y": 631,
+        "w": 302,
+        "h": 240
+      },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 302,
+        "h": 240
+      },
+      "sourceSize": {
+        "w": 302,
+        "h": 240
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "Mushrooms-03.png",
+      "frame": {
+        "x": 1,
+        "y": 935,
+        "w": 302,
+        "h": 240
+      },
+      "rotated": true,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 302,
+        "h": 240
+      },
+      "sourceSize": {
+        "w": 302,
+        "h": 240
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "mushrooms.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 304,
+      "h": 1238
+    },
+    "scale": 1
+  }
+}

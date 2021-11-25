@@ -8,31 +8,24 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 using echo.FlxEcho;
 using flixel.util.FlxSpriteUtil;
 using hxmath.math.Vector2;
+using utils.SpriteHelpers;
 
-typedef ClimeableSpriteOptions = {
-  var x:Int;
-  var y:Int;
-  var imageName: String;
-  var imageWidth: Int;
-  var imageHeight: Int;
-  var player: Player;
-  var vertices: Array<Array<Float>>;
-}
 
 class ClimableSprite extends FlxTypedGroup<FlxObject> {
+  public var sprtImage: FlxSprite;
+
   public function new(options: ClimeableSpriteOptions) {
     super(2);
     // 1 - image sprite
     final polygonVerts = [
       for (v in options.vertices) new Vector2(v[0] - ((options.imageWidth - 20) * 0.5), v[1] - ((options.imageHeight - 45) * 0.5))
     ];
-    final sprtImage = new FlxSprite(options.x, options.y);
-    sprtImage.loadGraphic(
-      'assets/images/environment/${options.imageName}.png',
-      false,
-      options.imageWidth,
-      options.imageHeight
-    );
+    sprtImage = new FlxSprite(options.x, options.y);
+    sprtImage.loadFrames(options.spriteSheet);
+    sprtImage.animation.frameName = options.frameName;
+    sprtImage.width = options.imageWidth;
+    sprtImage.height = options.imageHeight;
+
     sprtImage.add_body({
       mass: 0,
       shape: {
@@ -54,4 +47,15 @@ class ClimableSprite extends FlxTypedGroup<FlxObject> {
 			exit: (_playerBody, _ledgeListenerBody) -> options.player.allowClimb = false,
 		});
   }
+}
+
+typedef ClimeableSpriteOptions = {
+  var x:Int;
+  var y:Int;
+  var imageWidth: Int;
+  var imageHeight: Int;
+  var player: Player;
+  var vertices: Array<Array<Float>>;
+  var spriteSheet: String;
+  var frameName: String;
 }
