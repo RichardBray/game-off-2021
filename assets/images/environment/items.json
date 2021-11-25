@@ -26,24 +26,24 @@
       }
     },
     {
-      "filename": "Rock_01.png",
+      "filename": "Rock_03.png",
       "frame": {
         "x": 124,
         "y": 0.5,
-        "w": 84,
-        "h": 107
+        "w": 74,
+        "h": 120
       },
       "rotated": true,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 84,
-        "h": 107
+        "w": 74,
+        "h": 120
       },
       "sourceSize": {
-        "w": 84,
-        "h": 107
+        "w": 74,
+        "h": 120
       },
       "pivot": {
         "x": 0.5,
@@ -104,11 +104,11 @@
   "meta": {
     "app": "http://free-tex-packer.com",
     "version": "0.6.7",
-    "image": "texture.png",
+    "image": "items.png",
     "format": "RGBA8888",
     "size": {
-      "w": 232,
-      "h": 85
+      "w": 245,
+      "h": 75
     },
     "scale": 0.5
   }
