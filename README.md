@@ -6,6 +6,8 @@
 - HaxeFlixel
 - Echo Physics
 
+## Controls
+
 ---
 ## Dev Notes
 
@@ -18,11 +20,11 @@ lix install gh:AustinEast/echo-flixel
 
 ### Adjusting player deadzone helper
 ```hx
-		final deadZone = new FlxSprite(((FlxG.camera.width - (player.width)) / 2) - 200, ((FlxG.camera.height - player.height) / 2 - player.height * 0.25)).makeGraphic(Std.int(player.width), Std.int(player.height), 0xFF000000);
-		add(deadZone);
+final deadZone = new FlxSprite(((FlxG.camera.width - (player.width)) / 2) - 200, ((FlxG.camera.height - player.height) / 2 - player.height * 0.25)).makeGraphic(Std.int(player.width), Std.int(player.height), 0xFF000000);
+add(deadZone);
 ```
 
-```
+```js
 var a = 35;
 var b = 237;
 var y = [[71, 138], [125, 88.5], [205.5, 48], [275, 33], [350, 39.5], [418, 65.5], [445.5, 88.5]];
@@ -30,10 +32,10 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Make ant walk back from mushroom base
-- Second mushroom
 - Add spider
 - Pause screen
+- Intro screens
+- Background sound?
 
 ## Post Jam changes
 - Climb down ability
