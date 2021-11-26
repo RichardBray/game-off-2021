@@ -1,5 +1,6 @@
 package environment;
 
+import characters.Player;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
@@ -21,7 +22,7 @@ class PlantStem extends FlxTypedGroup<FlxObject> {
   ];
   var sprite:FlxSprite;
   public var leafCollision: FlxObject;
-  public function new(x: Float = 0, y: Float = 0) {
+  public function new(x: Float = 0, y: Float = 0, player: Player) {
     super(2);
 
     // 1 - sprite
@@ -45,5 +46,7 @@ class PlantStem extends FlxTypedGroup<FlxObject> {
       }
     });
     add(leafCollision);
+
+    leafCollision.listen(player);
   }
 }

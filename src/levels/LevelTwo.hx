@@ -3,6 +3,7 @@ package levels;
 import characters.Ant;
 import characters.Player;
 import characters.PlayerClimb;
+import characters.Spider;
 import characters.Wasp;
 import environment.Hole;
 import environment.MovableSprite;
@@ -30,12 +31,9 @@ final class LevelTwo extends GameState {
 	var groundListener: FlxObject;
 	var waspFlyByTrigger: FlxObject;
 	var antReturnTrigger: FlxObject;
+	var spiderMovementTrigger: FlxObject;
 	var antTrigger: FlxObject;
 	var wasp: Wasp;
-
-	// - triggers set
-	var cameraUpSet: Bool = false;
-	var cameraDownSet: Bool = false;
 
 	override function create() {
 		super.create();
@@ -81,19 +79,23 @@ final class LevelTwo extends GameState {
 		final ant = new Ant(3789, 685, player);
 		wasp = new Wasp(5760, 0);
 		wasp.alpha = 0;
+		final spider = new Spider(10292, -450, player); // 11292
 
 		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
 
-		antTrigger = new FlxObject(4900, 726, 49, 106);
+		antTrigger = new FlxObject(4500, 726, 49, 106);
 		antTrigger.add_body({mass: 0});
 		antReturnTrigger = new FlxObject(6244, 726, 49, 106);
 		antReturnTrigger.add_body({mass: 0});
 
 		waspFlyByTrigger = new FlxObject(6746, 726, 49, 106);
 		waspFlyByTrigger.add_body({mass: 0});
+
+		spiderMovementTrigger = new FlxObject(8817, 729, 49, 106);
+		spiderMovementTrigger.add_body({mass: 0});
 
 		// - environments objects
 		final pebbles = new Pebbles(player);
@@ -107,42 +109,42 @@ final class LevelTwo extends GameState {
 			groundListener: groundListener,
 		});
 		final mushrooms = new Mushrooms(player);
-		final plantStem = new PlantStem(3300, -565);
+		final plantStem = new PlantStem(3300, -565, player);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
 
 		// - order objects
-		this.add(leftBound);
-		this.add(antTrigger);
-		this.add(antReturnTrigger);
-		this.add(waspFlyByTrigger);
-		this.add(wasp);
-		this.add(checkpoints);
-		this.add(grpBackground);
-		this.add(groundListener);
+		add(leftBound);
+		add(antTrigger);
+		add(antReturnTrigger);
+		add(waspFlyByTrigger);
+		add(spiderMovementTrigger);
+		add(wasp);
+		add(checkpoints);
+		add(grpBackground);
+		add(groundListener);
 
-		this.add(pebbles);
-		this.add(hole);
-		this.add(movableRock);
-		this.add(ant);
-		this.add(plantStem);
-		this.add(mushrooms);
+		add(pebbles);
+		add(hole);
+		add(movableRock);
+		add(ant);
+		add(plantStem);
+		add(spider);
+		add(mushrooms);
 
-		this.add(playerClimb);
-		this.add(player);
-		this.add(holeCovering);
+		add(playerClimb);
+		add(player);
+		add(holeCovering);
 		// add(textPropmpts);
 
 		// - physics listeners
-		player.listen(leftBound);
-		player.listen(groundListener);
-		player.listen(plantStem.leafCollision);
+		groundListener.listen(player);
+		groundListener.listen(spider.sprite);
+		leftBound.listen(player);
 
 		ant.listen(groundListener);
-
-		final test = mushrooms.members[0];
-		movableRock.sprite.listen(test.stalkCollision);
+		movableRock.sprite.listen(mushrooms.members[0].stalkCollision);
 
 		antTrigger.listen(player, {
 			separate: false,
@@ -152,6 +154,16 @@ final class LevelTwo extends GameState {
 		antReturnTrigger.listen(ant, {
 			separate: false,
 			enter: (_, _, _) -> ant.returnFromMushroomTriggered = true,
+		});
+
+		waspFlyByTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> wasp.triggerSkyFly = true,
+		});
+
+		spiderMovementTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> spider.startSpiderMovement = true,
 		});
 
 		// - camera settings
@@ -180,21 +192,8 @@ final class LevelTwo extends GameState {
 		}
 	}
 
-	function cameraMovements(elapsed: Float) {
-		waspFlyByTrigger.listen(player, {
-			separate: false,
-			enter: (_, _, _) -> {
-				if (!cameraUpSet) {
-					wasp.triggerSkyFly = true;
-					cameraUpSet = true;
-				}
-			}
-		});
-	}
-
 	override function update(elapsed: Float) {
 		levelResetConditions();
-		cameraMovements(elapsed);
 		super.update(elapsed);
 	}
 }

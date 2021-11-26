@@ -129,7 +129,6 @@ class LevelOne extends GameState {
 				bounds.height.floor(),
 				0xFF0080FF
 			);
-			trace(tile, "tile");
 			bounds.put(); // Make sure to "put()" the bounds so that they can be reused later. This can really help with memory management!
 			bluebox.set_body(
 				tile

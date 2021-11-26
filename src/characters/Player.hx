@@ -266,9 +266,11 @@ class Player extends FlxSprite {
 	}
 
 	public function deathSequence() {
+		trace(state, dyingTimer, 'slump');
 		state = Dying;
 		if (dyingTimer > .75) {
 			this.kill();
+			dyingTimer = 0;
 		}
 	}
 
