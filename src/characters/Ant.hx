@@ -84,8 +84,9 @@ class Ant extends FlxSprite {
       this.state = RunningLeft;
     }
     if (returnFromMushroomTimer > 6) {
-      this.state = Standing;
       returnFromMushroomTimer = 0;
+      this.kill();
+      // this.state = Standing;
     }
   }
 

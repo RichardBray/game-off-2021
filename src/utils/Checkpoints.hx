@@ -6,7 +6,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 class Checkpoints extends FlxTypedGroup<Checkpoint> {
   final checkpoints: Array<Array<Int>> = [
-    [3759, 511],
+    [3849, 511],
     [9262, 726],
   ];
 

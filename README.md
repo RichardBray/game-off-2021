@@ -22,6 +22,13 @@ lix install gh:AustinEast/echo-flixel
 		add(deadZone);
 ```
 
+```
+var a = 35;
+var b = 237;
+var y = [[71, 138], [125, 88.5], [205.5, 48], [275, 33], [350, 39.5], [418, 65.5], [445.5, 88.5]];
+var newY = y.map(x =>  [x[0] - a, x[1] - b]);
+```
+
 ## Todo
 - Make ant walk back from mushroom base
 - Second mushroom

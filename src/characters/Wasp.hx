@@ -68,12 +68,13 @@ class Wasp extends FlxSprite {
     flyThroughSkyTimer += elapsed;
     physicsBody.y = 20;
     physicsBody.mass = 1;
-    trace(flyThroughSkyTimer, "flyThroughSkyTimer");
+
     if (flyThroughSkyTimer > .1) {
       this.alpha = 1;
       this.state = Flying;
     }
     if (flyThroughSkyTimer > 6) {
+      flyThroughSkyTimer = 0;
       this.kill();
     }
   }
