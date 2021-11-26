@@ -30,7 +30,7 @@ class Spider extends FlxTypedGroup<FlxObject> {
       name: "walking",
       totalFrames: 12,
       frameNamePrefix: "GiantSpider-",
-      frameRate: 12,
+      frameRate: 8,
     });
     sprite.animation.play("walking");
     add(sprite);
@@ -58,14 +58,14 @@ class Spider extends FlxTypedGroup<FlxObject> {
     final collisionBody = collisionListener.get_body();
     spiderMovementTimer += elapsed;
 
-    spriteBody.velocity.x = -100;
+    spriteBody.velocity.x = -200;
     collisionBody.x = spriteBody.x;
   }
 
 	override function update(elapsed: Float) {
     if (startSpiderMovement) {
-      spiderMovement(elapsed / 2);
+      spiderMovement(elapsed);
     }
-		super.update(elapsed / 2);
+		super.update(elapsed);
 	}
 }

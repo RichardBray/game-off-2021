@@ -38,6 +38,8 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 - Background sound?
 
 ## Post Jam changes
+- Check if ant can kill, move trigger further
+- Move spider trigger ealier
 - Climb down ability
 - Add shadow
 - Roll animation for jumping off high points
