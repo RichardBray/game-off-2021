@@ -10,6 +10,7 @@ import environment.MovableSprite;
 import environment.Mushrooms;
 import environment.Pebbles;
 import environment.PlantStem;
+import environment.TreeStump;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -37,7 +38,7 @@ final class LevelTwo extends GameState {
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 6;
+		final fullMapWidth = FlxG.width * 7;
 
 		// - physics world
 		FlxEcho.init({
@@ -110,6 +111,7 @@ final class LevelTwo extends GameState {
 		});
 		final mushrooms = new Mushrooms(player);
 		final plantStem = new PlantStem(3300, -565, player);
+		final treeStump = new TreeStump(11108, 157, player);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -125,6 +127,7 @@ final class LevelTwo extends GameState {
 		add(grpBackground);
 		add(groundListener);
 
+		add(treeStump);
 		add(pebbles);
 		add(hole);
 		add(movableRock);

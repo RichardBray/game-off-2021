@@ -43,8 +43,8 @@ class ClimableSprite extends FlxTypedGroup<FlxObject> {
     options.player.listen(sprtImage);
 		options.player.listen(climableListener, {
 			separate: false,
-			enter: (_playerBody, _ledgeListenerBody, _) -> options.player.allowClimb = true,
-			exit: (_playerBody, _ledgeListenerBody) -> options.player.allowClimb = false,
+			enter: (_, _, _) -> options.player.allowClimb = true,
+			exit: (_, _) -> options.player.allowClimb = false,
 		});
   }
 }

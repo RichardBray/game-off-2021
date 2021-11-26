@@ -40,7 +40,13 @@ class Spider extends FlxTypedGroup<FlxObject> {
     collisionListener.add_body({mass: 0});
     add(collisionListener);
 
+
     // listeners
+
+    collisionListener.listen(player, {
+      separate: false,
+      enter: (_, _, _) -> player.startDeathSequence = true,
+    });
 
     sprite.listen(player, {
       separate: false,
@@ -59,11 +65,6 @@ class Spider extends FlxTypedGroup<FlxObject> {
 	override function update(elapsed: Float) {
     if (startSpiderMovement) {
       spiderMovement(elapsed / 2);
-
-      collisionListener.listen(player, {
-        separate: false,
-        enter: (_, _, _) -> player.deathSequence(),
-      });
     }
 		super.update(elapsed / 2);
 	}

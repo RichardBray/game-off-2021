@@ -65,12 +65,13 @@ class Ant extends FlxSprite {
     }
   }
 
+  // TOOD move out of update function
   function attackPlayer() {
     this.listen(player, {
       separate: false,
       enter: (_, _, _) -> {
         state = Attacking;
-        player.deathSequence();
+        player.startDeathSequence = true;
       },
     });
   }
@@ -92,7 +93,6 @@ class Ant extends FlxSprite {
 	override function update(elapsed: Float) {
 		stateMachine();
     attackPlayer();
-
     if (returnFromMushroomTriggered) {
       returnFromMushroom(elapsed);
     }

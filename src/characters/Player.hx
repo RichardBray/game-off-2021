@@ -17,6 +17,7 @@ class Player extends FlxSprite {
 	 */
 	public var allowClimb = false;
 	public var inPushableTrigger = false;
+	public var startDeathSequence = false;
 
 	var jumpVelocitySet = false;
 
@@ -265,8 +266,7 @@ class Player extends FlxSprite {
 		}
 	}
 
-	public function deathSequence() {
-		trace(state, dyingTimer, 'slump');
+	function deathSequence() {
 		state = Dying;
 		if (dyingTimer > .75) {
 			this.kill();
@@ -291,6 +291,10 @@ class Player extends FlxSprite {
 	override function update(elapsed: Float) {
 		updateControls();
 		stateMachine(elapsed);
+
+		if (startDeathSequence) {
+			deathSequence();
+		}
 		super.update(elapsed);
 	}
 }
