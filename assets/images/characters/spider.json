@@ -1,7 +1,7 @@
 {
   "frames": [
     {
-      "filename": "GiantSpider-9.png",
+      "filename": "GiantSpider-09.png",
       "frame": {
         "x": 0,
         "y": 0,
@@ -26,7 +26,7 @@
       }
     },
     {
-      "filename": "GiantSpider-8.png",
+      "filename": "GiantSpider-08.png",
       "frame": {
         "x": 1168,
         "y": 0,
@@ -51,7 +51,7 @@
       }
     },
     {
-      "filename": "GiantSpider-7.png",
+      "filename": "GiantSpider-07.png",
       "frame": {
         "x": 2375.42,
         "y": 0,
@@ -76,7 +76,7 @@
       }
     },
     {
-      "filename": "GiantSpider-6.png",
+      "filename": "GiantSpider-06.png",
       "frame": {
         "x": 3611.31,
         "y": 0,
@@ -101,7 +101,7 @@
       }
     },
     {
-      "filename": "GiantSpider-3.png",
+      "filename": "GiantSpider-03.png",
       "frame": {
         "x": 0,
         "y": 1099.3799999999999,
@@ -126,7 +126,7 @@
       }
     },
     {
-      "filename": "GiantSpider-5.png",
+      "filename": "GiantSpider-05.png",
       "frame": {
         "x": 1262.17,
         "y": 1119.82,
@@ -176,7 +176,7 @@
       }
     },
     {
-      "filename": "GiantSpider-2.png",
+      "filename": "GiantSpider-02.png",
       "frame": {
         "x": 3956.6,
         "y": 1122.74,
@@ -201,7 +201,7 @@
       }
     },
     {
-      "filename": "GiantSpider-1.png",
+      "filename": "GiantSpider-01.png",
       "frame": {
         "x": 0,
         "y": 2308.2599999999998,
@@ -226,7 +226,7 @@
       }
     },
     {
-      "filename": "GiantSpider-4.png",
+      "filename": "GiantSpider-04.png",
       "frame": {
         "x": 1336.6299999999999,
         "y": 2324.32,
