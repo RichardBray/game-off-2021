@@ -32,7 +32,8 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Add moving pannels
+- Add trigger to start ant movements when player gets to a certain point
+- Make andts loop
 - Add eating ants
 - Pause screen
 - Intro screens
