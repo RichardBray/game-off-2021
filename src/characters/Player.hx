@@ -220,14 +220,13 @@ class Player extends FlxSprite {
 					noPosAfterClimb.y = physicsBody.y - 207;
 					climbPositionSet = true;
 				}
-				if (climbingTimer > .15) {
+				if (climbingTimer > .65) {
 					physicsBody.tween({x: noPosAfterClimb.x, y: noPosAfterClimb.y}, .1);
 				}
-				if (climbingTimer > .25) {
+				if (climbingTimer > .75) {
 					physicsBody.active = true;
 				}
-				if (climbingTimer > .925) {
-					allowClimb = false;
+				if (climbingTimer > .9) {
 					climbAnim.endClimb();
 					noPosAfterClimb.set(0, 0);
 					state = Standing;
@@ -260,6 +259,8 @@ class Player extends FlxSprite {
 					this.animation.play("pushing");
 				}
 			case Dying:
+				climbAnim.endClimb();
+				this.alpha = 1;
 				dyingTimer += elapsed;
 				physicsBody.velocity.x = 0;
 				this.animation.play("dying");

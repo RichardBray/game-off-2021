@@ -87,7 +87,7 @@ final class LevelTwo extends GameState {
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
 
-		antTrigger = new FlxObject(4500, 726, 49, 106);
+		antTrigger = new FlxObject(4580, 726, 49, 106);
 		antTrigger.add_body({mass: 0});
 		antReturnTrigger = new FlxObject(6244, 726, 49, 106);
 		antReturnTrigger.add_body({mass: 0});
