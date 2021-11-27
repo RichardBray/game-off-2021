@@ -205,7 +205,7 @@ class Player extends FlxSprite {
 			case StandingJumpFail:
 				this.animation.play("standingJumpFail");
 				if (isTouching(FLOOR)) {
-					allowClimb = false;
+					// allowClimb = false;
 					state = Standing;
 				}
 			case Climbing:

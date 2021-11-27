@@ -25,6 +25,7 @@ import utils.Colors;
 import utils.GameDataStore;
 
 using echo.FlxEcho;
+using flixel.tweens.FlxTween;
 using hxmath.math.Vector2;
 final class LevelTwo extends GameState {
 	final dataStore = GameDataStore.instance;
@@ -35,10 +36,16 @@ final class LevelTwo extends GameState {
 	var spiderMovementTrigger: FlxObject;
 	var antTrigger: FlxObject;
 	var wasp: Wasp;
+	var cameraUpTrigger: FlxObject;
+	var cameraDownTrigger: FlxObject;
+
+	// - triggers set
+	var cameraUpSet: Bool = false;
+	var cameraDownSet: Bool = false;
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 7;
+		final fullMapWidth = FlxG.width * 8;
 
 		// - physics world
 		FlxEcho.init({
@@ -98,6 +105,11 @@ final class LevelTwo extends GameState {
 		spiderMovementTrigger = new FlxObject(8817, 729, 49, 106);
 		spiderMovementTrigger.add_body({mass: 0});
 
+		cameraUpTrigger = new FlxObject(11076, 58, 49, 106);
+		cameraUpTrigger.add_body({mass: 0});
+		cameraDownTrigger = new FlxObject(8598, 58, 49, 106);
+		cameraDownTrigger.add_body({mass: 0});
+
 		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(1721, 828, player);
@@ -119,6 +131,8 @@ final class LevelTwo extends GameState {
 		// - order objects
 		add(leftBound);
 		add(antTrigger);
+		add(cameraUpTrigger);
+		add(cameraDownTrigger);
 		add(antReturnTrigger);
 		add(waspFlyByTrigger);
 		add(spiderMovementTrigger);
@@ -169,6 +183,11 @@ final class LevelTwo extends GameState {
 			enter: (_, _, _) -> spider.startSpiderMovement = true,
 		});
 
+		checkpoints.members[2].listen(player, {
+			separate: false,
+			enter: (_, _, _) -> spider.kill(),
+		});
+
 		// - camera settings
 		FlxG.worldBounds.set(0, 0, fullMapWidth, FlxG.height);
 		FlxG.camera.setScrollBoundsRect(0, 0, fullMapWidth, FlxG.height);
@@ -195,8 +214,30 @@ final class LevelTwo extends GameState {
 		}
 	}
 
+	function cameraMovements() {
+		cameraUpTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				if (!cameraUpSet) {
+					FlxG.camera.tween({height: FlxG.camera.height + 200}, 1);
+					cameraUpSet = true;
+				}
+			}
+		});
+		cameraDownTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				if (!cameraDownSet) {
+					FlxG.camera.tween({height: FlxG.camera.height - 200}, 1);
+					cameraDownSet = true;
+				}
+			}
+		});
+	}
+
 	override function update(elapsed: Float) {
 		levelResetConditions();
+		cameraMovements();
 		super.update(elapsed);
 	}
 }

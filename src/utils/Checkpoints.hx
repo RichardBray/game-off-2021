@@ -8,6 +8,7 @@ class Checkpoints extends FlxTypedGroup<Checkpoint> {
   final checkpoints: Array<Array<Int>> = [
     [3849, 511],
     [8696, 726],
+    [11280, 58],
   ];
 
   public function new(player: Player) {
