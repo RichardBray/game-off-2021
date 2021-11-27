@@ -1,6 +1,7 @@
 package levels;
 
 import characters.Ant;
+import characters.LeafAntGrp;
 import characters.Player;
 import characters.PlayerClimb;
 import characters.Spider;
@@ -11,6 +12,7 @@ import environment.Mushrooms;
 import environment.Pebbles;
 import environment.PlantStem;
 import environment.TreeStump;
+import environment.TreeStumpCover;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -27,6 +29,7 @@ import utils.GameDataStore;
 using echo.FlxEcho;
 using flixel.tweens.FlxTween;
 using hxmath.math.Vector2;
+
 final class LevelTwo extends GameState {
 	final dataStore = GameDataStore.instance;
 	var player: Player;
@@ -45,7 +48,7 @@ final class LevelTwo extends GameState {
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 8;
+		final fullMapWidth = FlxG.width * 9;
 
 		// - physics world
 		FlxEcho.init({
@@ -88,6 +91,7 @@ final class LevelTwo extends GameState {
 		wasp = new Wasp(5760, 0);
 		wasp.alpha = 0;
 		final spider = new Spider(10292, -450, player); // 11292
+		final leafAntGroup = new LeafAntGrp(14505, 249, player);
 
 		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
@@ -124,6 +128,7 @@ final class LevelTwo extends GameState {
 		final mushrooms = new Mushrooms(player);
 		final plantStem = new PlantStem(3300, -565, player);
 		final treeStump = new TreeStump(11108, 164, player);
+		final treeStumpCover = new TreeStumpCover(10700, 130);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -142,6 +147,8 @@ final class LevelTwo extends GameState {
 		add(groundListener);
 
 		add(treeStump);
+		add(leafAntGroup);
+		add(treeStumpCover);
 		add(pebbles);
 		add(hole);
 		add(movableRock);

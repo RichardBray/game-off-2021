@@ -19,7 +19,7 @@ lix install gh:AustinEast/echo-flixel
 ```
 
 ### Adjusting player deadzone helper
-```hx
+```haxe
 final deadZone = new FlxSprite(((FlxG.camera.width - (player.width)) / 2) - 200, ((FlxG.camera.height - player.height) / 2 - player.height * 0.25)).makeGraphic(Std.int(player.width), Std.int(player.height), 0xFF000000);
 add(deadZone);
 ```
@@ -32,8 +32,8 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Finish tree stump
-- Add ants with leaves
+- Add moving pannels
+- Add eating ants
 - Pause screen
 - Intro screens
 - Background sound?

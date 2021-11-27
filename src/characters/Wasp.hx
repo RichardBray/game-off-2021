@@ -38,7 +38,7 @@ class Wasp extends FlxSprite {
       frameRate: 10,
     });
 
-    this.add_body({mass: 0});
+    // this.add_body({mass: 0});
 
 		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
@@ -46,28 +46,24 @@ class Wasp extends FlxSprite {
   }
 
   function stateMachine() {
-    final physicsBody = this.get_body();
     switch(state) {
       case Flying:
         final FLYING_SPEED = 680;
-        physicsBody.velocity.x = FLYING_SPEED;
+        velocity.x = FLYING_SPEED;
         this.animation.play("flying");
       case Landing:
-        physicsBody.velocity.x = 0;
+        velocity.x = 0;
         this.facing = FlxObject.LEFT;
         this.animation.play("landing");
       case Attacking:
         this.animation.play("attacking");
       case Standing:
-        physicsBody.velocity.x = 0;
+        velocity.x = 0;
     }
   }
 
   function flyThroughSky(elapsed: Float) {
-    final physicsBody = this.get_body();
     flyThroughSkyTimer += elapsed;
-    physicsBody.y = 20;
-    physicsBody.mass = 1;
 
     if (flyThroughSkyTimer > .1) {
       this.alpha = 1;
@@ -75,9 +71,11 @@ class Wasp extends FlxSprite {
     }
     if (flyThroughSkyTimer > 6) {
       flyThroughSkyTimer = 0;
+      triggerSkyFly = false;
       this.kill();
     }
   }
+
 	override function update(elapsed: Float) {
 		stateMachine();
     if (triggerSkyFly) {

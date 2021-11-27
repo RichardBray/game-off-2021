@@ -4,10 +4,9 @@ import characters.Player;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
-import utils.Colors;
 
 using echo.FlxEcho;
-
+using utils.SpriteHelpers;
 
 class TreeStump extends FlxTypedGroup<FlxObject> {
   var player: Player;
@@ -17,7 +16,14 @@ class TreeStump extends FlxTypedGroup<FlxObject> {
     this.player = player;
     // 1 - main sprite
     final mainSprite = new FlxSprite(x, y);
-    mainSprite.makeGraphic(1591, 671, Colors.grey);
+    // mainSprite.makeGraphic(1591, 671, Colors.grey);
+    mainSprite.loadGraphic("assets/images/environment/TreeTrunk_01.png", 2048, 843);
+		mainSprite.changeHitboxSize({
+			reduceWidthBy: 784,
+			reduceHeightBy: 59,
+			heightOffset: 35,
+			widthOffset: -20,
+		});
     mainSprite.add_body({mass: 0});
     add(mainSprite);
 
