@@ -11,7 +11,7 @@ using utils.SpriteHelpers;
 class Spider extends FlxTypedGroup<FlxObject> {
   public var startSpiderMovement: Bool = false;
   public var sprite: FlxSprite;
-  var collisionListener: FlxObject;
+  public var collisionListener: FlxObject;
   var spiderMovementTimer: Float = 0;
   var player:Player;
 

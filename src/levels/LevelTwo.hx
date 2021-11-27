@@ -123,7 +123,7 @@ final class LevelTwo extends GameState {
 		});
 		final mushrooms = new Mushrooms(player);
 		final plantStem = new PlantStem(3300, -565, player);
-		final treeStump = new TreeStump(11108, 157, player);
+		final treeStump = new TreeStump(11108, 164, player);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -185,7 +185,10 @@ final class LevelTwo extends GameState {
 
 		checkpoints.members[2].listen(player, {
 			separate: false,
-			enter: (_, _, _) -> spider.kill(),
+			enter: (_, _, _) -> {
+				spider.kill();
+				spider.collisionListener.get_body().active = false;
+			},
 		});
 
 		// - camera settings

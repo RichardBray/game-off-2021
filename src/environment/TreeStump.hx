@@ -44,7 +44,7 @@ class TreeStump extends FlxTypedGroup<FlxObject> {
     add(midClimbListener);
 
     // 6 - high climb
-    final highClimb = new FlxObject(x - 120, y + 7, 120, 14);
+    final highClimb = new FlxObject(x - 120, y, 120, 14);
     highClimb.add_body({mass: 0});
     add(highClimb);
 
