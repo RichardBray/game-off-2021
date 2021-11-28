@@ -11,15 +11,17 @@ using utils.SpriteHelpers;
 
 class LeafAnt extends FlxTypedGroup<FlxObject> {
   public var collisionListener: FlxObject;
-  var sprite: FlxSprite;
+  public var sprite: FlxSprite;
   final MOVEMENT_SPEED = 200;
   var potision: FlxPoint;
   var collisionXOffset: Float;
+  var collisionYOffset: Float;
   // options
   public function new(options: LeafAntInputs) {
     super(2);
     potision = new FlxPoint(options.x, options.y);
     this.collisionXOffset = options.collisionXOffset;
+    this.collisionYOffset = options.collisionYOffset;
     // 1 - sprite
     sprite = new FlxSprite(options.x, options.y);
     sprite.loadFrames(options.spriteSheet);
@@ -33,13 +35,19 @@ class LeafAnt extends FlxTypedGroup<FlxObject> {
     sprite.animation.play("walking", startAnimFrame);
     add(sprite);
 
-    // movement
-    sprite.velocity.x = -MOVEMENT_SPEED;
-
     // 2 - collision
     collisionListener = new FlxObject(options.x, options.y + options.collisionYOffset, options.collisionWidth, 10);
     collisionListener.add_body({mass: 0});
     add(collisionListener);
+  }
+
+  public function resetPosition() {
+    sprite.setPosition(potision.x, potision.y);
+    collisionListener.setPosition(potision.x, potision.y + collisionYOffset);
+  }
+
+  public function startMovement() {
+    sprite.velocity.x = -MOVEMENT_SPEED;
   }
 
   override function update(elapsed: Float) {

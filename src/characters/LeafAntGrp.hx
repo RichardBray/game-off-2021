@@ -11,8 +11,9 @@ using echo.FlxEcho;
 
 class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
   final SPACING = 600;
+  var movementStarted = false;
   var killAntGroupTrigger: FlxObject;
-  var memberNum: Int = 0;
+  var overlappedAnts: Int = 0;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
     super(4);
@@ -58,16 +59,40 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
     add(killAntGroupTrigger);
   }
 
-	override public function update(elapsed: Float) {
-		super.update(elapsed);
-    this.forEach((member: FlxObject) -> {
-      memberNum++;
-      if (memberNum != 4) {
-        var antOverlap = FlxG.overlap(member, killAntGroupTrigger);
-        if (antOverlap) {
-          member.kill();
-        }
+  public function startMovement() {
+    if (movementStarted) {
+      return;
+    }
+    for (i in 0...3) {
+      final ant: LeafAnt = this.members[i];
+      ant.startMovement();
+    }
+    movementStarted = true;
+  }
+
+  function resetAntsOnTrigger() {
+    for (i in 0...3) {
+      final ant: LeafAnt = this.members[i];
+      final antOverlap = FlxG.overlap(ant, killAntGroupTrigger);
+      if (antOverlap) {
+        overlappedAnts++;
       }
-    });
+      if (overlappedAnts == 3) {
+        resetAnts();
+        overlappedAnts = 0;
+      }
+    }
+  }
+
+  function resetAnts() {
+    for (i in 0...3) {
+      final ant: LeafAnt = this.members[i];
+      ant.resetPosition();
+    }
+  }
+
+	override public function update(elapsed: Float) {
+    resetAntsOnTrigger();
+		super.update(elapsed);
 	}
 }

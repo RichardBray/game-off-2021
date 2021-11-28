@@ -92,6 +92,7 @@ final class LevelTwo extends GameState {
 		wasp.alpha = 0;
 		final spider = new Spider(10292, -450, player); // 11292
 		final leafAntGroup = new LeafAntGrp(14505, 249, player);
+		leafAntGroup.kill();
 
 		// - invisible objects
 		final leftBound = new FlxObject(0, 663, 35, 167);
@@ -114,6 +115,9 @@ final class LevelTwo extends GameState {
 		cameraDownTrigger = new FlxObject(8598, 58, 49, 106);
 		cameraDownTrigger.add_body({mass: 0});
 
+		final startAntGroupsTrigger = new FlxObject(11659, 58, 49, 106);
+		startAntGroupsTrigger.add_body({mass: 0});
+
 		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(1721, 828, player);
@@ -133,7 +137,7 @@ final class LevelTwo extends GameState {
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
 
-		// - order objects
+		// - triggers
 		add(leftBound);
 		add(antTrigger);
 		add(cameraUpTrigger);
@@ -141,6 +145,9 @@ final class LevelTwo extends GameState {
 		add(antReturnTrigger);
 		add(waspFlyByTrigger);
 		add(spiderMovementTrigger);
+		add(startAntGroupsTrigger);
+
+		// - other objects
 		add(wasp);
 		add(checkpoints);
 		add(grpBackground);
@@ -198,6 +205,16 @@ final class LevelTwo extends GameState {
 			},
 		});
 
+		startAntGroupsTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				leafAntGroup.revive();
+				leafAntGroup.startMovement();
+			},
+		});
+
+		cameraMovements();
+
 		// - camera settings
 		FlxG.worldBounds.set(0, 0, fullMapWidth, FlxG.height);
 		FlxG.camera.setScrollBoundsRect(0, 0, fullMapWidth, FlxG.height);
@@ -212,15 +229,6 @@ final class LevelTwo extends GameState {
 		if (false) { // TODO add pixelation menu option
 			var effect = new Pixelate();
 			FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
-		}
-	}
-
-	function levelResetConditions() {
-		groundListener.get_body().active = dataStore.data.enableGroundListener;
-		final playerBelowGround = player.get_body().y > FlxG.height;
-		if (playerBelowGround || !player.alive) {
-			dataStore.data.enableGroundListener = true;
-			FlxG.resetState();
 		}
 	}
 
@@ -245,9 +253,21 @@ final class LevelTwo extends GameState {
 		});
 	}
 
+	function levelResetConditions() {
+		groundListener.get_body().active = dataStore.data.enableGroundListener;
+		final playerBelowGround = player.get_body().y > FlxG.height;
+		if (playerBelowGround || !player.alive) {
+			dataStore.data.enableGroundListener = true;
+			FlxG.resetState();
+		}
+	}
+
 	override function update(elapsed: Float) {
 		levelResetConditions();
-		cameraMovements();
+
+		if (FlxG.keys.pressed.R) {
+			FlxG.resetState();
+		}
 		super.update(elapsed);
 	}
 }
