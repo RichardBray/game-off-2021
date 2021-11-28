@@ -6,9 +6,9 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 
 class Checkpoints extends FlxTypedGroup<Checkpoint> {
   final checkpoints: Array<Array<Int>> = [
-    [3849, 511],
-    [8696, 726],
-    [11006, 58],
+    [4849, 511],
+    [9696, 726],
+    [13006, 58],
   ];
 
   public function new(player: Player) {

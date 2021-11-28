@@ -11,27 +11,27 @@ class Mushrooms extends FlxTypedGroup<Mushroom> {
 
   final mushrooms: Array<MushroomObj> = [
     {
-      x: 3195,
+      x: 4195,
       y: 604,
       type: SmallRed,
     },
     {
-      x: 6118,
+      x: 7118,
       y: 604,
       type: SmallRed,
     },
     {
-      x: 9454,
+      x: 10454,
       y: 604,
       type: SmallBlue,
     },
     {
-      x: 9756,
+      x: 10756,
       y: 491,
       type: LargeRed,
     },
     {
-      x: 13831,
+      x: 15831,
       y: 491,
       type: LargeBlue,
     },

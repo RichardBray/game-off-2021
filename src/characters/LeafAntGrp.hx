@@ -55,10 +55,10 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
       add(antSprite);
     }
 
-		killAntGroupTrigger = new FlxObject(11474, 589, 167, 216);
+		killAntGroupTrigger = new FlxObject(13474, 589, 167, 216);
     add(killAntGroupTrigger);
 
-		final shiftAntGroupsTrigger = new FlxObject(13815, 241, 49, 106);
+		final shiftAntGroupsTrigger = new FlxObject(15815, 241, 49, 106);
 		shiftAntGroupsTrigger.add_body({mass: 0});
     add(shiftAntGroupsTrigger);
 

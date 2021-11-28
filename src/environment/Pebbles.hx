@@ -10,17 +10,17 @@ class Pebbles extends FlxTypedGroup<Pebble> {
 
   final pebbles: Array<PebbleObj> = [
     {
-      x: 905,
+      x: 1905,
       y: 805,
       type: Small
     },
     {
-      x: 1293,
+      x: 2293,
       y: 805,
       type: Small
     },
     {
-      x: 5672,
+      x: 6672,
       y: 805,
       type: Small
     },

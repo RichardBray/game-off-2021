@@ -87,11 +87,11 @@ final class LevelTwo extends GameState {
 		player = new Player(dataStore.data.playerPos.x, dataStore.data.playerPos.y, playerClimb);
 
 		// - npc sprites
-		final ant = new Ant(3789, 685, player);
-		wasp = new Wasp(5760, 0);
+		final ant = new Ant(4789, 685, player);
+		wasp = new Wasp(6760, 0);
 		wasp.alpha = 0;
-		final spider = new Spider(10292, -450, player); // 11292
-		final leafAntGroup = new LeafAntGrp(13831, 249, player);
+		final spider = new Spider(11292, -450, player); // 11292
+		final leafAntGroup = new LeafAntGrp(15831, 249, player);
 		leafAntGroup.kill();
 
 		// - invisible objects
@@ -99,40 +99,40 @@ final class LevelTwo extends GameState {
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
 
-		antTrigger = new FlxObject(4580, 726, 49, 106);
+		antTrigger = new FlxObject(5580, 726, 49, 106);
 		antTrigger.add_body({mass: 0});
-		antReturnTrigger = new FlxObject(6244, 726, 49, 106);
+		antReturnTrigger = new FlxObject(7244, 726, 49, 106);
 		antReturnTrigger.add_body({mass: 0});
 
-		waspFlyByTrigger = new FlxObject(6746, 726, 49, 106);
+		waspFlyByTrigger = new FlxObject(7746, 726, 49, 106);
 		waspFlyByTrigger.add_body({mass: 0});
 
-		spiderMovementTrigger = new FlxObject(8817, 729, 49, 106);
+		spiderMovementTrigger = new FlxObject(9817, 729, 49, 106);
 		spiderMovementTrigger.add_body({mass: 0});
 
-		cameraUpTrigger = new FlxObject(11076, 58, 49, 106);
+		cameraUpTrigger = new FlxObject(13076, 58, 49, 106);
 		cameraUpTrigger.add_body({mass: 0});
-		cameraDownTrigger = new FlxObject(8598, 58, 49, 106);
+		cameraDownTrigger = new FlxObject(9598, 58, 49, 106);
 		cameraDownTrigger.add_body({mass: 0});
 
-		final startAntGroupsTrigger = new FlxObject(11199, 58, 49, 106);
+		final startAntGroupsTrigger = new FlxObject(13199, 58, 49, 106);
 		startAntGroupsTrigger.add_body({mass: 0});
 
 		// - environments objects
 		final pebbles = new Pebbles(player);
-		final hole = new Hole(1721, 828, player);
+		final hole = new Hole(2721, 828, player);
 		final holeCovering = new FlxSprite((hole.x - 8), (FlxG.height - GROUND_HEIGHT_FROM_BASE + 9));
 		holeCovering.makeGraphic(137, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
 		final movableRock = new MovableSprite({
-			x: 2969,
+			x: 3969,
 			y: 728,
 			player: player,
 			groundListener: groundListener,
 		});
 		final mushrooms = new Mushrooms(player);
-		final plantStem = new PlantStem(3300, -565, player);
-		final treeStump = new TreeStump(11108, 164, player);
-		final treeStumpCover = new TreeStumpCover(10700, 130);
+		final plantStem = new PlantStem(4300, -565, player);
+		final treeStump = new TreeStump(13108, 164, player);
+		final treeStumpCover = new TreeStumpCover(12700, 130);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
