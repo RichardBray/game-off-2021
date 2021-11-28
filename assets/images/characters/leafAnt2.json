@@ -1,0 +1,290 @@
+{
+  "frames": [
+    {
+      "filename": "LeafAnt_v2-05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 636.5,
+        "h": 559
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 24.5,
+        "w": 636.5,
+        "h": 559
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-06.png",
+      "frame": {
+        "x": 0,
+        "y": 559,
+        "w": 623,
+        "h": 562.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 21,
+        "w": 623,
+        "h": 562.5
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-09.png",
+      "frame": {
+        "x": 623,
+        "y": 559,
+        "w": 621,
+        "h": 559.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 23.5,
+        "w": 621,
+        "h": 559.5
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-10.png",
+      "frame": {
+        "x": 636.5,
+        "y": 0,
+        "w": 612.5,
+        "h": 557
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 26.5,
+        "w": 612.5,
+        "h": 557
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-07.png",
+      "frame": {
+        "x": 623,
+        "y": 1118.5,
+        "w": 611,
+        "h": 557.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 25.5,
+        "w": 611,
+        "h": 557.5
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-01.png",
+      "frame": {
+        "x": 1234,
+        "y": 1118.5,
+        "w": 605.5,
+        "h": 559.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 24.5,
+        "w": 605.5,
+        "h": 559.5
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-04.png",
+      "frame": {
+        "x": 1244,
+        "y": 557,
+        "w": 604.5,
+        "h": 560
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 27,
+        "w": 604.5,
+        "h": 560
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-02.png",
+      "frame": {
+        "x": 1839.5,
+        "y": 1117,
+        "w": 601.5,
+        "h": 561.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 22.5,
+        "w": 601.5,
+        "h": 561.5
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-11.png",
+      "frame": {
+        "x": 0,
+        "y": 1121.5,
+        "w": 601,
+        "h": 556
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 26.5,
+        "w": 601,
+        "h": 556
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-08.png",
+      "frame": {
+        "x": 1249,
+        "y": 0,
+        "w": 597,
+        "h": 554.5
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7.5,
+        "y": 28,
+        "w": 597,
+        "h": 554.5
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "LeafAnt_v2-03.png",
+      "frame": {
+        "x": 1846,
+        "y": 0,
+        "w": 580,
+        "h": 557
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 27,
+        "w": 580,
+        "h": 557
+      },
+      "sourceSize": {
+        "w": 637.5,
+        "h": 587
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "leafAnt2.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 2441,
+      "h": 1679
+    },
+    "scale": 0.5
+  }
+}
