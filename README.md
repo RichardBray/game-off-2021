@@ -32,8 +32,6 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Maje playable kevel. Push to git
-- Space out level a bit
 - Add eating ants
 - Pause screen
 - Intro screens
