@@ -35,6 +35,11 @@ class Mushrooms extends FlxTypedGroup<Mushroom> {
       y: 491,
       type: LargeBlue,
     },
+    {
+      x: 20007,
+      y: 604,
+      type: SmallBlue,
+    },
   ];
 
   public function new(player: Player) {

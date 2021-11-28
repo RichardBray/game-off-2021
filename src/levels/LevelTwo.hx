@@ -6,6 +6,7 @@ import characters.Player;
 import characters.PlayerClimb;
 import characters.Spider;
 import characters.Wasp;
+import environment.CoverGrass;
 import environment.Hole;
 import environment.MovableSprite;
 import environment.Mushrooms;
@@ -48,7 +49,7 @@ final class LevelTwo extends GameState {
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 9;
+		final fullMapWidth = FlxG.width * 11;
 
 		// - physics world
 		FlxEcho.init({
@@ -88,13 +89,14 @@ final class LevelTwo extends GameState {
 
 		// - npc sprites
 		final ant = new Ant(4789, 685, player);
+		final patrollingAnt = new Ant(14372, 685, player);
 		wasp = new Wasp(6760, 0);
 		wasp.alpha = 0;
-		final spider = new Spider(11292, -450, player); // 11292
+		final spider = new Spider(11292, -450, player);
 		final leafAntGroup = new LeafAntGrp(15831, 249, player);
 		leafAntGroup.kill();
 
-		// - invisible objects
+		// - invisible objects a.k.a triggers
 		final leftBound = new FlxObject(0, 663, 35, 167);
 		leftBound.add_body({mass: 0});
 		final checkpoints = new Checkpoints(player);
@@ -112,11 +114,17 @@ final class LevelTwo extends GameState {
 
 		cameraUpTrigger = new FlxObject(13076, 58, 49, 106);
 		cameraUpTrigger.add_body({mass: 0});
-		cameraDownTrigger = new FlxObject(9598, 58, 49, 106);
+		cameraDownTrigger = new FlxObject(16363, 727, 200, 106);
 		cameraDownTrigger.add_body({mass: 0});
 
 		final startAntGroupsTrigger = new FlxObject(13199, 58, 49, 106);
 		startAntGroupsTrigger.add_body({mass: 0});
+
+		final pattrollingAntLeftTrigger = new FlxObject(15968, 729, 49, 106);
+		pattrollingAntLeftTrigger.add_body({mass: 0});
+
+		final pattrollingAntRightTrigger = new FlxObject(14372, 729, 49, 106);
+		pattrollingAntRightTrigger.add_body({mass: 0});
 
 		// - environments objects
 		final pebbles = new Pebbles(player);
@@ -133,6 +141,7 @@ final class LevelTwo extends GameState {
 		final plantStem = new PlantStem(4300, -565, player);
 		final treeStump = new TreeStump(13108, 164, player);
 		final treeStumpCover = new TreeStumpCover(12700, 130);
+		final coveringGrass = new CoverGrass(16309, -307);
 
 		// - help text
 		// final textPropmpts = new TextPrompts(player);
@@ -155,6 +164,8 @@ final class LevelTwo extends GameState {
 
 		add(treeStump);
 		add(leafAntGroup);
+		add(coveringGrass);
+		add(patrollingAnt);
 		add(treeStumpCover);
 		add(pebbles);
 		add(hole);
@@ -175,6 +186,7 @@ final class LevelTwo extends GameState {
 		leftBound.listen(player);
 
 		ant.listen(groundListener);
+		patrollingAnt.listen(groundListener);
 		movableRock.sprite.listen(mushrooms.members[0].stalkCollision);
 
 		antTrigger.listen(player, {
@@ -210,9 +222,23 @@ final class LevelTwo extends GameState {
 			enter: (_, _, _) -> {
 				leafAntGroup.revive();
 				leafAntGroup.startMovement();
+				patrollingAnt.state = RunningRight;
 			},
 		});
 
+		pattrollingAntLeftTrigger.listen(patrollingAnt, {
+			separate: false,
+			enter: (_, _, _) -> {
+				patrollingAnt.state = RunningLeft;
+			},
+		});
+
+		pattrollingAntRightTrigger.listen(patrollingAnt, {
+			separate: false,
+			enter: (_, _, _) -> {
+				patrollingAnt.state = RunningRight;
+			},
+		});
 		cameraMovements();
 
 		// - camera settings

@@ -17,10 +17,15 @@ class Pebbles extends FlxTypedGroup<Pebble> {
     {
       x: 2293,
       y: 805,
-      type: Small
+      type: Large
     },
     {
       x: 6672,
+      y: 805,
+      type: Small
+    },
+    {
+      x: 17880,
       y: 805,
       type: Small
     },

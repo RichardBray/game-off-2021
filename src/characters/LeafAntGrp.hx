@@ -15,6 +15,7 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
   var killAntGroupTrigger: FlxObject;
   var overlappedAnts: Int = 0;
   var antOptions: Array<LeafAntInputs>;
+  var shiftAnts:Bool = false;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
     super(5);
@@ -66,6 +67,7 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
       separate: false,
       enter: (_, _, _) -> {
         disableCollisions();
+        shiftAnts = true;
       }
     });
   }
@@ -100,7 +102,11 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
     for (i in 0...3) {
       final ant: LeafAnt = this.members[i];
       ant.revive();
-      ant.resetPosition();
+      if (shiftAnts) {
+        ant.resetPosition(912);
+      } else {
+        ant.resetPosition();
+      }
     }
   }
 

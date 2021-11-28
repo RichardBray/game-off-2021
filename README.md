@@ -32,12 +32,15 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Add eating ants
+- Add wasp sequence at end
+- Add hole(s) on wasp intro long run
 - Pause screen
 - Intro screens
 - Background sound?
 
 ## Post Jam changes
+- Gamepad controls
+- Screen shake if player jumps too high
 - Climb down ability
 - Add shadow
 - Roll animation for jumping off high points

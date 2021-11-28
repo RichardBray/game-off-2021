@@ -11,7 +11,8 @@ class Ant extends FlxSprite {
   public var state: AntStates = Standing;
   public var returnFromMushroomTriggered: Bool = false;
   var player: Player;
-
+  var attackPlayerTrigger: Bool = false;
+  var attackFacingSet: Bool = false;
   var returnFromMushroomTimer: Float = 0;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
@@ -42,6 +43,13 @@ class Ant extends FlxSprite {
 		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
+
+    this.listen(player, {
+      separate: false,
+      enter: (_, _, _) -> {
+        attackPlayerTrigger = true;
+      },
+    });
   }
 
   function stateMachine() {
@@ -49,6 +57,7 @@ class Ant extends FlxSprite {
     final RUNNING_SPEED = 400;
     switch(state) {
       case RunningRight:
+        this.facing = FlxObject.RIGHT;
         physicsBody.velocity.x = RUNNING_SPEED;
         this.animation.play("running");
       case RunningLeft:
@@ -57,7 +66,10 @@ class Ant extends FlxSprite {
         this.animation.play("running");
       case Attacking:
         physicsBody.velocity.x = 0;
-        this.facing = FlxObject.LEFT;
+        if (!attackFacingSet) {
+          this.facing = this.facing == FlxObject.LEFT ? FlxObject.RIGHT : FlxObject.LEFT;
+          attackFacingSet = true;
+        }
         this.animation.play("attacking");
       case Standing:
         physicsBody.velocity.x = 0;
@@ -65,15 +77,9 @@ class Ant extends FlxSprite {
     }
   }
 
-  // TOOD move out of update function
   function attackPlayer() {
-    this.listen(player, {
-      separate: false,
-      enter: (_, _, _) -> {
-        state = Attacking;
-        player.startDeathSequence = true;
-      },
-    });
+    state = Attacking;
+    player.startDeathSequence = true;
   }
 
   function returnFromMushroom(elapsed: Float) {
@@ -92,7 +98,9 @@ class Ant extends FlxSprite {
 
 	override function update(elapsed: Float) {
 		stateMachine();
-    attackPlayer();
+    if (attackPlayerTrigger) {
+      attackPlayer();
+    }
     if (returnFromMushroomTriggered) {
       returnFromMushroom(elapsed);
     }

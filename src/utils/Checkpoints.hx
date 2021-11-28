@@ -1,7 +1,6 @@
 package utils;
 
 import characters.Player;
-import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
 class Checkpoints extends FlxTypedGroup<Checkpoint> {
@@ -9,6 +8,7 @@ class Checkpoints extends FlxTypedGroup<Checkpoint> {
     [4849, 511],
     [9696, 726],
     [13006, 58],
+    [16563, 727],
   ];
 
   public function new(player: Player) {

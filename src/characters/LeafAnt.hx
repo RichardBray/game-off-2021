@@ -41,9 +41,10 @@ class LeafAnt extends FlxTypedGroup<FlxObject> {
     add(collisionListener);
   }
 
-  public function resetPosition() {
-    sprite.setPosition(potision.x, potision.y);
-    collisionListener.setPosition(potision.x, potision.y + collisionYOffset);
+  public function resetPosition(shiftXBy: Int = 0) {
+    trace(shiftXBy, "shiftXBy");
+    sprite.setPosition(potision.x + shiftXBy, potision.y);
+    collisionListener.setPosition(potision.x + shiftXBy, potision.y + collisionYOffset);
   }
 
   public function startMovement() {
