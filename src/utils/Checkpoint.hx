@@ -10,7 +10,7 @@ class Checkpoint extends FlxObject {
   final dataStore = GameDataStore.instance;
 
   public function new(x: Int, y: Int, player: Player) {
-    super(x, y, 50, 100);
+    super(x, y, 100, 100);
     this.add_body({mass: 0});
 
     this.listen(player, {

@@ -28,12 +28,12 @@ class TreeStump extends FlxTypedGroup<FlxObject> {
     add(mainSprite);
 
     // 2 - low climb
-    final lowClimb = new FlxObject(x - 120, y + 455, 120, 14);
+    final lowClimb = new FlxObject(x - 190, y + 455, 210, 14);
     lowClimb.add_body({mass: 0});
     add(lowClimb);
 
     // 3 - low climb listener
-    final lowClimbListener = new FlxObject(x - 112, y + 564, 107, 114);
+    final lowClimbListener = new FlxObject(x - 182, y + 564, 177, 114);
     lowClimbListener.add_body({mass: 0});
     addCliemableListener(lowClimbListener);
     add(lowClimbListener);

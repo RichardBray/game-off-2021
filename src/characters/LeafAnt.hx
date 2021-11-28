@@ -50,6 +50,11 @@ class LeafAnt extends FlxTypedGroup<FlxObject> {
     sprite.velocity.x = -MOVEMENT_SPEED;
   }
 
+  public function disableCollision() {
+    final collisionBody = collisionListener.get_body();
+    collisionBody.active = false;
+  }
+
   override function update(elapsed: Float) {
     if (true) {
       final collisionBody = collisionListener.get_body();

@@ -91,7 +91,7 @@ final class LevelTwo extends GameState {
 		wasp = new Wasp(5760, 0);
 		wasp.alpha = 0;
 		final spider = new Spider(10292, -450, player); // 11292
-		final leafAntGroup = new LeafAntGrp(14505, 249, player);
+		final leafAntGroup = new LeafAntGrp(13831, 249, player);
 		leafAntGroup.kill();
 
 		// - invisible objects
@@ -115,7 +115,7 @@ final class LevelTwo extends GameState {
 		cameraDownTrigger = new FlxObject(8598, 58, 49, 106);
 		cameraDownTrigger.add_body({mass: 0});
 
-		final startAntGroupsTrigger = new FlxObject(11659, 58, 49, 106);
+		final startAntGroupsTrigger = new FlxObject(11199, 58, 49, 106);
 		startAntGroupsTrigger.add_body({mass: 0});
 
 		// - environments objects

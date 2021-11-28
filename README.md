@@ -32,8 +32,8 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Add trigger to start ant movements when player gets to a certain point
-- Make andts loop
+- Maje playable kevel. Push to git
+- Space out level a bit
 - Add eating ants
 - Pause screen
 - Intro screens

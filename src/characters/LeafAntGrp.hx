@@ -14,11 +14,12 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
   var movementStarted = false;
   var killAntGroupTrigger: FlxObject;
   var overlappedAnts: Int = 0;
+  var antOptions: Array<LeafAntInputs>;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
-    super(4);
+    super(5);
 
-    final antOptions: Array<LeafAntInputs> = [
+    antOptions = [
       {
         x: x,
         y: y,
@@ -54,9 +55,19 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
       add(antSprite);
     }
 
-		killAntGroupTrigger = new FlxObject(11248, 589, 167, 216);
-		killAntGroupTrigger.add_body({mass: 0});
+		killAntGroupTrigger = new FlxObject(11474, 589, 167, 216);
     add(killAntGroupTrigger);
+
+		final shiftAntGroupsTrigger = new FlxObject(13815, 241, 49, 106);
+		shiftAntGroupsTrigger.add_body({mass: 0});
+    add(shiftAntGroupsTrigger);
+
+    shiftAntGroupsTrigger.listen(player, {
+      separate: false,
+      enter: (_, _, _) -> {
+        disableCollisions();
+      }
+    });
   }
 
   public function startMovement() {
@@ -76,6 +87,7 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
       final antOverlap = FlxG.overlap(ant, killAntGroupTrigger);
       if (antOverlap) {
         overlappedAnts++;
+        ant.kill();
       }
       if (overlappedAnts == 3) {
         resetAnts();
@@ -87,7 +99,15 @@ class LeafAntGrp extends FlxTypedGroup<OneOfTwo<LeafAnt, FlxObject>> {
   function resetAnts() {
     for (i in 0...3) {
       final ant: LeafAnt = this.members[i];
+      ant.revive();
       ant.resetPosition();
+    }
+  }
+
+  function disableCollisions() {
+    for (i in 0...3) {
+      final ant: LeafAnt = this.members[i];
+      ant.disableCollision();
     }
   }
 
