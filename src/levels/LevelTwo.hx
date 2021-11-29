@@ -142,6 +142,12 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		final waspFollowPathTrigger = new FlxObject(20357, 245, 49, 106);
 		waspFollowPathTrigger.add_body({mass: 0});
 
+		final movableRockTwoPhysicsTrigger = new FlxObject(20594, 277, 49, 106);
+		movableRockTwoPhysicsTrigger.add_body({mass: 0});
+
+		final playerSafeZoneTrigger = new FlxObject(23000, 729, 49, 106);
+
+
 		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(2721, 828, player);
@@ -153,6 +159,12 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		final movableRock = new MovableSprite({
 			x: 3969,
 			y: 728,
+			player: player,
+			groundListener: groundListener,
+		});
+		final movableRockTwo = new MovableSprite({
+			x: 20433,
+			y: 243,
 			player: player,
 			groundListener: groundListener,
 		});
@@ -195,6 +207,7 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		add(spider);
 		add(mushrooms);
 		add(waspTwo);
+		add(movableRockTwo);
 
 		add(playerClimb);
 		add(player);
@@ -276,6 +289,13 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 			},
 		});
 
+		movableRockTwo.sprite.listen(mushrooms.members[6].sprtImage);
+		movableRockTwo.spaceBuffer.listen(mushrooms.members[6].sprtImage);
+
+		movableRockTwoPhysicsTrigger.listen(movableRockTwo.sprite, {
+			separate: false,
+			enter: (_, _, _) -> movableRockTwo.permenantPhysics = true,
+		});
 		cameraMovements();
 
 		// - camera settings

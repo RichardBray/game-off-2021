@@ -1,19 +1,22 @@
 package environment;
 
 import characters.Player;
+
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
 using echo.FlxEcho;
+
 using utils.SpriteHelpers;
 
 class MovableSprite extends FlxTypedGroup<FlxObject> {
   static inline final OBJECT_DRAG = 400;
   static inline final OBJECT_MASS = 3;
   public var sprite: FlxSprite;
+  public var spaceBuffer: FlxObject;
+  public var permenantPhysics:Bool = false;
   var pushingTrigger: FlxObject;
-  var spaceBuffer: FlxObject;
   var player: Player;
   var x:Float;
   var y:Float;
@@ -68,6 +71,8 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
     var spriteBody = sprite.get_body();
     var spaceBufferBody = spaceBuffer.get_body();
     var triggerBody = pushingTrigger.get_body();
+    var spriteBody = sprite.get_body();
+    var spaceBufferBody = spaceBuffer.get_body();
 
     if (player.state == Pushing) {
       spriteBody.mass = OBJECT_MASS;
@@ -76,7 +81,7 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
       spaceBufferBody.drag_length = OBJECT_DRAG;
     }
 
-    if (player.state != Pushing) {
+    if (player.state != Pushing && !permenantPhysics) {
       triggerBody.x = (spaceBufferBody.x - 20);
       spriteBody.mass = 0;
       spaceBufferBody.mass = 0;

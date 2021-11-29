@@ -1,7 +1,10 @@
 package environment;
 import characters.Player;
+
 import environment.ClimableSprite.ClimeableSpriteOptions;
+
 import flixel.FlxObject;
+import flixel.FlxSprite;
 
 using echo.FlxEcho;
 

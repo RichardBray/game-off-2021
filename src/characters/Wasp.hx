@@ -1,5 +1,7 @@
 package characters;
 
+import characters.Player;
+
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
@@ -19,6 +21,8 @@ class Wasp extends FlxSprite {
 
   var flyThroughSkyTimer: Float = 0;
   var pathFollowedSet: Bool = false;
+  var waspDescendSet: Bool = false;
+  var alertOne: Bool = false;
 
 	final movementPathCoords: Array<{x: Float, y: Float}> = [
 		{x: 20886.5, y: 485},
@@ -99,7 +103,10 @@ class Wasp extends FlxSprite {
   }
 
   public function flyFromAbove() {
-    this.tween({y: 560}, 3, {ease: FlxEase.sineInOut});
+    if (!waspDescendSet) {
+      this.tween({y: 560}, 3, {ease: FlxEase.sineInOut});
+      waspDescendSet = true;
+    }
   }
 
   public function followPath() {
@@ -107,6 +114,7 @@ class Wasp extends FlxSprite {
       this.facing = FlxObject.LEFT;
       path.start(null, 440);
       pathFollowedSet = true;
+      alertOne = true;
     }
   }
 
