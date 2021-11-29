@@ -6,6 +6,7 @@ import characters.Player;
 import characters.PlayerClimb;
 import characters.Spider;
 import characters.Wasp;
+
 import environment.CoverGrass;
 import environment.Hole;
 import environment.MovableSprite;
@@ -14,25 +15,32 @@ import environment.Pebbles;
 import environment.PlantStem;
 import environment.TreeStump;
 import environment.TreeStumpCover;
+
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxRect;
+
 import openfl.filters.ShaderFilter;
+
 import shaders.Pixelate;
+
 import states.GameState;
+
 import ui.TextPrompts;
+
 import utils.Checkpoints;
 import utils.Colors;
 import utils.GameDataStore;
 
 using echo.FlxEcho;
+
 using flixel.tweens.FlxTween;
+
 using hxmath.math.Vector2;
 
-final class LevelTwo extends GameState {
-	final dataStore = GameDataStore.instance;
+final class LevelTwo extends GameState {	final dataStore = GameDataStore.instance;
 	var player: Player;
 	var groundListener: FlxObject;
 	var waspFlyByTrigger: FlxObject;
@@ -49,7 +57,7 @@ final class LevelTwo extends GameState {
 
 	override function create() {
 		super.create();
-		final fullMapWidth = FlxG.width * 11;
+		final fullMapWidth = FlxG.width * 12;
 
 		// - physics world
 		FlxEcho.init({
@@ -92,6 +100,8 @@ final class LevelTwo extends GameState {
 		final patrollingAnt = new Ant(14372, 685, player);
 		wasp = new Wasp(6760, 0);
 		wasp.alpha = 0;
+		final waspTwo = new Wasp(20707, -300);
+		waspTwo.state = Hovering;
 		final spider = new Spider(11292, -450, player);
 		final leafAntGroup = new LeafAntGrp(15831, 249, player);
 		leafAntGroup.kill();
@@ -126,11 +136,20 @@ final class LevelTwo extends GameState {
 		final pattrollingAntRightTrigger = new FlxObject(14372, 729, 49, 106);
 		pattrollingAntRightTrigger.add_body({mass: 0});
 
+		final waspLandTrigger = new FlxObject(19580, 729, 49, 106);
+		waspLandTrigger.add_body({mass: 0});
+
+		final waspFollowPathTrigger = new FlxObject(20357, 245, 49, 106);
+		waspFollowPathTrigger.add_body({mass: 0});
+
 		// - environments objects
 		final pebbles = new Pebbles(player);
 		final hole = new Hole(2721, 828, player);
+		final holeTwo = new Hole(8600, 828, player);
 		final holeCovering = new FlxSprite((hole.x - 8), (FlxG.height - GROUND_HEIGHT_FROM_BASE + 9));
 		holeCovering.makeGraphic(137, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
+		final holeTwoCovering = new FlxSprite((holeTwo.x - 8), (FlxG.height - GROUND_HEIGHT_FROM_BASE + 9));
+		holeTwoCovering.makeGraphic(137, GROUND_HEIGHT_FROM_BASE, Colors.groundGreen);
 		final movableRock = new MovableSprite({
 			x: 3969,
 			y: 728,
@@ -169,15 +188,18 @@ final class LevelTwo extends GameState {
 		add(treeStumpCover);
 		add(pebbles);
 		add(hole);
+		add(holeTwo);
 		add(movableRock);
 		add(ant);
 		add(plantStem);
 		add(spider);
 		add(mushrooms);
+		add(waspTwo);
 
 		add(playerClimb);
 		add(player);
 		add(holeCovering);
+		add(holeTwoCovering);
 		// add(textPropmpts);
 
 		// - physics listeners
@@ -239,6 +261,21 @@ final class LevelTwo extends GameState {
 				patrollingAnt.state = RunningRight;
 			},
 		});
+
+		waspLandTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				waspTwo.flyFromAbove();
+			},
+		});
+
+		waspFollowPathTrigger.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> {
+				waspTwo.followPath();
+			},
+		});
+
 		cameraMovements();
 
 		// - camera settings

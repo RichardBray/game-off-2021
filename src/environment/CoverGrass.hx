@@ -3,10 +3,11 @@ package environment;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 
+
 class CoverGrass extends FlxTypedGroup<FlxSprite> {
   final SPACING = 1028;
   public function new(x: Float = 0, y: Float = 0) {
-    super(2);
+    super(3);
 
     for (i in 0...3) {
       var grass: FlxSprite = new FlxSprite((x + SPACING * i), y);

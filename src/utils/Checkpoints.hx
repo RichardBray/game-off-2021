@@ -1,14 +1,17 @@
 package utils;
 
 import characters.Player;
+
 import flixel.group.FlxGroup.FlxTypedGroup;
+
 
 class Checkpoints extends FlxTypedGroup<Checkpoint> {
   final checkpoints: Array<Array<Int>> = [
     [4849, 511],
-    [9696, 726],
+    [9696, 727],
     [13006, 58],
     [16563, 727],
+    [19580, 727],
   ];
 
   public function new(player: Player) {

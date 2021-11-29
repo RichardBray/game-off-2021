@@ -2,15 +2,30 @@ package characters;
 
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.math.FlxPoint;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxPath;
 
 using echo.FlxEcho;
+
+using flixel.tweens.FlxTween;
+
 using utils.SpriteHelpers;
 
 class Wasp extends FlxSprite {
 
   public var state: WaspStates = Standing;
   public var triggerSkyFly: Bool = false;
+
   var flyThroughSkyTimer: Float = 0;
+  var pathFollowedSet: Bool = false;
+
+	final movementPathCoords: Array<{x: Float, y: Float}> = [
+		{x: 20886.5, y: 485},
+		{x: 20849.5, y: 330},
+		{x: 20754.5, y: 180},
+		{x: 20573.5, y: 101.5},
+	];
 
   public function new(x: Float = 0, y: Float = 0) {
     super(x, y);
@@ -38,14 +53,18 @@ class Wasp extends FlxSprite {
       frameRate: 10,
     });
 
-    // this.add_body({mass: 0});
+		final flxPointCoords = movementPathCoords.map(
+			coords -> new FlxPoint(coords.x, coords.y)
+		);
+
+    path = new FlxPath(flxPointCoords);
 
 		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
   }
 
-  function stateMachine() {
+  function stateMachine(elapsed: Float) {
     switch(state) {
       case Flying:
         final FLYING_SPEED = 680;
@@ -58,6 +77,9 @@ class Wasp extends FlxSprite {
       case Attacking:
         this.animation.play("attacking");
       case Standing:
+        velocity.x = 0;
+      case Hovering:
+        this.animation.play("flying");
         velocity.x = 0;
     }
   }
@@ -76,8 +98,20 @@ class Wasp extends FlxSprite {
     }
   }
 
+  public function flyFromAbove() {
+    this.tween({y: 560}, 3, {ease: FlxEase.sineInOut});
+  }
+
+  public function followPath() {
+    if (!pathFollowedSet) {
+      this.facing = FlxObject.LEFT;
+      path.start(null, 440);
+      pathFollowedSet = true;
+    }
+  }
+
 	override function update(elapsed: Float) {
-		stateMachine();
+		stateMachine(elapsed);
     if (triggerSkyFly) {
       flyThroughSky(elapsed);
     }
@@ -90,4 +124,5 @@ enum WaspStates {
   Landing;
   Attacking;
   Standing;
+  Hovering;
 }

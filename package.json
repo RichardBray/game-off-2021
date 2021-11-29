@@ -4,10 +4,10 @@
   "description": "HaxeFlixel game template powered by Lix and Nodejs. The fastest way to start building a HaxeFlixel game.",
   "main": "src/Main.hx",
   "scripts": {
-    "start": "concurrently --hide \"comp-server\" \"npm run watch\" \"npm run server\" \"npm run comp-server\"",
+    "start": "lix lime build html5 -minify",
+    "dev": "concurrently --hide \"comp-server\" \"npm run watch\" \"npm run server\" \"npm run comp-server\"",
     "watch": "watchman-make -p 'src/**/*.hx' -r 'sh watcher.sh'",
     "server": "http-server export/html5/bin --port 1212 -c-1",
-    "build": "lix lime build html5 -minify",
     "comp-server": "haxe -v --wait 8000"
   },
   "repository": {
@@ -22,7 +22,10 @@
   },
   "homepage": "https://github.com/RichardBray/game-jam-template#readme",
   "devDependencies": {
-    "concurrently": "^6.3.0",
+    "concurrently": "^6.4.0",
     "http-server": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=12"
   }
 }

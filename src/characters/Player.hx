@@ -3,10 +3,13 @@ package characters;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
+
 import utils.Controls;
 
 using echo.FlxEcho;
+
 using flixel.tweens.FlxTween;
+
 using utils.SpriteHelpers;
 
 class Player extends FlxSprite {

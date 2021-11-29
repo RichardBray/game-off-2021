@@ -1,30 +1,54 @@
 {
-  "indentation": {
-    "character": "  ",
-    "conditionalPolicy": "aligned"
+  "lineEnds": {
+    "leftCurly": "after",
+    "emptyCurly": "noBreak",
+    "rightCurly": "both",
+    "objectLiteralCurly": {
+      "leftCurly": "after"
+    }
+  },
+  "whitespace": {
+    "arrowFunctionsPolicy": "around",
+    "functionTypeHaxe3Policy": "around",
+    "functionTypeHaxe4Policy": "around",
+    "typeHintColonPolicy": "after",
+    "objectFieldColonPolicy": "after"
   },
   "sameLine": {
-    "anonFunctionBody": "keep",
     "ifBody": "same",
-    "ifElse": "next",
-    "elseBody": "same",
-    "elseIf": "same",
-    "caseBody": "keep",
+    "ifElse": "same",
     "doWhile": "same",
-    "doWhileBody": "same",
-    "whileBody": "same",
-    "forBody": "same",
     "tryBody": "same",
-    "catchBody": "same",
-    "functionBody": "keep"
+    "tryCatch": "next"
   },
   "emptyLines": {
-    "afterLeftCurly": "remove",
-    "beforeDocCommentEmptyLines": "none",
-    "afterPackage": 1,
     "finalNewline": true,
-    "classEmptyLines": {
-      "betweenFunctions": 1
-    }
+    "importAndUsing": {
+      "betweenImportsLevel": "firstLevelPackage",
+      "betweenImports": 1,
+      "beforeUsing": 1
+    },
+    "maxAnywhereInFile": 1
+  },
+  "wrapping": {
+    "multiVar": {
+      "defaultWrap": "onePerLineAfterFirst"
+    },
+    "callParameter": {
+      "defaultWrap": "onePerLine",
+      "defaultLocation": "afterLast",
+      "rules": [
+        {
+          "conditions": [
+            {
+              "cond": "lineLength <= n",
+              "value": 80
+            }
+          ],
+          "type": "fillLine"
+        }
+      ]
+    },
+    "maxLineLength": 120
   }
 }
