@@ -1,12 +1,14 @@
 package characters;
 
 import characters.Player;
+
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxPoint;
 
 using echo.FlxEcho;
+
 using utils.SpriteHelpers;
 
 class LeafAnt extends FlxTypedGroup<FlxObject> {
@@ -57,10 +59,8 @@ class LeafAnt extends FlxTypedGroup<FlxObject> {
   }
 
   override function update(elapsed: Float) {
-    if (true) {
-      final collisionBody = collisionListener.get_body();
-      collisionBody.x = sprite.x + collisionXOffset;
-    }
+    final collisionBody = collisionListener.get_body();
+    collisionBody.x = sprite.x + collisionXOffset;
 
     if (!this.alive) {
       sprite.setPosition(potision.x, potision.y);

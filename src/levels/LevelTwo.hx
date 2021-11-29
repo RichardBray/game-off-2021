@@ -1,6 +1,7 @@
 package levels;
 
 import characters.Ant;
+import characters.AttackingWasp;
 import characters.LeafAntGrp;
 import characters.Player;
 import characters.PlayerClimb;
@@ -100,8 +101,8 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		final patrollingAnt = new Ant(14372, 685, player);
 		wasp = new Wasp(6760, 0);
 		wasp.alpha = 0;
-		final waspTwo = new Wasp(20707, -300);
-		waspTwo.state = Hovering;
+		final waspTwo = new AttackingWasp(20707, -300, player);
+		waspTwo.sprite.state = Hovering;
 		final spider = new Spider(11292, -450, player);
 		final leafAntGroup = new LeafAntGrp(15831, 249, player);
 		leafAntGroup.kill();
@@ -206,8 +207,8 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		add(plantStem);
 		add(spider);
 		add(mushrooms);
-		add(waspTwo);
 		add(movableRockTwo);
+		add(waspTwo);
 
 		add(playerClimb);
 		add(player);
@@ -278,14 +279,14 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		waspLandTrigger.listen(player, {
 			separate: false,
 			enter: (_, _, _) -> {
-				waspTwo.flyFromAbove();
+				waspTwo.sprite.flyFromAbove();
 			},
 		});
 
 		waspFollowPathTrigger.listen(player, {
 			separate: false,
 			enter: (_, _, _) -> {
-				waspTwo.followPath();
+				waspTwo.sprite.followPathSet = true;
 			},
 		});
 

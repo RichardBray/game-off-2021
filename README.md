@@ -33,7 +33,8 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 
 ## Todo
 - Add wasp sequence at end
-- Add hole(s) on wasp intro long run
+- Remove pyhsics from second movabel rock when it drops
+- Add level end screen
 - Pause screen
 - Intro screens
 - Background sound?

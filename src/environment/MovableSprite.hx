@@ -68,8 +68,6 @@ class MovableSprite extends FlxTypedGroup<FlxObject> {
   }
 
   function updatePushableSpritePhysics() {
-    var spriteBody = sprite.get_body();
-    var spaceBufferBody = spaceBuffer.get_body();
     var triggerBody = pushingTrigger.get_body();
     var spriteBody = sprite.get_body();
     var spaceBufferBody = spaceBuffer.get_body();
