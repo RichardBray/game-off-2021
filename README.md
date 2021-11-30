@@ -38,7 +38,6 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Finish wasp sequence
 - Remove pyhsics from second movabel rock when it drops
 - Add level end screen
 - Pause screen

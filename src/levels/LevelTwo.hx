@@ -41,7 +41,8 @@ using flixel.tweens.FlxTween;
 
 using hxmath.math.Vector2;
 
-final class LevelTwo extends GameState {	final dataStore = GameDataStore.instance;
+final class LevelTwo extends GameState {
+	final dataStore = GameDataStore.instance;
 	var player: Player;
 	var groundListener: FlxObject;
 	var waspFlyByTrigger: FlxObject;
@@ -143,10 +144,8 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		final waspFollowPathTrigger = new FlxObject(20357, 245, 49, 106);
 		waspFollowPathTrigger.add_body({mass: 0});
 
-		final movableRockTwoPhysicsTrigger = new FlxObject(20594, 277, 49, 106);
-		movableRockTwoPhysicsTrigger.add_body({mass: 0});
-
-		final playerSafeZoneTrigger = new FlxObject(23000, 729, 49, 106);
+		// final movableRockTwoPhysicsTrigger = new FlxObject(20594, 277, 49, 106);
+		// movableRockTwoPhysicsTrigger.add_body({mass: 0});
 
 
 		// - environments objects
@@ -163,12 +162,12 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 			player: player,
 			groundListener: groundListener,
 		});
-		final movableRockTwo = new MovableSprite({
-			x: 20433,
-			y: 243,
-			player: player,
-			groundListener: groundListener,
-		});
+		// final movableRockTwo = new MovableSprite({
+		// 	x: 20433,
+		// 	y: 243,
+		// 	player: player,
+		// 	groundListener: groundListener,
+		// });
 		final mushrooms = new Mushrooms(player);
 		final plantStem = new PlantStem(4300, -565, player);
 		final treeStump = new TreeStump(13108, 164, player);
@@ -207,7 +206,7 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 		add(plantStem);
 		add(spider);
 		add(mushrooms);
-		add(movableRockTwo);
+		// add(movableRockTwo);
 		add(waspTwo);
 
 		add(playerClimb);
@@ -290,13 +289,13 @@ final class LevelTwo extends GameState {	final dataStore = GameDataStore.instanc
 			},
 		});
 
-		movableRockTwo.sprite.listen(mushrooms.members[6].sprtImage);
-		movableRockTwo.spaceBuffer.listen(mushrooms.members[6].sprtImage);
+		// movableRockTwo.sprite.listen(mushrooms.members[6].sprtImage);
+		// movableRockTwo.spaceBuffer.listen(mushrooms.members[6].sprtImage);
 
-		movableRockTwoPhysicsTrigger.listen(movableRockTwo.sprite, {
-			separate: false,
-			enter: (_, _, _) -> movableRockTwo.permenantPhysics = true,
-		});
+		// movableRockTwoPhysicsTrigger.listen(movableRockTwo.sprite, {
+		// 	separate: false,
+		// 	enter: (_, _, _) -> movableRockTwo.permenantPhysics = true,
+		// });
 		cameraMovements();
 
 		// - camera settings
