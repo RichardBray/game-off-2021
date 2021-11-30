@@ -1,18 +1,23 @@
 # Game off 2021 entry
 
-## Main Tools
+## Main Tech
 - Haxe
-- Lix
 - HaxeFlixel
 - Echo Physics
 
+## Dev Tech
+- Lix
+- NPM
+- Concurrently
+- Watchman
+- Http Server
 ## Controls
-A, Left arrow: Move right
-D, Right arrow: Move left
-W, Up arrow, Spacebar: Jump
-Shift: Push objects
-R: Reset to last checkpoint
-ESC: Pause
+- A, Left arrow: Move right
+- D, Right arrow: Move left
+- W, Up arrow, Spacebar: Jump
+- Shift: Push objects
+- R: Reset to last checkpoint
+- ESC: Pause
 
 ---
 ## Dev Notes
@@ -38,10 +43,7 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Remove pyhsics from second movabel rock when it drops
-- Add level end screen
 - Pause screen
-- Intro screens
 - Background sound?
 
 ## Post Jam changes

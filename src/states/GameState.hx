@@ -3,6 +3,7 @@ package states;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.system.FlxAssets;
+
 import utils.Colors;
 
 abstract class GameState extends FlxState {
@@ -18,7 +19,7 @@ abstract class GameState extends FlxState {
 		FlxG.mouse.visible = true;
 	}
 
-	override public function update(elapsed: Float) {
+	override function update(elapsed: Float) {
 		super.update(elapsed);
 	}
 }

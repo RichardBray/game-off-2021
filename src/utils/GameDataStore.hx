@@ -8,7 +8,7 @@ class GameDataStore {
 	public var data: DataFormat = {
 		enableGroundListener: true,
 		playerPos: {
-			x: 93, // 93
+			x: 93, // 22080
 			y: 793, // 793
 		}
 	};

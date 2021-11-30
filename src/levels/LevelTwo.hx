@@ -29,6 +29,9 @@ import shaders.Pixelate;
 
 import states.GameState;
 
+import substates.LevelComplete;
+import substates.MainMenu;
+
 import ui.TextPrompts;
 
 import utils.Checkpoints;
@@ -52,11 +55,19 @@ final class LevelTwo extends GameState {
 	var wasp: Wasp;
 	var cameraUpTrigger: FlxObject;
 	var cameraDownTrigger: FlxObject;
+	var endOfLevelSet = false;
+	var mainMenuSet = false;
+	var pixelationSet = false;
 
 	// - triggers set
 	var cameraUpSet: Bool = false;
 	var cameraDownSet: Bool = false;
 
+	public function new(showMainMenu: Bool = false, pixelation: Bool = false) {
+		super();
+		mainMenuSet = showMainMenu;
+		pixelationSet = pixelation;
+	}
 	override function create() {
 		super.create();
 		final fullMapWidth = FlxG.width * 12;
@@ -96,7 +107,7 @@ final class LevelTwo extends GameState {
 		// - player sprites
 		final playerClimb = new PlayerClimb();
 		player = new Player(dataStore.data.playerPos.x, dataStore.data.playerPos.y, playerClimb);
-
+		player.alpha = 0;
 		// - npc sprites
 		final ant = new Ant(4789, 685, player);
 		final patrollingAnt = new Ant(14372, 685, player);
@@ -146,6 +157,9 @@ final class LevelTwo extends GameState {
 
 		// final movableRockTwoPhysicsTrigger = new FlxObject(20594, 277, 49, 106);
 		// movableRockTwoPhysicsTrigger.add_body({mass: 0});
+
+		final rightBound = new FlxObject(23000, 663, 35, 167);
+		rightBound.add_body({mass: 0});
 
 
 		// - environments objects
@@ -213,12 +227,17 @@ final class LevelTwo extends GameState {
 		add(player);
 		add(holeCovering);
 		add(holeTwoCovering);
+		add(rightBound);
 		// add(textPropmpts);
 
 		// - physics listeners
 		groundListener.listen(player);
 		groundListener.listen(spider.sprite);
 		leftBound.listen(player);
+		rightBound.listen(player, {
+			separate: false,
+			enter: (_, _, _) -> endOfLevelSet = true,
+		});
 
 		ant.listen(groundListener);
 		patrollingAnt.listen(groundListener);
@@ -309,7 +328,7 @@ final class LevelTwo extends GameState {
 			player.height
 		);
 
-		if (false) { // TODO add pixelation menu option
+		if (pixelationSet) { // TODO add pixelation menu option
 			var effect = new Pixelate();
 			FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
 		}
@@ -345,11 +364,30 @@ final class LevelTwo extends GameState {
 		}
 	}
 
+	function openEndOfLevelScreen() {
+		final levelEndScreen = new LevelComplete();
+		FlxG.cameras.fade(Colors.black, 0.5, true);
+		openSubState(levelEndScreen);
+	}
+
+	function openMainMenu() {
+		final mainMenu = new substates.MainMenu();
+		openSubState(mainMenu);
+	}
+
 	override function update(elapsed: Float) {
 		levelResetConditions();
 
 		if (FlxG.keys.pressed.R) {
 			FlxG.resetState();
+		}
+
+		if (endOfLevelSet) {
+			openEndOfLevelScreen();
+		}
+
+		if (mainMenuSet) {
+			openMainMenu();
 		}
 		super.update(elapsed);
 	}
