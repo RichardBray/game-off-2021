@@ -7,6 +7,12 @@
 - Echo Physics
 
 ## Controls
+A, Left arrow: Move right
+D, Right arrow: Move left
+W, Up arrow, Spacebar: Jump
+Shift: Push objects
+R: Reset to last checkpoint
+ESC: Pause
 
 ---
 ## Dev Notes
@@ -32,7 +38,7 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
-- Add wasp sequence at end
+- Finish wasp sequence
 - Remove pyhsics from second movabel rock when it drops
 - Add level end screen
 - Pause screen

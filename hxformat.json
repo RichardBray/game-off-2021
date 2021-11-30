@@ -49,6 +49,6 @@
         }
       ]
     },
-    "maxLineLength": 120
+    "maxLineLength": 80
   }
 }

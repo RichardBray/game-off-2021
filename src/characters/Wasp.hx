@@ -18,8 +18,9 @@ using utils.SpriteHelpers;
 class Wasp extends FlxSprite {
 	public var state: WaspStates = Standing;
 	public var triggerSkyFly = false;
-  public var alertOne = false;
-  public var followPathSet = false;
+	public var alertOne = false;
+	public var alertTwo = false;
+	public var followPathSet = false;
 
 	var flyThroughSkyTimer: Float = 0;
 	var followPathTimer: Float = 0;
@@ -49,7 +50,7 @@ class Wasp extends FlxSprite {
 		this.setAnimationByFrames({
 			name: "landing",
 			totalFrames: 6,
-			frameNamePrefix: "WaspSting_",
+			frameNamePrefix: "WaspLand_",
 			frameRate: 10,
 		});
 		this.setAnimationByFrames({
@@ -113,23 +114,47 @@ class Wasp extends FlxSprite {
 	}
 
 	function followPath(elapsed: Float) {
-    followPathTimer += elapsed;
+		followPathTimer += elapsed;
 		if (!pathFollowedSet) {
 			this.facing = FlxObject.LEFT;
 			path.start(null, 440);
 			pathFollowedSet = true;
 		}
 
-    if (followPathTimer > 2.) {
-      alertOne = true;
+		if (followPathTimer > 2) {
+			alertOne = true;
+		}
+
+		if (followPathTimer > 4 && followPathTimer < 7) {
+			alertOne = false;
+      this.tween({x: 19749, y: 200}, 1);
+		}
+
+		if (followPathTimer > 5) {
+      this.facing = FlxObject.RIGHT;
+      alertOne = false;
+      alertTwo = true;
+		}
+
+    if (followPathTimer > 7) {
+      this.facing = FlxObject.LEFT;
+      this.tween({x: 17249}, 3);
+      alertTwo = false;
+      alertOne = false;
+    }
+
+    if (followPathTimer > 10) {
+      this.kill();
       followPathTimer = 0;
+      followPathSet = false;
     }
 	}
 
-	public function attackPlayer(player: Player, ?facing: FlxDirectionFlags = FlxObject.LEFT) {
+	public function attackPlayer(player: Player,
+			?facing: FlxDirectionFlags = FlxObject.LEFT) {
 		this.state = Attacking;
-    this.facing = facing;
-    this.tween({x: player.x, y: (player.y - 100)}, 1);
+		this.facing = facing;
+		this.tween({x: player.x, y: (player.y - 100)}, 1);
 	}
 
 	override function update(elapsed: Float) {
@@ -138,9 +163,9 @@ class Wasp extends FlxSprite {
 			flyThroughSky(elapsed);
 		}
 
-    if (followPathSet) {
-      followPath(elapsed);
-    }
+		if (followPathSet) {
+			followPath(elapsed);
+		}
 		super.update(elapsed);
 	}
 }
