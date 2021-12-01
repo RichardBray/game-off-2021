@@ -362,7 +362,7 @@ final class LevelTwo extends GameState {
 				if (!cameraDownSet) {
 					FlxG.camera.tween({height: FlxG.camera.height - 200}, 1);
 					cameraDownSet = true;
-					patrollingAnt.runningSound.stop();
+					patrollingAnt.kill();
 				}
 			}
 		});

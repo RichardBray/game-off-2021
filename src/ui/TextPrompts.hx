@@ -15,16 +15,18 @@ using flixel.tweens.FlxTween;
 class TextPrompts extends FlxTypedGroup<FlxObject> {
   final allHelpText: Array<String> = [
     "Press directional arrows or [A] [D] to move left or right",
-    "Run and press [UP] or [SPACE] to jump over things",
+    "Run and press [UP] or [SPACE] to jump over stand to climb",
     "Press [SHIFT] to interact with objects",
     "Stand still and jump to climb",
     "Stand under mushrooms to hide from flying enemies",
   ];
 
   final helpTextTriggerPos: Array<Array<Int>> = [
-    [256, 689],
-    [1612, 689],
-    [3248, 689],
+    [256, 900],
+    [1612, 900],
+    [3248, 450],
+    [4095, 450],
+    [19080, 900],
   ];
 
   public function new(player: Player) {
@@ -40,7 +42,7 @@ class TextPrompts extends FlxTypedGroup<FlxObject> {
 
     // 2 - All text triggers
     for (triggerPos in helpTextTriggerPos) {
-      final testTrigger = new FlxObject(triggerPos[0], triggerPos[1], 900, 100);
+      final testTrigger = new FlxObject(triggerPos[0], 689, triggerPos[1], 100);
       testTrigger.add_body({mass: 0});
       add(testTrigger);
   }

@@ -22,7 +22,7 @@ class StartScreens extends GameState {
     FlxG.cameras.fade(bgColor, 0.5, true);
 
 		if (FlxG.sound.music == null) {
-			FlxG.sound.playMusic("assets/music/wind_grass.ogg", .6);
+			FlxG.sound.playMusic("assets/music/wind_grass.ogg", .8);
 			FlxG.sound.music.persist = true;
 		}
 

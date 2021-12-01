@@ -16,6 +16,11 @@ class LevelComplete extends FlxSubState {
     super.create();
     this.bgColor = Colors.black;
 
+		if (FlxG.sound.music != null) {
+			FlxG.sound.music.pause();
+		}
+    FlxG.sound.pause();
+
     final title = new FlxText(0, 200, 0, "Thanks for playing", 120);
 		title.screenCenter(X);
 		title.scrollFactor.set(0, 0);
