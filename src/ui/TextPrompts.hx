@@ -2,34 +2,56 @@ package ui;
 
 
 import characters.Player;
+
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 
 using echo.FlxEcho;
+
 using flixel.tweens.FlxTween;
 
 class TextPrompts extends FlxTypedGroup<FlxObject> {
-  public function new(player: Player) {
-    super();
-    // 1 - Running jump test
-    final runningJumpTxt = new FlxText(0, FlxG.height - 125, 0, "Run and press [UP] or [SPACE] to jump over things", 48);
-    runningJumpTxt.scrollFactor.set(0, 0);
-    runningJumpTxt.screenCenter(X);
-    runningJumpTxt.alpha = 0;
-    add(runningJumpTxt);
+  final allHelpText: Array<String> = [
+    "Press directional arrows or [A] [D] to move left or right",
+    "Run and press [UP] or [SPACE] to jump over things",
+    "Press [SHIFT] to interact with objects",
+    "Stand still and jump to climb",
+    "Stand under mushrooms to hide from flying enemies",
+  ];
 
-    // 2 - Trigger for running jump text
-    final runningJumpTextTrigger = new FlxObject(612, 689, 900, 100);
-    runningJumpTextTrigger.add_body({mass: 0});
-    add(runningJumpTextTrigger);
+  final helpTextTriggerPos: Array<Array<Int>> = [
+    [256, 689],
+    [1612, 689],
+    [3248, 689],
+  ];
+
+  public function new(player: Player) {
+    super(allHelpText.length + helpTextTriggerPos.length);
+    // 1 - Add all text
+    for (helpText in allHelpText) {
+      final helpTextSprite = new FlxText(0, FlxG.height - 125, 0, helpText, 48);
+      helpTextSprite.scrollFactor.set(0, 0);
+      helpTextSprite.screenCenter(X);
+      helpTextSprite.alpha = 0;
+      add(helpTextSprite);
+    }
+
+    // 2 - All text triggers
+    for (triggerPos in helpTextTriggerPos) {
+      final testTrigger = new FlxObject(triggerPos[0], triggerPos[1], 900, 100);
+      testTrigger.add_body({mass: 0});
+      add(testTrigger);
+  }
 
     // Physics listeners
-		player.listen(runningJumpTextTrigger, {
-			separate: false,
-			enter: (_playerBody, _listenerBody, _) -> runningJumpTxt.tween({alpha: 1}, .3),
-			exit: (_playerBody, _listenerBody) -> runningJumpTxt.tween({alpha: 0}, .3),
-		});
+    for (i in 0...helpTextTriggerPos.length) {
+      player.listen(this.members[i + 5], {
+        separate: false,
+        enter: (_playerBody, _listenerBody, _) -> this.members[i].tween({alpha: 1}, .3),
+        exit: (_playerBody, _listenerBody) -> this.members[i].tween({alpha: 0}, .3),
+      });
+    }
   }
 }

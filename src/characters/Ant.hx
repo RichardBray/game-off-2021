@@ -19,7 +19,7 @@ class Ant extends FlxSprite {
   var attackFacingSet: Bool = false;
   var returnFromMushroomTimer: Float = 0;
 
-  var runningSound: FlxSound;
+  public var runningSound: FlxSound;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
     super(x, y);

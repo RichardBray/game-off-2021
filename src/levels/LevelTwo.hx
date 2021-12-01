@@ -31,6 +31,7 @@ import states.GameState;
 
 import substates.LevelComplete;
 import substates.MainMenu;
+import substates.PauseMenu;
 
 import ui.TextPrompts;
 
@@ -58,11 +59,12 @@ final class LevelTwo extends GameState {
 	var endOfLevelSet = false;
 	var mainMenuSet = false;
 	var pixelationSet = false;
-	var patrollingAnt:Ant;
-var ant: Ant;
+	var startPatrollingAntMovementSet = false;
 	// - triggers set
 	var cameraUpSet: Bool = false;
 	var cameraDownSet: Bool = false;
+	var patrollingAnt: Ant;
+	var ant: Ant;
 
 	public function new(showMainMenu: Bool = false, pixelation: Bool = false) {
 		super();
@@ -115,7 +117,6 @@ var ant: Ant;
 		wasp = new Wasp(6760, 0);
 		wasp.alpha = 0;
 		final waspTwo = new AttackingWasp(20707, -300, player);
-		waspTwo.sprite.state = Hovering;
 		final spider = new Spider(11292, -450, player);
 		final leafAntGroup = new LeafAntGrp(15831, 249, player);
 		leafAntGroup.kill();
@@ -190,7 +191,7 @@ var ant: Ant;
 		final coveringGrass = new CoverGrass(16309, -307);
 
 		// - help text
-		// final textPropmpts = new TextPrompts(player);
+		final textPropmpts = new TextPrompts(player);
 
 		// - triggers
 		add(leftBound);
@@ -229,7 +230,7 @@ var ant: Ant;
 		add(holeCovering);
 		add(holeTwoCovering);
 		add(rightBound);
-		// add(textPropmpts);
+		add(textPropmpts);
 
 		// - physics listeners
 		groundListener.listen(player);
@@ -256,12 +257,17 @@ var ant: Ant;
 
 		waspFlyByTrigger.listen(player, {
 			separate: false,
-			enter: (_, _, _) -> wasp.triggerSkyFly = true,
+			enter: (_, _, _) -> {
+				wasp.triggerSkyFly = true;
+				ant.runningSound.stop();
+			}
 		});
 
 		spiderMovementTrigger.listen(player, {
 			separate: false,
-			enter: (_, _, _) -> spider.startSpiderMovement = true,
+			enter: (_, _, _) -> {
+				spider.startSpiderMovement = true;
+			}
 		});
 
 		checkpoints.members[2].listen(player, {
@@ -277,21 +283,26 @@ var ant: Ant;
 			enter: (_, _, _) -> {
 				leafAntGroup.revive();
 				leafAntGroup.startMovement();
-				// patrollingAnt.state = RunningRight;
+				startPatrollingAntMovementSet = true;
+				patrollingAnt.state = RunningRight;
 			},
 		});
 
 		pattrollingAntLeftTrigger.listen(patrollingAnt, {
 			separate: false,
 			enter: (_, _, _) -> {
-				patrollingAnt.state = RunningLeft;
+				if (startPatrollingAntMovementSet) {
+					patrollingAnt.state = RunningLeft;
+				}
 			},
 		});
 
 		pattrollingAntRightTrigger.listen(patrollingAnt, {
 			separate: false,
 			enter: (_, _, _) -> {
-				patrollingAnt.state = RunningRight;
+				if (startPatrollingAntMovementSet) {
+					patrollingAnt.state = RunningRight;
+				}
 			},
 		});
 
@@ -351,6 +362,7 @@ var ant: Ant;
 				if (!cameraDownSet) {
 					FlxG.camera.tween({height: FlxG.camera.height - 200}, 1);
 					cameraDownSet = true;
+					patrollingAnt.runningSound.stop();
 				}
 			}
 		});
@@ -378,7 +390,6 @@ var ant: Ant;
 
 	override function update(elapsed: Float) {
 		levelResetConditions();
-		trace(ant.state, 'test');
 		if (FlxG.keys.pressed.R) {
 			FlxG.resetState();
 		}
@@ -389,6 +400,11 @@ var ant: Ant;
 
 		if (mainMenuSet) {
 			openMainMenu();
+		}
+
+		if (FlxG.keys.justPressed.ESCAPE) {
+			final pauseMenu = new PauseMenu();
+			openSubState(pauseMenu);
 		}
 		super.update(elapsed);
 	}

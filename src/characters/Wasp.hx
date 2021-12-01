@@ -2,9 +2,11 @@ package characters;
 
 import characters.Player;
 
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 import flixel.tweens.FlxEase;
 import flixel.util.FlxDirectionFlags;
 import flixel.util.FlxPath;
@@ -26,6 +28,8 @@ class Wasp extends FlxSprite {
 	var followPathTimer: Float = 0;
 	var pathFollowedSet = false;
 	var waspDescendSet = false;
+
+	var buzzingSound: FlxSound;
 
 	final movementPathCoords: Array<{x: Float, y: Float}> = [
 		{x: 20886.5, y: 485},
@@ -69,6 +73,9 @@ class Wasp extends FlxSprite {
 		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
+
+		buzzingSound = FlxG.sound.load('assets/sounds/buzzing.ogg', 0.6);
+
 	}
 
 	function stateMachine(elapsed: Float) {
@@ -77,6 +84,7 @@ class Wasp extends FlxSprite {
 				final FLYING_SPEED = 680;
 				velocity.x = FLYING_SPEED;
 				this.animation.play("flying");
+				buzzingSound.play();
 			case Landing:
 				velocity.x = 0;
 				this.facing = FlxObject.LEFT;
@@ -88,6 +96,7 @@ class Wasp extends FlxSprite {
 			case Hovering:
 				this.animation.play("flying");
 				velocity.x = 0;
+				buzzingSound.play();
 		}
 	}
 
@@ -107,6 +116,7 @@ class Wasp extends FlxSprite {
 	}
 
 	public function flyFromAbove() {
+		state = Hovering;
 		if (!waspDescendSet) {
 			this.tween({y: 560}, 3, {ease: FlxEase.sineInOut});
 			waspDescendSet = true;

@@ -17,9 +17,6 @@ using utils.SpriteHelpers;
 class Player extends FlxSprite {
 	final controls = Controls.instance;
 	public var state(default, null): PlayerStates = Standing;
-	var runningSound: FlxSound;
-	var jumpingSound: FlxSound;
-	var hurtSound: FlxSound;
 
 	/**
 	 * Trigger to decide if player should clime or fail jump
@@ -47,7 +44,14 @@ class Player extends FlxSprite {
 	var singleDirectionPressed = false;
 	var noDirectionPressed = false;
 	var actionBtnPressed = false;
-
+	var hurtSoundSet = false;
+	// - sounds
+	var runningSound: FlxSound;
+	var jumpingSound: FlxSound;
+	var hurtSound: FlxSound;
+	var standingJumpSound: FlxSound;
+	var climbingSound: FlxSound;
+	var pushingSound: FlxSound;
 
 	/**
 	 * Hack to delay registering of controls
@@ -84,7 +88,7 @@ class Player extends FlxSprite {
 			name: "running",
 			totalFrames: 8,
 			frameNamePrefix: "Girl_Run_",
-			frameRate: 12,
+			frameRate: 10,
 		});
 		this.setAnimationByFrames({
 			name: "runningJump",
@@ -125,6 +129,9 @@ class Player extends FlxSprite {
 		runningSound = FlxG.sound.load('assets/sounds/girl_running.ogg');
 		jumpingSound = FlxG.sound.load('assets/sounds/girl_jumping.ogg', false);
 		hurtSound = FlxG.sound.load('assets/sounds/girl_hurt.ogg', false);
+		standingJumpSound = FlxG.sound.load('assets/sounds/girl_standJump.ogg', .6, false);
+		climbingSound = FlxG.sound.load('assets/sounds/girl_climbing.ogg', .4, false);
+		pushingSound = FlxG.sound.load('assets/sounds/girl_pushingRock.ogg');
 	}
 
 	function setPlayerDefaults() {
@@ -208,6 +215,7 @@ class Player extends FlxSprite {
 				standingJumpTimer += elapsed;
 				if (standingJumpTimer < STANDING_JUMP_PREPTIME) {
 					this.animation.play("standingJump");
+					standingJumpSound.play();
 				} else if (standingJumpTimer < STANDING_JUMP_ANIM_FINISH) {
 					this.animation.pause();
 					physicsBody.velocity.y -= STANDING_JUMP_VELOCITY;
@@ -228,6 +236,7 @@ class Player extends FlxSprite {
 				climbingTimer += elapsed;
 				this.alpha = 0;
 				climbAnim.startClimb(this);
+				climbingSound.play();
 				if (climbingTimer < .1) {
 					physicsBody.active = false;
 				}
@@ -273,6 +282,7 @@ class Player extends FlxSprite {
 				} else {
 					physicsBody.velocity.x = PUSHING_SPEED;
 					this.animation.play("pushing");
+					pushingSound.play();
 				}
 			case Dying:
 				climbAnim.endClimb();
@@ -280,7 +290,10 @@ class Player extends FlxSprite {
 				dyingTimer += elapsed;
 				physicsBody.velocity.x = 0;
 				this.animation.play("dying");
-				hurtSound.play();
+				if (!hurtSoundSet) {
+					hurtSound.play();
+					hurtSoundSet = true;
+				}
 		}
 	}
 
