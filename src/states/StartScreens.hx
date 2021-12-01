@@ -21,6 +21,11 @@ class StartScreens extends GameState {
 
     FlxG.cameras.fade(bgColor, 0.5, true);
 
+		if (FlxG.sound.music == null) {
+			FlxG.sound.playMusic("assets/music/wind_grass.ogg", .6);
+			FlxG.sound.music.persist = true;
+		}
+
     hlScreen = new FlxSprite(0, 0);
     hlScreen.loadGraphic("assets/images/ui/HL_Screens.png", 1920, 1080);
     add(hlScreen);

@@ -1,8 +1,10 @@
 package characters;
 
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
+import flixel.system.FlxSound;
 
 import utils.Controls;
 
@@ -15,6 +17,10 @@ using utils.SpriteHelpers;
 class Player extends FlxSprite {
 	final controls = Controls.instance;
 	public var state(default, null): PlayerStates = Standing;
+	var runningSound: FlxSound;
+	var jumpingSound: FlxSound;
+	var hurtSound: FlxSound;
+
 	/**
 	 * Trigger to decide if player should clime or fail jump
 	 */
@@ -78,7 +84,7 @@ class Player extends FlxSprite {
 			name: "running",
 			totalFrames: 8,
 			frameNamePrefix: "Girl_Run_",
-			frameRate: 10,
+			frameRate: 12,
 		});
 		this.setAnimationByFrames({
 			name: "runningJump",
@@ -114,6 +120,11 @@ class Player extends FlxSprite {
 		// - facing directions
 		this.setFacingFlip(FlxObject.LEFT, true, false);
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
+
+		// - load sounds
+		runningSound = FlxG.sound.load('assets/sounds/girl_running.ogg');
+		jumpingSound = FlxG.sound.load('assets/sounds/girl_jumping.ogg', false);
+		hurtSound = FlxG.sound.load('assets/sounds/girl_hurt.ogg', false);
 	}
 
 	function setPlayerDefaults() {
@@ -157,9 +168,11 @@ class Player extends FlxSprite {
 					physicsBody.velocity.x = rightPressed ? RUNNING_SPEED : -RUNNING_SPEED;
 					this.facing = rightPressed ? FlxObject.RIGHT : FlxObject.LEFT;
 					this.animation.play("running");
+					runningSound.play();
 
 					if (jumpTriggered) {
 						state = RunningJump;
+						jumpingSound.play();
 					}
 				}
 				if (actionBtnPressed) {
@@ -267,6 +280,7 @@ class Player extends FlxSprite {
 				dyingTimer += elapsed;
 				physicsBody.velocity.x = 0;
 				this.animation.play("dying");
+				hurtSound.play();
 		}
 	}
 

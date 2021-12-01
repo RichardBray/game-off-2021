@@ -11,18 +11,21 @@ import utils.Controls;
 class MainMenu extends FlxSubState {
   final controls = Controls.instance;
 
-  public function new() {
-    super();
-  }
   override public function create() {
     super.create();
+    bgColor = 0x75000000;
 
-    final title = new FlxText(0, 200, 0, "A Little Scared", 120);
+    final title = new FlxText(0, 200, 0, "A Little Scared", 140);
 		title.screenCenter(X);
 		title.scrollFactor.set(0, 0);
 		add(title);
 
-    final subText = new FlxText(0, 400, 0, "Press [SPACE] to start", 60);
+    final title = new FlxText(0, 340, 0, "Github game off 2021 entry", 40);
+		title.screenCenter(X);
+		title.scrollFactor.set(0, 0);
+		add(title);
+
+    final subText = new FlxText(0, 500, 0, "Press [SPACE] to start", 60);
 		subText.screenCenter(X);
 		subText.scrollFactor.set(0, 0);
 		add(subText);

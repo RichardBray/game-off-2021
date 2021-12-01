@@ -43,8 +43,10 @@ var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
 ## Todo
+- Finish adding sounds
+- Add text prompts
 - Pause screen
-- Background sound?
+- Fix pixel mode
 
 ## Post Jam changes
 - Gamepad controls

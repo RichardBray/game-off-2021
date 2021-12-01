@@ -1,10 +1,14 @@
 package characters;
 
 import characters.Player;
+
+import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.system.FlxSound;
 
 using echo.FlxEcho;
+
 using utils.SpriteHelpers;
 
 class Ant extends FlxSprite {
@@ -14,6 +18,8 @@ class Ant extends FlxSprite {
   var attackPlayerTrigger: Bool = false;
   var attackFacingSet: Bool = false;
   var returnFromMushroomTimer: Float = 0;
+
+  var runningSound: FlxSound;
 
   public function new(x: Float = 0, y: Float = 0, player: Player) {
     super(x, y);
@@ -50,6 +56,8 @@ class Ant extends FlxSprite {
         attackPlayerTrigger = true;
       },
     });
+
+    runningSound = FlxG.sound.load('assets/sounds/scurry.ogg');
   }
 
   function stateMachine() {
@@ -60,10 +68,12 @@ class Ant extends FlxSprite {
         this.facing = FlxObject.RIGHT;
         physicsBody.velocity.x = RUNNING_SPEED;
         this.animation.play("running");
+        runningSound.play();
       case RunningLeft:
         physicsBody.velocity.x = -RUNNING_SPEED;
         this.facing = FlxObject.LEFT;
         this.animation.play("running");
+        runningSound.play();
       case Attacking:
         physicsBody.velocity.x = 0;
         if (!attackFacingSet) {

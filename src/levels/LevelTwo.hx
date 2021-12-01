@@ -58,7 +58,8 @@ final class LevelTwo extends GameState {
 	var endOfLevelSet = false;
 	var mainMenuSet = false;
 	var pixelationSet = false;
-
+	var patrollingAnt:Ant;
+var ant: Ant;
 	// - triggers set
 	var cameraUpSet: Bool = false;
 	var cameraDownSet: Bool = false;
@@ -109,8 +110,8 @@ final class LevelTwo extends GameState {
 		player = new Player(dataStore.data.playerPos.x, dataStore.data.playerPos.y, playerClimb);
 		player.alpha = 0;
 		// - npc sprites
-		final ant = new Ant(4789, 685, player);
-		final patrollingAnt = new Ant(14372, 685, player);
+		ant = new Ant(4789, 685, player);
+		patrollingAnt = new Ant(14372, 685, player);
 		wasp = new Wasp(6760, 0);
 		wasp.alpha = 0;
 		final waspTwo = new AttackingWasp(20707, -300, player);
@@ -276,7 +277,7 @@ final class LevelTwo extends GameState {
 			enter: (_, _, _) -> {
 				leafAntGroup.revive();
 				leafAntGroup.startMovement();
-				patrollingAnt.state = RunningRight;
+				// patrollingAnt.state = RunningRight;
 			},
 		});
 
@@ -377,7 +378,7 @@ final class LevelTwo extends GameState {
 
 	override function update(elapsed: Float) {
 		levelResetConditions();
-
+		trace(ant.state, 'test');
 		if (FlxG.keys.pressed.R) {
 			FlxG.resetState();
 		}
