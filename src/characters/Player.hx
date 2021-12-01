@@ -126,11 +126,11 @@ class Player extends FlxSprite {
 		this.setFacingFlip(FlxObject.RIGHT, false, false);
 
 		// - load sounds
-		runningSound = FlxG.sound.load('assets/sounds/girl_running.ogg');
+		runningSound = FlxG.sound.load('assets/sounds/girl_running.ogg', .6);
 		jumpingSound = FlxG.sound.load('assets/sounds/girl_jumping.ogg', false);
 		hurtSound = FlxG.sound.load('assets/sounds/girl_hurt.ogg', false);
-		standingJumpSound = FlxG.sound.load('assets/sounds/girl_standJump.ogg', .6, false);
-		climbingSound = FlxG.sound.load('assets/sounds/girl_climbing.ogg', .4, false);
+		standingJumpSound = FlxG.sound.load('assets/sounds/girl_standJump.ogg', .7, false);
+		climbingSound = FlxG.sound.load('assets/sounds/girl_climbing.ogg', .6, false);
 		pushingSound = FlxG.sound.load('assets/sounds/girl_pushingRock.ogg');
 	}
 

@@ -1,10 +1,10 @@
 package substates;
 
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.text.FlxText;
-
 
 class PauseMenu extends FlxSubState {
 	var bgOverlay: FlxSprite;

@@ -10,7 +10,8 @@ class GameDataStore {
 		playerPos: {
 			x: 93, // 22080
 			y: 793, // 793
-		}
+		},
+		pixelMode: false,
 	};
 
 	public function setPlayerPos(x: Int, y: Int) {
@@ -26,5 +27,6 @@ typedef DataFormat = {
 	var playerPos: {
 		x: Int,
 		y: Int,
-	}
+	};
+	var pixelMode: Bool;
 };

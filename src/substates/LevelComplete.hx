@@ -8,16 +8,18 @@ import states.StartScreens;
 
 import utils.Colors;
 import utils.Controls;
+import utils.GameDataStore;
 
 class LevelComplete extends FlxSubState {
   final controls = Controls.instance;
+  final dataStore = GameDataStore.instance;
 
   override public function create() {
     super.create();
     this.bgColor = Colors.black;
 
 		if (FlxG.sound.music != null) {
-			FlxG.sound.music.pause();
+			FlxG.sound.music = null;
 		}
     FlxG.sound.pause();
 
@@ -35,6 +37,8 @@ class LevelComplete extends FlxSubState {
 		subText.screenCenter(X);
 		subText.scrollFactor.set(0, 0);
 		add(subText);
+
+    dataStore.setPlayerPos(93, 793);
   }
 
   override public function update(elapsed:Float) {

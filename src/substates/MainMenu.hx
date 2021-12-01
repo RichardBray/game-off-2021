@@ -7,9 +7,11 @@ import flixel.text.FlxText;
 import levels.LevelTwo;
 
 import utils.Controls;
+import utils.GameDataStore;
 
 class MainMenu extends FlxSubState {
   final controls = Controls.instance;
+  final dataStore = GameDataStore.instance;
 
   override public function create() {
     super.create();
@@ -33,11 +35,13 @@ class MainMenu extends FlxSubState {
 
   override public function update(elapsed:Float) {
     if (controls.cross.check()) {
+      dataStore.data.pixelMode = false;
       FlxG.switchState(new LevelTwo(false));
       close();
     }
     if (FlxG.keys.pressed.P) {
-      FlxG.switchState(new LevelTwo(false, true));
+      dataStore.data.pixelMode = true;
+      FlxG.switchState(new LevelTwo(false));
       close();
     }
     super.update(elapsed);

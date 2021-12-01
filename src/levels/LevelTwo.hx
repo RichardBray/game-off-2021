@@ -47,6 +47,7 @@ using hxmath.math.Vector2;
 
 final class LevelTwo extends GameState {
 	final dataStore = GameDataStore.instance;
+
 	var player: Player;
 	var groundListener: FlxObject;
 	var waspFlyByTrigger: FlxObject;
@@ -66,10 +67,9 @@ final class LevelTwo extends GameState {
 	var patrollingAnt: Ant;
 	var ant: Ant;
 
-	public function new(showMainMenu: Bool = false, pixelation: Bool = false) {
+	public function new(showMainMenu: Bool = false) {
 		super();
 		mainMenuSet = showMainMenu;
-		pixelationSet = pixelation;
 	}
 	override function create() {
 		super.create();
@@ -230,7 +230,9 @@ final class LevelTwo extends GameState {
 		add(holeCovering);
 		add(holeTwoCovering);
 		add(rightBound);
-		add(textPropmpts);
+		if (!dataStore.data.pixelMode) {
+			add(textPropmpts);
+	}
 
 		// - physics listeners
 		groundListener.listen(player);
@@ -340,7 +342,7 @@ final class LevelTwo extends GameState {
 			player.height
 		);
 
-		if (pixelationSet) { // TODO add pixelation menu option
+		if (dataStore.data.pixelMode) {
 			var effect = new Pixelate();
 			FlxG.camera.setFilters([new ShaderFilter(cast effect)]);
 		}
@@ -402,10 +404,10 @@ final class LevelTwo extends GameState {
 			openMainMenu();
 		}
 
-		if (FlxG.keys.justPressed.ESCAPE) {
-			final pauseMenu = new PauseMenu();
-			openSubState(pauseMenu);
-		}
+		// if (FlxG.keys.justPressed.ESCAPE) {
+		// 	final pauseMenu = new PauseMenu();
+		// 	openSubState(pauseMenu);
+		// }
 		super.update(elapsed);
 	}
 }
