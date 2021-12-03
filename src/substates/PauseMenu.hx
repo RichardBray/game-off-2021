@@ -1,6 +1,8 @@
 package substates;
 
 
+import echo.FlxEcho;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
@@ -17,6 +19,7 @@ class PauseMenu extends FlxSubState {
 			FlxG.sound.music.pause();
 		}
 		FlxG.sound.pause();
+		FlxEcho.updates = false;
 
 		final title = new FlxText(0, 100, 0, "Game paused", 120);
 		title.screenCenter(X);
@@ -32,6 +35,7 @@ class PauseMenu extends FlxSubState {
 				FlxG.sound.music.play();
 			}
 			FlxG.sound.resume();
+			FlxEcho.updates = true;
 			close();
 		}
 	}

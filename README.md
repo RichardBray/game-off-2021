@@ -42,6 +42,17 @@ var y = [[71, 138], [125, 88.5], [205.5, 48], [275, 33], [350, 39.5], [418, 65.5
 var newY = y.map(x =>  [x[0] - a, x[1] - b]);
 ```
 
+fixing safari issue with sound
+```haxe
+static public function playTargetSound(path:String, [other sound args]) {
+  #if web
+  FlxG.sound.play(path+".mp3", [other sound args]);
+  #else
+  FlxG.sound.play(path+".ogg", [other sound args]);
+  #end
+}
+```
+
 ## Todo
 - Finish adding sounds
 - Add text prompts

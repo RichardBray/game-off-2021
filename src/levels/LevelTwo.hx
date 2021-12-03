@@ -232,7 +232,7 @@ final class LevelTwo extends GameState {
 		add(rightBound);
 		if (!dataStore.data.pixelMode) {
 			add(textPropmpts);
-	}
+		}
 
 		// - physics listeners
 		groundListener.listen(player);
@@ -404,10 +404,10 @@ final class LevelTwo extends GameState {
 			openMainMenu();
 		}
 
-		// if (FlxG.keys.justPressed.ESCAPE) {
-		// 	final pauseMenu = new PauseMenu();
-		// 	openSubState(pauseMenu);
-		// }
+		if (FlxG.keys.justPressed.ESCAPE) {
+			final pauseMenu = new PauseMenu();
+			openSubState(pauseMenu);
+		}
 		super.update(elapsed);
 	}
 }
